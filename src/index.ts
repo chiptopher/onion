@@ -13,6 +13,7 @@ import { Text2 as Text } from './blocks/typography/text';
 import { Title } from './blocks/typography/title';
 import { Breadcrumbs } from './components/breadcrumbs';
 import { Buttons } from './components/buttons';
+import {Callout} from './components/callout';
 import { Footer } from './components/footer';
 import {Header} from './components/header';
 import { List } from './components/list';
@@ -49,4 +50,5 @@ export {
     withLoading,
     Header,
     Block,
+    Callout,
 };
