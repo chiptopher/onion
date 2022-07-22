@@ -1,7 +1,7 @@
 import React from 'react';
 import { Colors } from '../colors';
 import { TagName } from '../types';
-import { BlockPadding } from './util';
+import { BlockSpacing } from './util';
 export declare type JustifyContent = 'space-between' | 'center';
 interface Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
@@ -11,7 +11,16 @@ interface Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
-    padding?: BlockPadding;
+    margin?: BlockSpacing;
+    marginBottom?: BlockSpacing;
+    marginLeft?: BlockSpacing;
+    marginRight?: BlockSpacing;
+    marginTop?: BlockSpacing;
+    padding?: BlockSpacing;
+    paddingBottom?: BlockSpacing;
+    paddingLeft?: BlockSpacing;
+    paddingRight?: BlockSpacing;
+    paddingTop?: BlockSpacing;
     tagName?: TagName;
 }
 export declare const Block: React.FunctionComponent<Props>;
