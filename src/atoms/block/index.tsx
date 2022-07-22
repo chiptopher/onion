@@ -43,6 +43,8 @@ interface SCProps {
     borderRadius: number;
     color: string;
     padding: string;
+    display?: string;
+    justifyContent?: string;
 }
 
 const Container = styled.div<SCProps>`
@@ -53,4 +55,7 @@ const Container = styled.div<SCProps>`
     margin-bottom: 1rem;
 
     border-radius: ${p => p.borderRadius}px;
+
+    ${p => p.display && (`display: ${p.display};`)}
+    ${p => p.justifyContent && (`justify-content: ${p.justifyContent};`)}
 `;
