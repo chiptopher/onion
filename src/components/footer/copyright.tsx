@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { block, Caption } from "../..";
-import { ChildrenOnlyProps } from "../../atoms/util";
+import { block, Caption } from '../..';
+import { ChildrenOnlyProps } from '../../atoms/util';
 
 export const FooterCopyright: React.FunctionComponent<ChildrenOnlyProps> = ({
-  children,
+    children,
 }) => {
-  return (
-    <Container>
-      &copy; {new Date().getFullYear()} {children}
-    </Container>
-  );
+    return (
+        <Container>
+            &copy; {new Date().getFullYear()} {children}
+        </Container>
+    );
 };
 
 const Container = styled(Caption)`
-  margin-bottom: ${block(1.5)};
+    margin-bottom: ${block(1.5)};
 `;

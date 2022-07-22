@@ -1,28 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ColoredBlock } from ".";
-import { Body } from "../..";
+import { ColoredBlock } from '.';
+import { Body } from '../..';
 
 export default {
-  argTypes: {
-    children: {
-      control: "text",
-      defaultValue: "Some Text",
+    argTypes: {
+        children: {
+            control: 'text',
+            defaultValue: 'Some Text',
+        },
     },
-  },
-  component: ColoredBlock,
-  title: `Blocks/ColoredBlock`,
+    component: ColoredBlock,
+    title: `Blocks/ColoredBlock`,
 } as ComponentMeta<typeof ColoredBlock>;
 
 const Template: ComponentStory<typeof ColoredBlock> = ({
-  children,
-  ...args
+    children,
+    ...args
 }) => (
-  <ColoredBlock {...args}>
-    <Body>{children}</Body>
-  </ColoredBlock>
+    <ColoredBlock {...args}>
+        <Body>{children}</Body>
+    </ColoredBlock>
 );
 
 export const Playground = Template.bind({});

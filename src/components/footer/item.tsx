@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { block, Body } from "../..";
+import { block, Body } from '../..';
 
 export interface FooterItemProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export const FooterItem: React.FunctionComponent<FooterItemProps> = ({
-  children,
+    children,
 }) => {
-  return (
-    <Container>
-      <Body>{children}</Body>
-    </Container>
-  );
+    return (
+        <Container>
+            <Body>{children}</Body>
+        </Container>
+    );
 };
 
 const Container = styled.li`
-  margin-bottom: ${block(0.5)};
+    margin-bottom: ${block(0.5)};
 `;

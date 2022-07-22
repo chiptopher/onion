@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export type Mapping<T extends string, R = string> = {
-  [K in T]: R;
+    [K in T]: R;
 };
 
 export interface ChildrenOnlyProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }

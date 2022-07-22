@@ -1,4 +1,4 @@
-import { REMValue } from "./types";
+import { REMValue } from './types';
 
 export const spacingBaseSizeInRems = 0.5;
 
@@ -10,8 +10,8 @@ export type Block = `${PossibleScale}`;
  * @deprecated
  */
 export const block = (input: PossibleScale | Block): REMValue => {
-  if (typeof input === "string") {
-    return `${parseInt(input) * spacingBaseSizeInRems}rem`;
-  }
-  return `${input * spacingBaseSizeInRems}rem`;
+    if (typeof input === 'string') {
+        return `${parseInt(input) * spacingBaseSizeInRems}rem`;
+    }
+    return `${input * spacingBaseSizeInRems}rem`;
 };
