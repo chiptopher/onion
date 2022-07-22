@@ -1,6 +1,6 @@
 import React from 'react';
-import { Block } from '../../atoms/spacing';
 import { Colors } from '../../atoms/colors';
+import { Block } from '../../atoms/spacing';
 import { TagName } from '../../atoms/types';
 export interface TextProps {
     children: React.ReactNode;
