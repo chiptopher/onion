@@ -3,7 +3,7 @@ import React from 'react';
 import { Heirarcy } from './header-shared';
 import { Text2, TextProps } from './text';
 
-export const Header: React.FunctionComponent<
+export const Heading: React.FunctionComponent<
     Omit<TextProps, 'tagName' | 'style'> & {
         heirarchy: Heirarcy;
     }

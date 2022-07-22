@@ -5,7 +5,7 @@ import { Loading, withLoading } from './blocks/loading';
 import {useLoading} from './blocks/loading/contex';
 import { Body } from './blocks/typography/body';
 import { Caption } from './blocks/typography/caption';
-import { Header } from './blocks/typography/header';
+import { Heading } from './blocks/typography/header';
 import { Label } from './blocks/typography/label';
 import { Subheader } from './blocks/typography/subheader';
 import { Text2 as Text } from './blocks/typography/text';
@@ -13,6 +13,7 @@ import { Title } from './blocks/typography/title';
 import { Breadcrumbs } from './components/breadcrumbs';
 import { Buttons } from './components/buttons';
 import { Footer } from './components/footer';
+import {Header} from './components/header';
 import { List } from './components/list';
 import { Modal } from './components/modal';
 import { Section } from './components/section';
@@ -25,7 +26,7 @@ export {
     Button,
     ThemeProvider,
     Body,
-    Header,
+    Heading,
     Subheader,
     Label,
     Title,
@@ -45,4 +46,5 @@ export {
     Loading,
     useLoading,
     withLoading,
+    Header,
 };
