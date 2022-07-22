@@ -68,5 +68,5 @@ export const Container = styled.button<{
 const buttonPadding: SizedPadding = {
     large: `${block(2)} ${block(3)}`,
     regular: `${block(1.5)} ${block(2)}`,
-    small: `${block(1)} ${block(2)}`,
+    small: `${block(1)} ${block(1.5)}`,
 };
