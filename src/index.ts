@@ -21,6 +21,7 @@ import { Modal } from './components/modal';
 import { Section } from './components/section';
 import { Table } from './components/table';
 import { Form } from './form';
+import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
 import { ThemeProvider } from './theme';
 
@@ -51,4 +52,5 @@ export {
     Header,
     Block,
     Callout,
+    Flow,
 };
