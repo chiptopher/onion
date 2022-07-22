@@ -10,7 +10,7 @@ import {
 
 const defaultColor: ColorMapping = {
     danger: '#e74c3c',
-    light: '#fff',
+    light: '#efefef',
     primary: {
         dark: '#1b98b1',
         light: '#bcecf5',
@@ -35,9 +35,9 @@ const defaultTheme: Theme = {
         ...defaultColor,
     },
     backgroundTextColor: {
-        danger: defaultColor.light,
+        danger: 'white',
         light: 'black',
-        primary: defaultColor.light,
+        primary: 'white',
         text: 'black',
         warning: 'black',
     },

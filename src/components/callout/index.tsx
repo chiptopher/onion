@@ -5,7 +5,7 @@ import { Colors } from '../../atoms/colors';
 
 interface Props {
     children: React.ReactNode;
-    color: Exclude<Colors, 'light' | 'text'>;
+    color: Exclude<Colors, 'text'>;
 }
 
 export const Callout: React.FunctionComponent<Props> = ({
