@@ -3,7 +3,7 @@
   "module": "./build/index.es.js",
   "name": "@chiptopher/onion",
   "repository": "git://github.com/chiptopher/onion.git",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@rollup/plugin-commonjs": "^22.0.1",
