@@ -1,9 +1,30 @@
-import { Padding } from '../size';
-import { BlockPadding } from './util';
+import { BorderSpacing } from '../size';
+import { BlockSpacing } from './util';
 
-export function resolvePadding(padding?: BlockPadding): Padding {
-    if (padding) {
-        return `${padding}rem`;
+export function resolveBorderSpacing(value: {
+    all?: BlockSpacing;
+    bottom?: BlockSpacing;
+    left?: BlockSpacing;
+    right?: BlockSpacing;
+    top?: BlockSpacing;
+}): BorderSpacing {
+    let topValue: BlockSpacing = value.all || '0';
+    let bottom: BlockSpacing = value.all || '0';
+    let left: BlockSpacing = value.all || '0';
+    let right: BlockSpacing = value.all || '0';
+
+    if (value.top) {
+        topValue = value.top;
     }
-    return '0rem';
+    if (value.bottom) {
+        bottom = value.bottom;
+    }
+    if (value.left) {
+        left = value.left;
+    }
+    if (value.right) {
+        right = value.right;
+    }
+
+    return `${topValue}rem ${right}rem ${bottom}rem ${left}rem`;
 }

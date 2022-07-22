@@ -10,7 +10,7 @@ export const Buttons: React.FunctionComponent<ChildrenOnlyProps> = ({
     children,
 }) => {
     return (
-        <Block>
+        <Block marginBottom="1">
             <Container>{children}</Container>
         </Block>
     );

@@ -6,8 +6,8 @@ import { useTheme } from '../../theme';
 import { Colors } from '../colors';
 import { TagName } from '../types';
 import { resolveColors } from './resolve-colors';
-import { resolvePadding } from './resolve-padding';
-import { BlockPadding } from './util';
+import { resolveBorderSpacing } from './resolve-padding';
+import { BlockSpacing } from './util';
 
 export type JustifyContent = 'space-between' | 'center';
 
@@ -19,7 +19,16 @@ interface Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
-    padding?: BlockPadding;
+    margin?: BlockSpacing;
+    marginBottom?: BlockSpacing;
+    marginLeft?: BlockSpacing;
+    marginRight?: BlockSpacing;
+    marginTop?: BlockSpacing;
+    padding?: BlockSpacing;
+    paddingBottom?: BlockSpacing;
+    paddingLeft?: BlockSpacing;
+    paddingRight?: BlockSpacing;
+    paddingTop?: BlockSpacing;
     tagName?: TagName;
 }
 
@@ -27,7 +36,16 @@ export const Block: React.FunctionComponent<Props> = ({
     tagName = 'div',
     color,
     padding,
+    paddingTop,
+    paddingBottom,
+    paddingRight,
+    paddingLeft,
     borderRadius,
+    margin,
+    marginTop,
+    marginBottom,
+    marginRight,
+    marginLeft,
     ...rest
 }) => {
     const theme = useTheme();
@@ -35,7 +53,20 @@ export const Block: React.FunctionComponent<Props> = ({
         <Container
             as={tagName}
             borderRadius={borderRadius ? 4 : 0}
-            padding={resolvePadding(padding)}
+            margin={resolveBorderSpacing({
+                all: margin,
+                bottom: marginBottom,
+                left: marginLeft,
+                right: marginRight,
+                top: marginTop,
+            })}
+            padding={resolveBorderSpacing({
+                all: padding,
+                bottom: paddingBottom,
+                left: paddingLeft,
+                right: paddingRight,
+                top: paddingTop,
+            })}
             {...resolveColors(theme, color)}
             {...rest}
         />
@@ -50,6 +81,7 @@ interface SCProps {
     display?: string;
     flexDirection?: string;
     justifyContent?: string;
+    margin: string;
     padding: string;
 }
 
@@ -57,8 +89,6 @@ const Container = styled.div<SCProps>`
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
     padding: ${p => p.padding};
-
-    margin-bottom: 1rem;
 
     border-radius: ${p => p.borderRadius}px;
 

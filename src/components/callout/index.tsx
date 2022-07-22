@@ -13,7 +13,13 @@ export const Callout: React.FunctionComponent<Props> = ({
     color,
 }) => {
     return (
-        <Block borderRadius color={color} padding="1" tagName="div">
+        <Block
+            borderRadius
+            color={color}
+            marginBottom="1"
+            padding="1"
+            tagName="div"
+        >
             {children}
         </Block>
     );
