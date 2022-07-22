@@ -17,6 +17,7 @@ interface Props {
     tagName?: TagName;
     display?: 'flex';
     justifyContent?: 'center' | 'space-between'
+    alignItems?: 'center' | 'flex-start' | 'flex-end'
 }
 
 export const Block: React.FunctionComponent<Props> = ({
@@ -45,6 +46,7 @@ interface SCProps {
     padding: string;
     display?: string;
     justifyContent?: string;
+    alignItems?: string;
 }
 
 const Container = styled.div<SCProps>`
@@ -58,4 +60,5 @@ const Container = styled.div<SCProps>`
 
     ${p => p.display && (`display: ${p.display};`)}
     ${p => p.justifyContent && (`justify-content: ${p.justifyContent};`)}
+    ${p => p.alignItems && (`justify-content: ${p.justifyContent};`)}
 `;
