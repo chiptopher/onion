@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import { Link } from '../../blocks/link';
-import { Body } from '../../blocks/typography/body';
+import { Link } from "../../blocks/link";
+import { Body } from "../../blocks/typography/body";
 
 export interface BreadcrumbItemProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const BreadcrumbItem: React.FunctionComponent<BreadcrumbItemProps> = ({
-    children,
+  children,
 }) => {
-    return (
-        <Body tagName="span">
-            <Link color="primary" tagName="span">
-                {children}
-            </Link>
-        </Body>
-    );
+  return (
+    <Body tagName="span">
+      <Link color="primary" tagName="span">
+        {children}
+      </Link>
+    </Body>
+  );
 };

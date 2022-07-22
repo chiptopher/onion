@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Link } from '.';
-import { Body } from '../typography/body';
+import { Link } from ".";
+import { Body } from "../typography/body";
 
 export default {
-    argTypes: {
-        children: {
-            control: 'text',
-            defaultValue: 'Click me!',
-        },
+  argTypes: {
+    children: {
+      control: "text",
+      defaultValue: "Click me!",
     },
-    component: Link,
-    title: `Blocks/Link`,
+  },
+  component: Link,
+  title: `Blocks/Link`,
 } as ComponentMeta<typeof Link>;
 
-const Template: ComponentStory<typeof Link> = props => (
-    <Body>
-        <Link {...props} />
-    </Body>
+const Template: ComponentStory<typeof Link> = (props) => (
+  <Body>
+    <Link {...props} />
+  </Body>
 );
 
 export const Playground = Template.bind({});

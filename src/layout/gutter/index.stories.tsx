@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Gutter } from '.';
-import { ColoredBlock } from '../../blocks/colored-block';
+import { Gutter } from ".";
+import { ColoredBlock } from "../../blocks/colored-block";
 
 export default {
-    argTypes: {
-        children: {
-            control: 'text',
-            defaultValue: 'Click me!',
-        },
+  argTypes: {
+    children: {
+      control: "text",
+      defaultValue: "Click me!",
     },
-    component: Gutter,
-    title: `Layout/Gutter`,
+  },
+  component: Gutter,
+  title: `Layout/Gutter`,
 } as ComponentMeta<typeof Gutter>;
 
 const Template: ComponentStory<typeof Gutter> = ({ children, ...args }) => (
-    <ColoredBlock color="warning" tagName="div">
-        <Gutter {...args}>
-            <ColoredBlock color="primary" tagName="div">
-                {children}
-            </ColoredBlock>
-        </Gutter>
-    </ColoredBlock>
+  <ColoredBlock color="warning" tagName="div">
+    <Gutter {...args}>
+      <ColoredBlock color="primary" tagName="div">
+        {children}
+      </ColoredBlock>
+    </Gutter>
+  </ColoredBlock>
 );
 
 export const Playground = Template.bind({});

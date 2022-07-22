@@ -1,92 +1,92 @@
-import React from 'react';
+import React from "react";
 
-import { Block } from '../../atoms/spacing';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { block } from '../..';
-import { Colors, resolveColorValue } from '../../atoms/colors';
-import { TagName } from '../../atoms/types';
-import { useTextColor } from '../../theme';
+import { block } from "../..";
+import { Colors, resolveColorValue } from "../../atoms/colors";
+import { Block } from "../../atoms/spacing";
+import { TagName } from "../../atoms/types";
+import { useTextColor } from "../../theme";
 
 export interface TextProps {
-    children: React.ReactNode;
-    color?: Colors;
-    marginBottom?: Block;
-    style: 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption';
-    tagName: TagName;
-    underlined?: boolean;
+  children: React.ReactNode;
+  color?: Colors;
+  marginBottom?: Block;
+  style: "title" | "header" | "subheader" | "body" | "label" | "caption";
+  tagName: TagName;
+  underlined?: boolean;
 }
 
 export const Text2: React.FunctionComponent<TextProps> = ({
-    color,
-    tagName,
-    underlined,
-    style,
-    ...rest
+  color,
+  tagName,
+  underlined,
+  style,
+  ...rest
 }) => {
-    const textColor = useTextColor(color);
-    const props = {
-        as: tagName,
-        color: resolveColorValue(textColor),
-        ...rest,
-    };
+  const textColor = useTextColor(color);
+  const props = {
+    as: tagName,
+    color: resolveColorValue(textColor),
+    ...rest,
+  };
 
-    switch (style) {
-        case 'title':
-            return <TitleStyleTag {...props} />;
-        case 'body':
-            return <BodyStyleTag {...props} />;
-        case 'caption':
-            return <CaptionStyleTag {...props} />;
-        case 'header':
-            return <HeaderStyleTag {...props} />;
+  switch (style) {
+    case "title":
+      return <TitleStyleTag {...props} />;
+    case "body":
+      return <BodyStyleTag {...props} />;
+    case "caption":
+      return <CaptionStyleTag {...props} />;
+    case "header":
+      return <HeaderStyleTag {...props} />;
 
-        case 'subheader':
-            return <SubheaderStlyeTag {...props} />;
-        case 'label':
-            return <LabelStyleTag {...props} />;
-    }
+    case "subheader":
+      return <SubheaderStlyeTag {...props} />;
+    case "label":
+      return <LabelStyleTag {...props} />;
+  }
 };
 
 const Container = styled.div<{
-    color: string;
-    marginBottom?: Block;
-    underlined?: boolean;
+  color: string;
+  marginBottom?: Block;
+  underlined?: boolean;
 }>`
-    color: ${props => props.color};
-    ${props => props.marginBottom && `margin-bottom: ${block(1.5)}`};
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    ${props => props.underlined && 'text-decoration: underline'}
-    cursor: inherit;
+  color: ${(props) => props.color};
+  ${(props) => props.marginBottom && `margin-bottom: ${block(1.5)}`};
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  ${(props) => props.underlined && "text-decoration: underline"}
+  cursor: inherit;
 `;
 
 const TitleStyleTag = styled(Container)`
-    font-size: 2.75rem;
-    font-weight: bold;
+  font-size: 2.75rem;
+  font-weight: bold;
 `;
 
 const BodyStyleTag = styled(Container)`
-    font-size: 1rem;
+  font-size: 1rem;
 `;
 
 const CaptionStyleTag = styled(Container)`
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 `;
 
 const HeaderStyleTag = styled(Container)`
-    font-size: 1.75rem;
-    font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: bold;
 `;
 
 const SubheaderStlyeTag = styled(Container)`
-    font-size: 1.5rem;
-    margin-bottom: ${block(1.5)};
+  font-size: 1.5rem;
+  margin-bottom: ${block(1.5)};
 `;
 
 const LabelStyleTag = styled(Container)`
-    font-weight: bold;
-    margin-bottom: ${block(1)};
-    font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: ${block(1)};
+  font-size: 1rem;
 `;
