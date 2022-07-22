@@ -64,6 +64,6 @@ const Container = styled.div<SCProps>`
 
     ${p => p.display && `display: ${p.display};`}
     ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
-    ${p => p.alignItems && `justify-content: ${p.justifyContent};`}
+    ${p => p.alignItems && `align-items: ${p.justifyContent};`}
     ${p => p.flexDirection && `flex-direction: ${p.flexDirection};`}
 `;
