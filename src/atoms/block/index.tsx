@@ -46,11 +46,13 @@ export const Block: React.FunctionComponent<Props> = ({
     marginBottom,
     marginRight,
     marginLeft,
+    alignItems,
     ...rest
 }) => {
     const theme = useTheme();
     return (
         <Container
+            alignItems={alignItems}
             as={tagName}
             borderRadius={borderRadius ? 4 : 0}
             margin={resolveBorderSpacing({
@@ -94,6 +96,6 @@ const Container = styled.div<SCProps>`
 
     ${p => p.display && `display: ${p.display};`}
     ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
-    ${p => p.alignItems && `align-items: ${p.justifyContent};`}
+    ${p => p.alignItems && `align-items: ${p.alignItems};`}
     ${p => p.flexDirection && `flex-direction: ${p.flexDirection};`}
 `;
