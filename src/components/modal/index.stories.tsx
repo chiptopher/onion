@@ -6,17 +6,17 @@ import { Modal } from '.';
 import { Button } from '../../blocks/button';
 
 export default {
-    argTypes: {},
+    argTypes:  { fixedSize: { control: 'select', options: ['regular'] } },
     component: Modal,
     title: `Components/Modal`,
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = args => (
+const Template: ComponentStory<typeof Modal> = ({fixedSize, ...args}: any) => (
     <Modal {...args}>
         <Modal.Opener>
             <Button>Oh Hi Mark</Button>
         </Modal.Opener>
-        <Modal.Content>Some content</Modal.Content>
+        <Modal.Content fixedSize={fixedSize}>Some content</Modal.Content>
     </Modal>
 );
 

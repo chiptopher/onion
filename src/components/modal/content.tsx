@@ -6,10 +6,15 @@ import { block } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ModalContext } from './contex';
 
-export type ModalContentProps = ChildrenOnlyProps;
+interface _Props {
+    fixedSize?: 'regular';
+}
+
+export type ModalContentProps = _Props & ChildrenOnlyProps;
 
 export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
     children,
+    fixedSize,
 }) => {
     const { open, setClosed } = React.useContext(ModalContext);
     const escFunction = React.useCallback((event: any) => {
@@ -28,7 +33,7 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
     return open ? (
         <Container>
             <Shadow onClick={() => setClosed()} />
-            <ContentContainer>
+            <ContentContainer width={fixedSize ? '720' : undefined}>
                 <div>{children}</div>
             </ContentContainer>
         </Container>
@@ -55,7 +60,7 @@ const Shadow = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<{width?: string}>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,5 +71,7 @@ const ContentContainer = styled.div`
         padding: ${block(2)};
         z-index: 99;
         border-radius: 4px;
+
+        ${p => p.width && `width: ${p.width}px;`}
     }
 `;
