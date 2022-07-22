@@ -15,6 +15,8 @@ interface Props {
     color?: Colors;
     padding?: BlockPadding;
     tagName?: TagName;
+    display?: 'flex';
+    justifyContent?: 'center' | 'space-between'
 }
 
 export const Block: React.FunctionComponent<Props> = ({

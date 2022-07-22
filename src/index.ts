@@ -1,3 +1,4 @@
+import {Block} from './atoms/block';
 import { block } from './atoms/spacing';
 import { Button } from './blocks/button';
 import { Link } from './blocks/link';
@@ -47,4 +48,5 @@ export {
     useLoading,
     withLoading,
     Header,
+    Block,
 };
