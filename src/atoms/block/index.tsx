@@ -9,13 +9,16 @@ import { resolveColors } from './resolve-colors';
 import { resolvePadding } from './resolve-padding';
 import { BlockPadding } from './util';
 
+export type JustifyContent = 'space-between' | 'center';
+
 interface Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
     borderRadius?: boolean;
     children: React.ReactNode;
     color?: Colors;
     display?: 'flex';
-    justifyContent?: 'center' | 'space-between';
+    flexDirection?: 'column' | 'row';
+    justifyContent?: JustifyContent;
     padding?: BlockPadding;
     tagName?: TagName;
 }
@@ -45,6 +48,7 @@ interface SCProps {
     borderRadius: number;
     color: string;
     display?: string;
+    flexDirection?: string;
     justifyContent?: string;
     padding: string;
 }
@@ -61,4 +65,5 @@ const Container = styled.div<SCProps>`
     ${p => p.display && `display: ${p.display};`}
     ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
     ${p => p.alignItems && `justify-content: ${p.justifyContent};`}
+    ${p => p.flexDirection && `flex-direction: ${p.flexDirection};`}
 `;
