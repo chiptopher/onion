@@ -27,5 +27,9 @@ export const TableBodyCell: React.FunctionComponent<TableBodyCellProps> = ({
     </td>
 );
 
+TableBody.displayName = 'Table.Body';
+TableBodyRow.displayName = 'Table.Body.Row';
+TableBodyCell.displayName = 'Table.Body.Cell';
+
 TableBody.Cell = TableBodyCell;
 TableBody.Row = TableBodyRow;

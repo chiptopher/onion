@@ -22,3 +22,5 @@ export const TableHeaderCell: React.FunctionComponent<HeaderCellProps> = ({
 const TH = styled.th`
     text-align: left;
 `;
+
+TableHeaderCell.displayName = 'Table.Header.Cell';

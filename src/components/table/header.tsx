@@ -18,6 +18,8 @@ export const TableHeader: React.FunctionComponent<ChildrenOnlyProps> & {
     );
 };
 
+TableHeader.displayName = 'Table.Header';
+
 const Container = styled.thead<{ color: string }>``;
 
 TableHeader.Cell = TableHeaderCell;
