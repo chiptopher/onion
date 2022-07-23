@@ -20,14 +20,11 @@ export const Header: React.FunctionComponent<ChildrenOnlyProps> & {
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
 } = ({ children }) => {
     return (
-        <>
-            <header>
-                <Block color="primary" marginBottom="1.5" tagName="div">
-                    <Container>{children}</Container>
-                </Block>
-            </header>
-            <div>Content that follows the header</div>
-        </>
+        <header>
+            <Block color="primary" marginBottom="1.5" tagName="div">
+                <Container>{children}</Container>
+            </Block>
+        </header>
     );
 };
 
