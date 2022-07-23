@@ -91,6 +91,7 @@ const Container = styled.div<SCProps>`
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
     padding: ${p => p.padding};
+    margin: ${p => p.margin};
 
     border-radius: ${p => p.borderRadius}px;
 

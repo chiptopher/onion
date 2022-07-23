@@ -3,9 +3,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { block } from '../..';
+import { Block, block } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { ColoredBlock } from '../../blocks/colored-block';
 import {
     HeaderMenu,
     HeaderMenuItem,
@@ -21,11 +20,14 @@ export const Header: React.FunctionComponent<ChildrenOnlyProps> & {
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
 } = ({ children }) => {
     return (
-        <header>
-            <ColoredBlock color="primary" tagName="div">
-                <Container>{children}</Container>
-            </ColoredBlock>
-        </header>
+        <>
+            <header>
+                <Block color="primary" marginBottom="1.5" tagName="div">
+                    <Container>{children}</Container>
+                </Block>
+            </header>
+            <div>Content that follows the header</div>
+        </>
     );
 };
 
