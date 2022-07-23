@@ -5,5 +5,5 @@ export type Mapping<T extends string, R = string> = {
 };
 
 export interface ChildrenOnlyProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
