@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors } from '../colors';
+import { Colors, Tint } from '../colors';
 import { TagName } from '../types';
 import { BlockSpacing } from './util';
 export declare type JustifyContent = 'space-between' | 'center';
@@ -8,6 +8,7 @@ interface Props {
     borderRadius?: boolean;
     children: React.ReactNode;
     color?: Colors;
+    colorTint?: Tint;
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;

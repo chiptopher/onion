@@ -1,8 +1,12 @@
 import { Theme } from '../../theme';
-import { Colors } from '../colors';
+import { Colors, Tint } from '../colors';
 interface ResolvedColors {
     backgroundColor: string;
     color: string;
 }
-export declare function resolveColors(theme: Theme, config?: Colors): ResolvedColors;
+interface Config {
+    color?: Colors;
+    tint?: Tint;
+}
+export declare function resolveColors(theme: Theme, config?: Config): ResolvedColors;
 export {};

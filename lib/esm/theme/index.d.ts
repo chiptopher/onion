@@ -13,6 +13,9 @@ export declare type Theme = {
 export declare const ThemeContext: React.Context<Theme>;
 export declare const ThemeProvider: React.Provider<Theme>;
 export declare const useTheme: () => Theme;
+/**
+ * @deprecated
+ */
 export declare function useBackgroundColor(color: Colors): ColorValue;
 /**
  * @deprecated

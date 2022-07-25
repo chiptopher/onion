@@ -1,8 +1,10 @@
 import React from 'react';
-import { Colors } from '../../atoms/colors';
+import { Colors, Tint } from '../../atoms/colors';
+export declare type CalloutColorOptions = Exclude<Colors, 'text'>;
 interface Props {
     children: React.ReactNode;
-    color: Exclude<Colors, 'text'>;
+    color: CalloutColorOptions;
+    tint?: Tint;
 }
 export declare const Callout: React.FunctionComponent<Props>;
 export {};
