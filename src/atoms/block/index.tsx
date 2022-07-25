@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useTheme } from '../../theme';
-import { Colors } from '../colors';
+import { Colors, Tint } from '../colors';
 import { TagName } from '../types';
 import { resolveColors } from './resolve-colors';
 import { resolveBorderSpacing } from './resolve-padding';
@@ -16,6 +16,7 @@ interface Props {
     borderRadius?: boolean;
     children: React.ReactNode;
     color?: Colors;
+    colorTint?: Tint;
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
@@ -35,6 +36,7 @@ interface Props {
 export const Block: React.FunctionComponent<Props> = ({
     tagName = 'div',
     color,
+    colorTint,
     padding,
     paddingTop,
     paddingBottom,
@@ -69,7 +71,7 @@ export const Block: React.FunctionComponent<Props> = ({
                 right: paddingRight,
                 top: paddingTop,
             })}
-            {...resolveColors(theme, color)}
+            {...resolveColors(theme, { color, tint: colorTint })}
             {...rest}
         />
     );

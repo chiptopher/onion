@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Block, block } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
+import { CalloutColorOptions } from '../callout';
 import {
     HeaderMenu,
     HeaderMenuItem,
@@ -17,14 +18,24 @@ export const Header: React.FunctionComponent<ChildrenOnlyProps> & {
     Brand: React.FunctionComponent<ChildrenOnlyProps>;
     Menu: React.FunctionComponent<ChildrenOnlyProps>;
     MenuItem: React.FunctionComponent<HeaderMenuItemProps>;
+    Message: React.FunctionComponent<HeaderMessageProps>;
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
+    PrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
 } = ({ children }) => {
     return (
-        <header>
-            <Block color="primary" marginBottom="1.5" tagName="div">
-                <Container>{children}</Container>
-            </Block>
-        </header>
+        <Block marginBottom="1.5" tagName="header">
+            {children}
+        </Block>
+    );
+};
+
+export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
+    children,
+}) => {
+    return (
+        <Block color="primary" tagName="div">
+            <Container>{children}</Container>
+        </Block>
     );
 };
 
@@ -43,12 +54,38 @@ const Container = styled.nav`
     }
 `;
 
+interface HeaderMessageProps {
+    children: React.ReactNode;
+    color: CalloutColorOptions;
+}
+
+export const HeaderMessage: React.FunctionComponent<HeaderMessageProps> = ({
+    color,
+    children,
+}) => {
+    return (
+        <Block
+            color={color}
+            colorTint="light"
+            paddingBottom="0.5"
+            paddingLeft="1.5"
+            paddingRight="1.5"
+            paddingTop="0.5"
+        >
+            {children}
+        </Block>
+    );
+};
+
 export const HeaderBrand: React.FunctionComponent<
     ChildrenOnlyProps & { href?: string }
 > = props => {
     return <a className="header-brand" {...props} />;
 };
+
 Header.Brand = HeaderBrand;
 Header.NavContainer = HeaderNavContainer;
 Header.Menu = HeaderMenu;
 Header.MenuItem = HeaderMenuItem;
+Header.PrimaryNav = HeaderPrimaryNav;
+Header.Message = HeaderMessage;

@@ -9,7 +9,11 @@ import {
 } from '../atoms/colors';
 
 const defaultColor: ColorMapping = {
-    danger: '#e74c3c',
+    danger: {
+        dark: '#86281E',
+        light: '#FF8679',
+        regular: '#e74c3c',
+    },
     light: '#efefef',
     primary: {
         dark: '#1b98b1',
@@ -64,7 +68,7 @@ export const ThemeContext = React.createContext<Theme>(defaultTheme);
 export const ThemeProvider = ThemeContext.Provider;
 export const useTheme = () => useContext(ThemeContext);
 
-/*
+/**
  * @deprecated
  */
 export function useBackgroundColor(color: Colors) {

@@ -10,4 +10,5 @@ export type TagName =
     | 'h6'
     | 'label'
     | 'span'
-    | 'div';
+    | 'div'
+    | 'header';

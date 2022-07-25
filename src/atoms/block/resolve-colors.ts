@@ -1,16 +1,24 @@
 import { Theme } from '../../theme';
-import { Colors, resolveColorValue } from '../colors';
+import { Colors, resolveColorValue, Tint } from '../colors';
 
 interface ResolvedColors {
     backgroundColor: string;
     color: string;
 }
 
-export function resolveColors(theme: Theme, config?: Colors): ResolvedColors {
-    if (config) {
+interface Config {
+    color?: Colors;
+    tint?: Tint;
+}
+
+export function resolveColors(theme: Theme, config?: Config): ResolvedColors {
+    if (config && config.color) {
         return {
-            backgroundColor: resolveColorValue(theme.backgroundColor[config]),
-            color: resolveColorValue(theme.backgroundTextColor[config]),
+            backgroundColor: resolveColorValue(
+                theme.backgroundColor[config.color],
+                config.tint
+            ),
+            color: resolveColorValue(theme.backgroundTextColor[config.color]),
         };
     }
     return {

@@ -7,6 +7,8 @@ export type ColorValue = string | ColorArrangment;
 export type Colors = 'primary' | 'warning' | 'danger' | 'text' | 'light';
 export type ColorMapping = Mapping<Colors, ColorValue>;
 
+export type Tint = ColorArangementOptions;
+
 export function resolveColorValue(
     value: ColorValue,
     option: ColorArangementOptions = 'regular'
