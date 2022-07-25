@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Loading } from '.';
+import { Block } from '../../atoms/block';
 import { Button } from '../button';
 import { useLoading } from './contex';
 
@@ -12,11 +13,22 @@ export default {
 } as ComponentMeta<typeof Loading>;
 
 const Template: ComponentStory<typeof Loading> = args => (
-    <Loading {...args}>
-        <Toggle>
-            <Loading.Spinner>Not Loading</Loading.Spinner>
-        </Toggle>
-    </Loading>
+    <>
+        <Block marginBottom="1">
+            <Loading>
+                <Toggle>
+                    <Loading.Spinner>Not Loading</Loading.Spinner>
+                </Toggle>
+            </Loading>
+        </Block>
+        <div>
+            <Loading>
+                <Toggle>
+                    <Loading.Text>Not Loading</Loading.Text>
+                </Toggle>
+            </Loading>
+        </div>
+    </>
 );
 
 export const Playground = Template.bind({});

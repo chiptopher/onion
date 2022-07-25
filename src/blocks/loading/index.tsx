@@ -3,9 +3,11 @@ import React from 'react';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { LoadingContext } from './contex';
 import { LoadingSpinner } from './spinner';
+import { LoadingText } from './text';
 
 export const Loading: React.FunctionComponent<ChildrenOnlyProps> & {
     Spinner: React.FunctionComponent<ChildrenOnlyProps>;
+    Text: React.FunctionComponent<ChildrenOnlyProps>;
 } = ({ children }) => {
     const [loading, setLoading] = React.useState(false);
     return (
@@ -25,3 +27,4 @@ export function withLoading(Component: any) {
 }
 
 Loading.Spinner = LoadingSpinner;
+Loading.Text = LoadingText;
