@@ -23,7 +23,7 @@ import { Table } from './components/table';
 import { Form } from './form';
 import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
-import { ThemeProvider } from './theme';
+import { ThemeProvider, useTheme } from './theme';
 
 export {
     Button,
@@ -53,4 +53,5 @@ export {
     Block,
     Callout,
     Flow,
+    useTheme,
 };
