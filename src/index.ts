@@ -1,6 +1,6 @@
 import { Block } from './atoms/block';
 import { block } from './atoms/spacing';
-import { Button } from './blocks/button';
+import { Button, ButtonProps } from './blocks/button';
 import { Link } from './blocks/link';
 import { Loading, withLoading } from './blocks/loading';
 import { useLoading } from './blocks/loading/contex';
@@ -54,4 +54,5 @@ export {
     Callout,
     Flow,
     useTheme,
+    ButtonProps,
 };
