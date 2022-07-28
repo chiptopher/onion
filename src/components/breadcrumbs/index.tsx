@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { block } from '../..';
+import { Block, block } from '../..';
 import { BreadcrumbItem, BreadcrumbItemProps } from './item';
 
 interface Props {
@@ -13,13 +13,15 @@ export const Breadcrumbs: React.FunctionComponent<Props> & {
     Item: React.FunctionComponent<BreadcrumbItemProps>;
 } = ({ children }) => {
     return (
-        <Container>
-            <ol>
-                {React.Children.toArray(children).map((child, index) => (
-                    <li key={index}>{child}</li>
-                ))}
-            </ol>
-        </Container>
+        <Block marginBottom="1">
+            <Container>
+                <ol>
+                    {React.Children.toArray(children).map((child, index) => (
+                        <li key={index}>{child}</li>
+                    ))}
+                </ol>
+            </Container>
+        </Block>
     );
 };
 

@@ -18,3 +18,5 @@ export const BreadcrumbItem: React.FunctionComponent<BreadcrumbItemProps> = ({
         </Body>
     );
 };
+
+BreadcrumbItem.displayName = 'Breadcrumb.Item';
