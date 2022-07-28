@@ -39,5 +39,9 @@ const Container = styled.div`
             content: '/';
             margin: ${block(1.5)} ${block(1.5)};
         }
+
+        li:first-child:before {
+            margin-left: 0;
+        }
     }
 `;
