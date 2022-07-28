@@ -1,6 +1,6 @@
 import { Block } from './atoms/block';
 import { block } from './atoms/spacing';
-import { Button } from './blocks/button';
+import { Button, ButtonProps } from './blocks/button';
 import { Link } from './blocks/link';
 import { Loading, withLoading } from './blocks/loading';
 import { useLoading } from './blocks/loading/contex';
@@ -24,4 +24,4 @@ import { Form } from './form';
 import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
 import { ThemeProvider, useTheme } from './theme';
-export { Button, ThemeProvider, Body, Heading, Subheader, Label, Title, block, Section, Link, Breadcrumbs, List, Caption, Footer, Text, Gutter, Buttons, Modal, Form, Table, Loading, useLoading, withLoading, Header, Block, Callout, Flow, useTheme, };
+export { Button, ThemeProvider, Body, Heading, Subheader, Label, Title, block, Section, Link, Breadcrumbs, List, Caption, Footer, Text, Gutter, Buttons, Modal, Form, Table, Loading, useLoading, withLoading, Header, Block, Callout, Flow, useTheme, ButtonProps, };
