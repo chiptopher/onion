@@ -11,4 +11,5 @@ export type TagName =
     | 'label'
     | 'span'
     | 'div'
-    | 'header';
+    | 'header'
+    | 'a';
