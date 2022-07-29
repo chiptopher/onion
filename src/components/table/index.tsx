@@ -42,8 +42,11 @@ const Container = styled.table<{ oddRowBackgroundColor: string }>`
     tbody {
         vertical-align: top;
 
-        tr:nth-child(even) {
-            background-color: ${p => p.oddRowBackgroundColor};
+        // override border on last row in table
+        tr:last-child {
+            td {
+                border-style: none;
+            }
         }
     }
 `;

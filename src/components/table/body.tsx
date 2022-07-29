@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Body } from '../..';
+import { Block, Body, useTheme } from '../..';
+import { resolveColorValue } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ChildrenOnlyComponent } from '../../util';
 
@@ -20,11 +21,23 @@ export type TableBodyCellProps = ChildrenOnlyProps;
 export const TableBodyCell: React.FunctionComponent<TableBodyCellProps> = ({
     children,
     ...rest
-}) => (
-    <td {...rest}>
-        <Body>{children}</Body>
-    </td>
-);
+}) => {
+    const theme = useTheme();
+    return (
+        <Block
+            borderBottom={`solid 2px ${resolveColorValue(
+                theme.base.grey,
+                'regular'
+            )}`}
+            paddingBottom="0.5"
+            paddingTop="0.5"
+            tagName="td"
+            {...rest}
+        >
+            <Body>{children}</Body>
+        </Block>
+    );
+};
 
 TableBody.displayName = 'Table.Body';
 TableBodyRow.displayName = 'Table.Body.Row';
