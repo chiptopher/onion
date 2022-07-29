@@ -3,3 +3,4 @@
 
 npx lint-staged --allow-empty
 npm exec push-reminder log-commit-time
+npm run build:storybook
