@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Body } from './body';
 import { Caption } from './caption';
-import { Header } from './header';
+import { Heading } from './header';
 import { Label } from './label';
 import { Subheader } from './subheader';
 import { Text2 } from './text';
@@ -32,10 +32,10 @@ export const Presets = () => (
         <Title heirarchy="1">
             Title: The quick brown fox jumps over the lazy dog
         </Title>
-        <Header heirarchy="2">
+        <Heading heirarchy="2">
             {' '}
-            Header: The quick brown fox jumps over the lazy dog
-        </Header>
+            Heading: The quick brown fox jumps over the lazy dog
+        </Heading>
         <Subheader heirarchy="3">
             SubHeader: The quick brown fox jumps over the lazy dog
         </Subheader>
