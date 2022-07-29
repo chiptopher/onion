@@ -12,7 +12,7 @@ export default {
         },
     },
     component: Form,
-    title: `Form`,
+    title: `Components/Form`,
 } as ComponentMeta<typeof Form>;
 
 const Template: ComponentStory<typeof Form> = ({ showError, ...args }: any) => (
