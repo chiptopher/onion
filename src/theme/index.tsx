@@ -8,7 +8,7 @@ import {
     resolveColorValue,
 } from '../atoms/colors';
 
-const defaultColor: ColorMapping = {
+const defaultBackgroundColors: ColorMapping = {
     danger: {
         dark: '#86281E',
         light: '#FF8679',
@@ -36,7 +36,7 @@ export type Theme = {
 
 const defaultTheme: Theme = {
     backgroundColor: {
-        ...defaultColor,
+        ...defaultBackgroundColors,
     },
     backgroundTextColor: {
         danger: 'white',
@@ -59,8 +59,8 @@ const defaultTheme: Theme = {
         wide: breakpoint(1441, Infinity),
     },
     textColor: {
-        ...defaultColor,
-        text: 'black',
+        ...defaultBackgroundColors,
+        text: { dark: 'black', light: 'grey', regular: '#404040' },
     },
 };
 
