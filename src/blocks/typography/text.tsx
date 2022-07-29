@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { block } from '../..';
-import { Colors, resolveColorValue } from '../../atoms/colors';
+import { Colors, resolveColorValue, Tint } from '../../atoms/colors';
 import { Block } from '../../atoms/spacing';
 import { TagName } from '../../atoms/types';
 import { useTextColor } from '../../theme';
@@ -11,6 +11,7 @@ import { useTextColor } from '../../theme';
 export interface TextProps {
     children: React.ReactNode;
     color?: Colors;
+    colorTint?: Tint;
     marginBottom?: Block;
     style: 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption';
     tagName: TagName;
@@ -22,12 +23,13 @@ export const Text2: React.FunctionComponent<TextProps> = ({
     tagName,
     underlined,
     style,
+    colorTint,
     ...rest
 }) => {
     const textColor = useTextColor(color);
     const props = {
         as: tagName,
-        color: resolveColorValue(textColor),
+        color: resolveColorValue(textColor, colorTint),
         ...rest,
     };
 
