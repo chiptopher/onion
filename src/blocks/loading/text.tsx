@@ -48,3 +48,5 @@ const Container = styled.span`
         margin-right: ${block(1)};
     }
 `;
+
+LoadingText.displayName = 'Loading.Text';

@@ -47,3 +47,5 @@ const Container = styled.span`
         margin-right: ${block(1)};
     }
 `;
+
+LoadingSpinner.displayName = 'Loading.Spinner';
