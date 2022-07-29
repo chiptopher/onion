@@ -1,0 +1,12 @@
+import { Mapping } from '../util';
+import { BlockSpacing } from './util';
+declare type DirectionOptions<T extends string> = `${T}Top` | `${T}Bottom` | `${T}Left` | `${T}Right` | `${T}`;
+export declare type Directions<T extends string, V> = Partial<Mapping<DirectionOptions<T>, V>>;
+export declare type PaddingProps = Directions<'padding', BlockSpacing>;
+export declare type MarginProps = Directions<'margin', BlockSpacing>;
+declare type BorderStyleOptions = 'solid' | 'none';
+declare type BorderWidthType = `${number}px`;
+declare type BorderColorType = string;
+declare type BorderType = `${BorderStyleOptions} ${BorderWidthType} ${BorderColorType}`;
+export declare type BorderProps = Directions<'border', BorderType>;
+export {};

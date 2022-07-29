@@ -1,4 +1,6 @@
 import React from 'react';
-import { ChildrenOnlyProps } from '../../atoms/util';
-export declare type HeaderCellProps = ChildrenOnlyProps & React.ThHTMLAttributes<HTMLTableHeaderCellElement>;
+export declare type HeaderCellProps = {
+    children?: React.ReactNode;
+    width?: `${number}%` | `${number}px`;
+};
 export declare const TableHeaderCell: React.FunctionComponent<HeaderCellProps>;

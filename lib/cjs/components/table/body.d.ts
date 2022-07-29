@@ -6,5 +6,5 @@ export declare const TableBody: ChildrenOnlyComponent & {
     Row: React.FunctionComponent<TableBodyCellProps>;
 };
 export declare const TableBodyRow: ChildrenOnlyComponent;
-export declare type TableBodyCellProps = ChildrenOnlyProps & React.TdHTMLAttributes<HTMLTableDataCellElement>;
+export declare type TableBodyCellProps = ChildrenOnlyProps;
 export declare const TableBodyCell: React.FunctionComponent<TableBodyCellProps>;

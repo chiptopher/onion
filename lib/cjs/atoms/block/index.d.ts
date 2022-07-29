@@ -1,9 +1,9 @@
 import React from 'react';
 import { Colors, Tint } from '../colors';
 import { TagName } from '../types';
-import { BlockSpacing } from './util';
+import { BorderProps, MarginProps, PaddingProps } from './types';
 export declare type JustifyContent = 'space-between' | 'center';
-interface Props {
+interface _Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
     borderRadius?: boolean;
     children: React.ReactNode;
@@ -12,17 +12,8 @@ interface Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
-    margin?: BlockSpacing;
-    marginBottom?: BlockSpacing;
-    marginLeft?: BlockSpacing;
-    marginRight?: BlockSpacing;
-    marginTop?: BlockSpacing;
-    padding?: BlockSpacing;
-    paddingBottom?: BlockSpacing;
-    paddingLeft?: BlockSpacing;
-    paddingRight?: BlockSpacing;
-    paddingTop?: BlockSpacing;
     tagName?: TagName;
 }
+declare type Props = _Props & BorderProps & PaddingProps & MarginProps;
 export declare const Block: React.FunctionComponent<Props>;
 export {};
