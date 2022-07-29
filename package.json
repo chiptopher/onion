@@ -46,6 +46,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@chiptopher/push-reminder": "^0.1.8",
     "styled-components": "^5.3.5"
   },
   "lint-staged": {
