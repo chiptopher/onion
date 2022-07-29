@@ -6,6 +6,26 @@ import { Block } from '.';
 
 export default {
     argTypes: {
+        border: {
+            control: 'text',
+            defaultValue: undefined,
+        },
+        borderBottom: {
+            control: 'text',
+            defaultValue: undefined,
+        },
+        borderLeft: {
+            control: 'text',
+            defaultValue: undefined,
+        },
+        borderRight: {
+            control: 'text',
+            defaultValue: undefined,
+        },
+        borderTop: {
+            control: 'text',
+            defaultValue: undefined,
+        },
         children: {
             control: 'text',
             defaultValue: 'Click me!',

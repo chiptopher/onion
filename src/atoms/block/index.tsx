@@ -7,11 +7,11 @@ import { Colors, Tint } from '../colors';
 import { TagName } from '../types';
 import { resolveColors } from './resolve-colors';
 import { resolveBorderSpacing } from './resolve-padding';
-import { BlockSpacing } from './util';
+import { BorderProps, MarginProps, PaddingProps } from './types';
 
 export type JustifyContent = 'space-between' | 'center';
 
-interface Props {
+interface _Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
     borderRadius?: boolean;
     children: React.ReactNode;
@@ -20,29 +20,21 @@ interface Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
-    margin?: BlockSpacing;
-    marginBottom?: BlockSpacing;
-    marginLeft?: BlockSpacing;
-    marginRight?: BlockSpacing;
-    marginTop?: BlockSpacing;
-    padding?: BlockSpacing;
-    paddingBottom?: BlockSpacing;
-    paddingLeft?: BlockSpacing;
-    paddingRight?: BlockSpacing;
-    paddingTop?: BlockSpacing;
     tagName?: TagName;
 }
+
+type Props = _Props & BorderProps & PaddingProps & MarginProps;
 
 export const Block: React.FunctionComponent<Props> = ({
     tagName = 'div',
     color,
     colorTint,
+    borderRadius,
     padding,
     paddingTop,
     paddingBottom,
     paddingRight,
     paddingLeft,
-    borderRadius,
     margin,
     marginTop,
     marginBottom,
@@ -77,7 +69,7 @@ export const Block: React.FunctionComponent<Props> = ({
     );
 };
 
-interface SCProps {
+type SCProps = BorderProps & {
     alignItems?: string;
     backgroundColor: string;
     borderRadius: number;
@@ -87,7 +79,7 @@ interface SCProps {
     justifyContent?: string;
     margin: string;
     padding: string;
-}
+};
 
 const Container = styled.div<SCProps>`
     background-color: ${props => props.backgroundColor};
@@ -101,4 +93,10 @@ const Container = styled.div<SCProps>`
     ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
     ${p => p.alignItems && `align-items: ${p.alignItems};`}
     ${p => p.flexDirection && `flex-direction: ${p.flexDirection};`}
+
+    ${p => p.border && `border: ${p.border};`}
+    ${p => p.borderTop && `border-top: ${p.borderTop};`}
+    ${p => p.borderRight && `border-right: ${p.borderRight};`}
+    ${p => p.borderBottom && `border-bottom: ${p.borderBottom};`}
+    ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
 `;
