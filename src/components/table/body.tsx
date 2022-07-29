@@ -15,8 +15,7 @@ export const TableBodyRow: ChildrenOnlyComponent = ({ children }) => (
     <tr>{children}</tr>
 );
 
-export type TableBodyCellProps = ChildrenOnlyProps &
-    React.TdHTMLAttributes<HTMLTableDataCellElement>;
+export type TableBodyCellProps = ChildrenOnlyProps;
 
 export const TableBodyCell: React.FunctionComponent<TableBodyCellProps> = ({
     children,

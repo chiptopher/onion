@@ -13,18 +13,16 @@ export default {
 const Template: ComponentStory<typeof Table> = args => (
     <Table {...args}>
         <Table.Header>
-            <Table.Header.Cell>First</Table.Header.Cell>
-            <Table.Header.Cell>Second</Table.Header.Cell>
-            <Table.Header.Cell>Third</Table.Header.Cell>
+            <Table.Header.Cell width="100px">First</Table.Header.Cell>
+            <Table.Header.Cell width="300px">Second</Table.Header.Cell>
+            <Table.Header.Cell width="10%">Third</Table.Header.Cell>
             <Table.Header.Cell>Fourth</Table.Header.Cell>
         </Table.Header>
         <Table.Body>
             <Table.Body.Row>
                 <Table.Body.Cell>Name</Table.Body.Cell>
                 <Table.Body.Cell>Short</Table.Body.Cell>
-                <Table.Body.Cell width="200px">
-                    Some medium length text
-                </Table.Body.Cell>
+                <Table.Body.Cell>Some medium length text</Table.Body.Cell>
                 <Table.Body.Cell>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Morbi eros elit, finibus a bibendum efficitur, egestas
@@ -40,9 +38,7 @@ const Template: ComponentStory<typeof Table> = args => (
             <Table.Body.Row>
                 <Table.Body.Cell>Name</Table.Body.Cell>
                 <Table.Body.Cell>Short</Table.Body.Cell>
-                <Table.Body.Cell width="200px">
-                    Some medium length text
-                </Table.Body.Cell>
+                <Table.Body.Cell>Some medium length text</Table.Body.Cell>
                 <Table.Body.Cell>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Morbi eros elit, finibus a bibendum efficitur, egestas
@@ -58,9 +54,7 @@ const Template: ComponentStory<typeof Table> = args => (
             <Table.Body.Row>
                 <Table.Body.Cell>Name</Table.Body.Cell>
                 <Table.Body.Cell>Short</Table.Body.Cell>
-                <Table.Body.Cell width="200px">
-                    Some medium length text
-                </Table.Body.Cell>
+                <Table.Body.Cell>Some medium length text</Table.Body.Cell>
                 <Table.Body.Cell>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Morbi eros elit, finibus a bibendum efficitur, egestas

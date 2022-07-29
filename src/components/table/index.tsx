@@ -30,11 +30,12 @@ export const Table: ChildrenOnlyComponent & {
 const Container = styled.table<{ oddRowBackgroundColor: string }>`
     border-collapse: collapse;
     table-layout: fixed;
+    width: 100%;
 
     thead {
         th {
             border-bottom: solid 1px black;
-            padding-right: ${block(3)};
+            margin-right: ${block(3)};
         }
     }
 

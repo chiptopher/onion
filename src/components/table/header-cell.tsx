@@ -2,11 +2,12 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ChildrenOnlyProps } from '../../atoms/util';
 import { Label } from '../../blocks/typography/label';
 
-export type HeaderCellProps = ChildrenOnlyProps &
-    React.ThHTMLAttributes<HTMLTableHeaderCellElement>;
+export type HeaderCellProps = {
+    children?: React.ReactNode;
+    width?: `${number}%` | `${number}px`;
+};
 
 export const TableHeaderCell: React.FunctionComponent<HeaderCellProps> = ({
     children,
