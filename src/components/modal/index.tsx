@@ -24,5 +24,7 @@ export const ModalOpener: React.FunctionComponent<ModalOpenerProps> = ({
     return <div onClick={setOpen}>{children}</div>;
 };
 
+ModalOpener.displayName = 'Modal.Opener';
+
 Modal.Content = ModalContent;
 Modal.Opener = ModalOpener;

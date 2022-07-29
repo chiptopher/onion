@@ -28,3 +28,5 @@ const Container = styled.div`
 
     margin-bottom: ${block(2)};
 `;
+
+SectionHeader.displayName = 'Section.Header';

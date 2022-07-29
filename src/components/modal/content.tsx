@@ -42,6 +42,8 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
     );
 };
 
+ModalContent.displayName = 'Modal.Content';
+
 const Container = styled.div`
     position: absolute;
     top: 0;

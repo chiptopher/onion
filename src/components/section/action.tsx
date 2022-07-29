@@ -5,6 +5,6 @@ export interface SectionActionProps {
 }
 
 export const SectionAction: React.FunctionComponent<SectionActionProps> =
-    props => {
-        return <span className="action">{props.children}</span>;
-    };
+    props => <span className="action">{props.children}</span>;
+
+SectionAction.displayName = 'Section.Action';

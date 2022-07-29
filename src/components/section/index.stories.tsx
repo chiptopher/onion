@@ -3,7 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Section } from '.';
-import { Body, Button, Header } from '../../';
+import { Body, Button, Heading } from '../../';
 
 export default {
     argTypes: {},
@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof Section> = args => (
     <Section {...args}>
         <Section.Header>
-            <Header heirarchy="2">Lorem ipsum dolor sit amet</Header>
+            <Heading heirarchy="2">Lorem ipsum dolor sit amet</Heading>
             <Section.Action>
                 <Button>Click Me</Button>
             </Section.Action>
