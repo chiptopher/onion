@@ -11,6 +11,8 @@ export const HeaderMenu: React.FunctionComponent<Partial<ChildrenOnlyProps>> =
         return <Container {...props} />;
     };
 
+HeaderMenu.displayName = 'Header.Menu';
+
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
@@ -34,6 +36,8 @@ export const HeaderNavContainer: React.FunctionComponent<HeaderNavContainerProps
         return <div className={`header-menu-${side}`} {...rest} />;
     };
 
+HeaderNavContainer.displayName = 'Header.NavContainer';
+
 export type HeaderMenuItemProps = {
     children: React.ReactNode;
     contrasting?: boolean;
@@ -49,3 +53,5 @@ export const HeaderMenuItem: React.FunctionComponent<HeaderMenuItemProps> = ({
         </span>
     );
 };
+
+HeaderMenuItem.displayName = 'Header.MenuItem';
