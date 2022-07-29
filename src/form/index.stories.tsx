@@ -30,7 +30,7 @@ const Template: ComponentStory<typeof Form> = ({ showError, ...args }: any) => (
         />
         <Form.Buttons />
         {showError && (
-            <Form.ErrorMessage>You encountered an error </Form.ErrorMessage>
+            <Form.ErrorMessage>You encountered an error</Form.ErrorMessage>
         )}
     </Form>
 );

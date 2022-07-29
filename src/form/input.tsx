@@ -27,3 +27,5 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
         </Wrapper>
     );
 };
+
+FormInput.displayName = 'Form.Input';

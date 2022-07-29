@@ -16,17 +16,17 @@ export const FormColor: React.FunctionComponent<FormColorProps> = ({
     placeholder,
     value,
     ...wrapperProps
-}) => {
-    return (
-        <Wrapper {...wrapperProps}>
-            <input
-                disabled={disabled}
-                id={id}
-                onChange={onChange}
-                placeholder={placeholder}
-                type="color"
-                value={value}
-            />
-        </Wrapper>
-    );
-};
+}) => (
+    <Wrapper {...wrapperProps}>
+        <input
+            disabled={disabled}
+            id={id}
+            onChange={onChange}
+            placeholder={placeholder}
+            type="color"
+            value={value}
+        />
+    </Wrapper>
+);
+
+FormColor.displayName = 'Form.Color';

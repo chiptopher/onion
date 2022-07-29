@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import { Body, Button, Buttons } from '..';
 import { ChildrenOnlyProps } from '../atoms/util';
 import { Loading } from '../blocks/loading';
 import { useLoading } from '../blocks/loading/contex';
-import { Callout } from '../components/callout';
+import { FormButtons } from './buttons';
 import { FormColor, FormColorProps } from './color';
+import { FormErrorMessage } from './error-message';
 import { FormInput, FormInputProps } from './input';
 import { FormTextarea, FormTextareaProps } from './textarea';
 
@@ -51,21 +51,8 @@ export const Form: React.FunctionComponent<Props> & {
     </Loading>
 );
 
-Form.Buttons = () => (
-    <Buttons>
-        <Button type="reset">Cancel</Button>
-        <Button type="submit">
-            <Loading.Spinner>Submit</Loading.Spinner>
-        </Button>
-    </Buttons>
-);
-
+Form.Buttons = FormButtons;
 Form.Input = FormInput;
 Form.Textarea = FormTextarea;
 Form.Color = FormColor;
-
-Form.ErrorMessage = ({ children }) => (
-    <Callout color="danger">
-        <Body>{children}</Body>
-    </Callout>
-);
+Form.ErrorMessage = FormErrorMessage;

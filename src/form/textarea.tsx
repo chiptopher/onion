@@ -32,3 +32,5 @@ export const FormTextarea: React.FunctionComponent<FormTextareaProps> = ({
         </Wrapper>
     );
 };
+
+FormTextarea.displayName = 'Form.TextArea';
