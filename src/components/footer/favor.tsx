@@ -1,8 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { block, Caption } from '../..';
+import { Block, Caption } from '../..';
 
 export interface FooterItemProps {
     children: React.ReactNode;
@@ -11,9 +9,9 @@ export interface FooterItemProps {
 export const FooterFlavor: React.FunctionComponent<FooterItemProps> = ({
     children,
 }) => {
-    return <Container>{children}</Container>;
+    return (
+        <Block marginBottom="0.75">
+            <Caption>{children}</Caption>
+        </Block>
+    );
 };
-
-const Container = styled(Caption)`
-    margin-bottom: ${block(1.5)};
-`;

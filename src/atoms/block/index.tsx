@@ -26,6 +26,7 @@ interface _Props {
     flexDirection?: 'column' | 'row';
     href?: string;
     justifyContent?: JustifyContent;
+    listStyleType?: 'none';
     tagName?: TagName;
     textColor?: Colors;
     textColorTint?: Tint;
@@ -121,6 +122,7 @@ type SCProps = BorderProps & {
     display?: string;
     flexDirection?: string;
     justifyContent?: string;
+    listStyleType?: string;
     margin: string;
     padding: string;
     textDecoration?: string;
@@ -146,6 +148,7 @@ const Container = styled.div<SCProps>`
     ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
     ${p => p.cursor && `cursor: ${p.cursor};`}
     ${p => p.textDecoration && `text-decoration: ${p.textDecoration};`}
+    ${p => p.listStyleType && `list-style-type: ${p.listStyleType};`}
 
     &:hover {
         ${p =>

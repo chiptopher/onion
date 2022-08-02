@@ -15,4 +15,8 @@ export type TagName =
     | 'a'
     | 'tr'
     | 'td'
-    | 'button';
+    | 'button'
+    | 'ol'
+    | 'ul'
+    | 'nav'
+    | 'li';

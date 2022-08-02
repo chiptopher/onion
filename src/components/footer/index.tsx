@@ -9,6 +9,7 @@ import { useTheme } from '../../theme';
 import { FooterCopyright } from './copyright';
 import { FooterFlavor } from './favor';
 import { FooterItem, FooterItemProps } from './item';
+import { NavContainer } from './nav-container';
 import { FooterTitle } from './title';
 
 interface Props {
@@ -36,23 +37,9 @@ const Container = styled.footer<{ bc: string }>`
     text-align: center;
 `;
 
-const NavContainer = styled.nav`
-    margin-bottom: ${block(4)};
-
-    ol {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-`;
-
 Footer.Item = FooterItem;
 Footer.Flavor = FooterFlavor;
 Footer.Copyright = FooterCopyright;
 Footer.Title = FooterTitle;
 // eslint-disable-next-line react/display-name
-Footer.Nav = ({ children }) => (
-    <NavContainer>
-        <ol>{children}</ol>
-    </NavContainer>
-);
+Footer.Nav = props => <NavContainer {...props} />;
