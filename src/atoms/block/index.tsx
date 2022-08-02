@@ -22,8 +22,12 @@ interface _Props {
     cursor?: 'pointer';
     display?: 'flex';
     flexDirection?: 'column' | 'row';
+    href?: string;
     justifyContent?: JustifyContent;
     tagName?: TagName;
+    textColor?: Colors;
+    textColorTint?: Tint;
+    textDecoration?: 'underline';
 }
 
 // TODO make an eslint warning when giving type but tagName isn't set to 'button'
@@ -67,6 +71,8 @@ export const Block: React.FunctionComponent<Props> = ({
     colorHover,
     colorTintHover,
     alignItems,
+    textColor,
+    textColorTint,
     ...rest
 }) => {
     const theme = useTheme();
@@ -92,6 +98,8 @@ export const Block: React.FunctionComponent<Props> = ({
             {...resolveColors(theme, {
                 color,
                 colorHover: colorHover,
+                textColor: textColor,
+                textColorTint: textColorTint,
                 tint: colorTint,
                 tintHover: colorTintHover,
             })}
@@ -112,6 +120,7 @@ type SCProps = BorderProps & {
     justifyContent?: string;
     margin: string;
     padding: string;
+    textDecoration?: string;
 };
 
 const Container = styled.div<SCProps>`
@@ -133,6 +142,7 @@ const Container = styled.div<SCProps>`
     ${p => p.borderBottom && `border-bottom: ${p.borderBottom};`}
     ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
     ${p => p.cursor && `cursor: ${p.cursor};`}
+    ${p => p.textDecoration && `text-decoration: ${p.textDecoration};`}
 
     &:hover {
         ${p =>

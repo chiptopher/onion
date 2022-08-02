@@ -1,42 +1,30 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import { Block } from '../../atoms/block';
+import { Colors } from '../../atoms/colors';
 
-import { Colors, resolveColorValue } from '../../atoms/colors';
-import { useTextColor } from '../../theme';
-
-interface SharedProps {
+interface Props {
     children: React.ReactNode;
     color?: Colors;
+    href?: string;
     tagName?: 'a' | 'button' | 'span';
 }
-
-type Props =
-    | SharedProps
-    | (SharedProps & {
-          href?: string;
-          tagName?: 'a';
-      });
 
 export const Link: React.FunctionComponent<Props> = ({
     tagName = 'a',
     color = 'primary',
-    ...rest
+    children,
+    href,
 }) => {
-    const textColor = useTextColor(color);
     return (
-        <StyledTag
-            as={tagName}
-            color={resolveColorValue(textColor)}
-            {...rest}
-        />
+        <Block
+            cursor="pointer"
+            href={href}
+            tagName={tagName}
+            textColor={color}
+            textDecoration="underline"
+        >
+            {children}
+        </Block>
     );
 };
-const StyledTag = styled.div<{ color: string }>`
-    text-decoration: underline;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    color: ${props => props.color};
-    cursor: pointer;
-`;

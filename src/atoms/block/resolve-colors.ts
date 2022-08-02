@@ -11,6 +11,8 @@ interface ResolvedColors {
 interface Config {
     color?: Colors;
     colorHover?: Colors;
+    textColor?: Colors;
+    textColorTint?: Tint;
     tint?: Tint;
     tintHover?: Tint;
 }
@@ -22,7 +24,10 @@ export function resolveColors(theme: Theme, config?: Config): ResolvedColors {
         color: 'inherit',
         colorHover: undefined,
     };
-    if (config && config.color) {
+    if (!config) {
+        return c;
+    }
+    if (config.color) {
         c.backgroundColor = resolveColorValue(
             theme.backgroundColor[config.color],
             config.tint
@@ -30,7 +35,14 @@ export function resolveColors(theme: Theme, config?: Config): ResolvedColors {
         c.color = resolveColorValue(theme.backgroundTextColor[config.color]);
     }
 
-    if (config && config.colorHover) {
+    if (config.textColor) {
+        c.color = resolveColorValue(
+            theme.textColor[config.textColor],
+            config.textColorTint
+        );
+    }
+
+    if (config.colorHover) {
         c.backgroundColorHover = resolveColorValue(
             theme.backgroundColor[config.colorHover],
             config.tintHover
