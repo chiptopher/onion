@@ -1,7 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
+import { Block } from '../../atoms/block';
 import { Label } from '../../blocks/typography/label';
 
 export type HeaderCellProps = {
@@ -14,14 +13,15 @@ export const TableHeaderCell: React.FunctionComponent<HeaderCellProps> = ({
     ...rest
 }) => {
     return (
-        <TH {...rest}>
+        <Block
+            borderBottom="solid 1px black"
+            tagName="th"
+            textAlign="left"
+            {...rest}
+        >
             <Label>{children}</Label>
-        </TH>
+        </Block>
     );
 };
-
-const TH = styled.th`
-    text-align: left;
-`;
 
 TableHeaderCell.displayName = 'Table.Header.Cell';

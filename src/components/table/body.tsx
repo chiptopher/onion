@@ -9,11 +9,15 @@ export const TableBody: ChildrenOnlyComponent & {
     Cell: ChildrenOnlyComponent;
     Row: React.FunctionComponent<TableBodyCellProps>;
 } = ({ children }) => {
-    return <tbody>{children}</tbody>;
+    return (
+        <Block tagName="tbody" verticalAlign="top">
+            {children}
+        </Block>
+    );
 };
 
 export const TableBodyRow: ChildrenOnlyComponent = ({ children }) => (
-    <tr>{children}</tr>
+    <Block tagName="tr">{children}</Block>
 );
 
 export type TableBodyCellProps = ChildrenOnlyProps;

@@ -2,9 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { block } from '../..';
-import { resolveColorValue } from '../../atoms/colors';
-import { useTheme } from '../../theme';
+import { Block } from '../../atoms/block';
 import { ChildrenOnlyComponent } from '../../util';
 import { TableBody, TableBodyCellProps } from './body';
 import { TableHeader } from './header';
@@ -19,33 +17,25 @@ export const Table: ChildrenOnlyComponent & {
         Cell: React.FunctionComponent<HeaderCellProps>;
     };
 } = ({ children }) => {
-    const theme = useTheme();
     return (
-        <Container oddRowBackgroundColor={resolveColorValue(theme.base.grey)}>
-            {children}
+        <Container>
+            <Block tagName="table">{children}</Block>
         </Container>
     );
 };
 
-const Container = styled.table<{ oddRowBackgroundColor: string }>`
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
+const Container = styled.div`
+    table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
 
-    thead {
-        th {
-            border-bottom: solid 1px black;
-            margin-right: ${block(3)};
-        }
-    }
-
-    tbody {
-        vertical-align: top;
-
-        // override border on last row in table
-        tr:last-child {
-            td {
-                border-style: none;
+        tbody {
+            // TODO figure out how to do this in Block
+            tr:last-child {
+                td {
+                    border-style: none;
+                }
             }
         }
     }

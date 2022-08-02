@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { useTheme } from '../../theme';
 import { Colors, Tint } from '../colors';
-import { TagName } from '../types';
+import { Percents, Pixels, REMs, TagName } from '../types';
 import { resolveColors } from './resolve-colors';
 import { resolveBorderSpacing } from './resolve-padding';
 import {
@@ -17,6 +17,9 @@ import {
 
 export type JustifyContent = 'space-between' | 'center';
 
+// TODO Illegal prop combons
+//   verticalAlign - only on tbody
+
 interface _Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
     borderRadius?: boolean;
@@ -28,9 +31,12 @@ interface _Props {
     justifyContent?: JustifyContent;
     listStyleType?: 'none';
     tagName?: TagName;
+    textAlign?: 'left' | 'right';
     textColor?: Colors;
     textColorTint?: Tint;
     textDecoration?: 'underline';
+    verticalAlign?: 'top';
+    width?: Pixels | REMs | Percents;
 }
 
 // TODO make an eslint warning when giving type but tagName isn't set to 'button'
@@ -116,7 +122,11 @@ type SCProps = BorderProps & {
     alignItems?: string;
     backgroundColor: string;
     backgroundColorHover?: string;
+    borderBottomLastChild?: string;
+    borderLeftLastChild?: string;
     borderRadius: number;
+    borderRightLastChild?: string;
+    borderTopLastChild?: string;
     color: string;
     cursor?: string;
     display?: string;
@@ -125,7 +135,10 @@ type SCProps = BorderProps & {
     listStyleType?: string;
     margin: string;
     padding: string;
+    textAlign?: string;
     textDecoration?: string;
+    verticalAlign?: string;
+    width?: string;
 };
 
 const Container = styled.div<SCProps>`
@@ -146,13 +159,28 @@ const Container = styled.div<SCProps>`
     ${p => p.borderRight && `border-right: ${p.borderRight};`}
     ${p => p.borderBottom && `border-bottom: ${p.borderBottom};`}
     ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
-    ${p => p.cursor && `cursor: ${p.cursor};`}
     ${p => p.textDecoration && `text-decoration: ${p.textDecoration};`}
     ${p => p.listStyleType && `list-style-type: ${p.listStyleType};`}
+    ${p => p.cursor && `cursor: ${p.cursor};`}
+    ${p => p.width && `width: ${p.width};`}
+    ${p => p.textAlign && `text-align: ${p.textAlign};`}
+    ${p => p.verticalAlign && `vertical-align: ${p.verticalAlign};`}
 
     &:hover {
         ${p =>
             p.backgroundColorHover &&
             `background-color: ${p.backgroundColorHover};`}
+    }
+
+    &:last-child {
+        ${p => p.borderTopLastChild && `border-top: ${p.borderTopLastChild};`}
+        ${p =>
+            p.borderBottomLastChild &&
+            `border-bottom: ${p.borderBottomLastChild};`}
+        ${p =>
+            p.borderLeftLastChild && `border-left: ${p.borderLeftLastChild};`}
+        ${p =>
+            p.borderRightLastChild &&
+            `border-right: ${p.borderRightLastChild};`}
     }
 `;

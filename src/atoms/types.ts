@@ -14,9 +14,17 @@ export type TagName =
     | 'header'
     | 'a'
     | 'tr'
+    | 'th'
     | 'td'
+    | 'thead'
+    | 'tbody'
     | 'button'
     | 'ol'
     | 'ul'
     | 'nav'
-    | 'li';
+    | 'li'
+    | 'table';
+
+export type Pixels = `${number}px`;
+export type REMs = `${number}rem`;
+export type Percents = `${number}%`;

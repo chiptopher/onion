@@ -30,6 +30,10 @@ export default {
             control: 'text',
             defaultValue: 'Click me!',
         },
+        width: {
+            control: 'text',
+            defaultValue: undefined,
+        },
     },
     component: Block,
     title: `Atoms/Block`,

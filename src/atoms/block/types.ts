@@ -10,10 +10,11 @@ type DirectionOptions<T extends string> =
     | `${T}`;
 
 export type Directions<T extends string, V> = Partial<
-    Mapping<DirectionOptions<T>, V>
+    Hoverable<Mapping<DirectionOptions<T>, V>>
 >;
 
 export type Hoverable<T> = T & Appended<T, 'Hover'>;
+export type LastChild<T> = T & Appended<T, 'LastChild'>;
 
 export type SpacingNonNumber = 'auto';
 
@@ -28,7 +29,7 @@ type BorderColorType = string;
 type BorderType =
     | 'none'
     | `${BorderStyleOptions} ${BorderWidthType} ${BorderColorType}`;
-export type BorderProps = Directions<'border', BorderType>;
+export type BorderProps = LastChild<Directions<'border', BorderType>>;
 
 export interface ColorProps {
     color?: Colors;
