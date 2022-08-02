@@ -31,6 +31,6 @@ type BorderType =
 export type BorderProps = Directions<'border', BorderType>;
 
 export interface ColorProps {
-    color: Colors;
-    colorTint: Tint;
+    color?: Colors;
+    colorTint?: Tint;
 }
