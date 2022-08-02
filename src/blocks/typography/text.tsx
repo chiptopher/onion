@@ -18,6 +18,7 @@ export interface TextProps {
     underlined?: boolean;
 }
 
+// TODO move to atoms folder
 export const Text2: React.FunctionComponent<TextProps> = ({
     color,
     tagName,

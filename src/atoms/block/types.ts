@@ -1,4 +1,5 @@
-import { Mapping } from '../util';
+import { Colors, Tint } from '../colors';
+import { Appended, Mapping } from '../util';
 import { BlockSpacing } from './util';
 
 type DirectionOptions<T extends string> =
@@ -8,15 +9,11 @@ type DirectionOptions<T extends string> =
     | `${T}Right`
     | `${T}`;
 
-type HoverOptions<T extends string> = `${T}` | `${T}Hover`;
-
 export type Directions<T extends string, V> = Partial<
-    Mapping<DirectionOptions<T> | HoverOptions<DirectionOptions<T>>, V>
+    Mapping<DirectionOptions<T>, V>
 >;
 
-export type Hoverable<T extends string, V> = Partial<
-    Mapping<T | `${T}Hover`, V>
->;
+export type Hoverable<T> = T & Appended<T, 'Hover'>;
 
 export type SpacingNonNumber = 'auto';
 
@@ -32,3 +29,8 @@ type BorderType =
     | 'none'
     | `${BorderStyleOptions} ${BorderWidthType} ${BorderColorType}`;
 export type BorderProps = Directions<'border', BorderType>;
+
+export interface ColorProps {
+    color: Colors;
+    colorTint: Tint;
+}

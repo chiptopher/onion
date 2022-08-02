@@ -7,7 +7,13 @@ import { Colors, Tint } from '../colors';
 import { TagName } from '../types';
 import { resolveColors } from './resolve-colors';
 import { resolveBorderSpacing } from './resolve-padding';
-import { BorderProps, MarginProps, PaddingProps } from './types';
+import {
+    BorderProps,
+    ColorProps,
+    Hoverable,
+    MarginProps,
+    PaddingProps,
+} from './types';
 
 export type JustifyContent = 'space-between' | 'center';
 
@@ -15,10 +21,6 @@ interface _Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
     borderRadius?: boolean;
     children: React.ReactNode;
-    color?: Colors;
-    colorHover?: Colors;
-    colorTint?: Tint;
-    colorTintHover?: Tint;
     cursor?: 'pointer';
     display?: 'flex';
     flexDirection?: 'column' | 'row';
@@ -42,6 +44,7 @@ type Props = _Props &
     PaddingProps &
     MarginProps &
     ButtonOnlyProps &
+    Hoverable<ColorProps> &
     HTMLTypes;
 
 export const Block: React.FunctionComponent<Props> = ({
