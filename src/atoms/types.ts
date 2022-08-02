@@ -14,4 +14,5 @@ export type TagName =
     | 'header'
     | 'a'
     | 'tr'
-    | 'td';
+    | 'td'
+    | 'button';

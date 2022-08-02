@@ -1,72 +1,70 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { Colors, resolveColorValue } from '../../atoms/colors';
-import { Padding, Size, SizedPadding } from '../../atoms/size';
-import { block } from '../../atoms/spacing';
-import { useBackground, useBackgroundColor } from '../../theme';
+import { Block } from '../../atoms/block';
+import { PaddingProps } from '../../atoms/block/types';
+import { Colors } from '../../atoms/colors';
+import { Size } from '../../atoms/size';
 import { Label } from '../typography/label';
 
 export interface Props {
     color?: Colors;
     size?: Size;
+    type?: 'reset' | 'button' | 'submit';
 }
 
 export type ButtonProps = Props &
     React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
-    type,
+    type = 'button',
     color = 'primary',
     size = 'regular',
     children,
-    ...rest
+    onClick,
 }) => {
-    const { color: textColor } = useBackground(color);
-    const unresolvedBackgroundColor = useBackgroundColor(color);
-    const padding: Padding = buttonPadding[size];
+    let p: Partial<PaddingProps>;
+
+    switch (size) {
+        case 'large':
+            p = {
+                paddingBottom: '1',
+                paddingLeft: '1.5',
+                paddingRight: '1.5',
+                paddingTop: '1',
+            };
+            break;
+        case 'regular':
+            p = {
+                paddingBottom: '0.75',
+                paddingLeft: '1',
+                paddingRight: '1',
+                paddingTop: '0.75',
+            };
+            break;
+        case 'small':
+            p = {
+                paddingBottom: '0.5',
+                paddingLeft: '0.75',
+                paddingRight: '0.75',
+                paddingTop: '0.5',
+            };
+            break;
+    }
+
     return (
-        <Container
-            backgroundColor={resolveColorValue(
-                unresolvedBackgroundColor,
-                'regular'
-            )}
-            color={textColor}
-            hoverBackgroundColor={resolveColorValue(
-                unresolvedBackgroundColor,
-                'dark'
-            )}
-            padding={padding}
-            type={type || 'button'}
-            {...rest}
+        <Block
+            border="none"
+            borderRadius
+            color={color}
+            colorHover={color}
+            colorTintHover="dark"
+            cursor="pointer"
+            {...p}
+            onClick={onClick}
+            tagName="button"
+            type={type}
         >
             <Label>{children}</Label>
-        </Container>
+        </Block>
     );
-};
-
-export const Container = styled.button<{
-    backgroundColor: string;
-    color: string;
-    hoverBackgroundColor: string;
-    padding: Padding;
-}>`
-    background-color: ${props => props.backgroundColor};
-    border-radius: 4px;
-    border: none;
-    color: ${props => props.color};
-    padding: ${props => props.padding};
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${props => props.hoverBackgroundColor};
-    }
-`;
-
-const buttonPadding: SizedPadding = {
-    large: `${block(2)} ${block(3)}`,
-    regular: `${block(1.5)} ${block(2)}`,
-    small: `${block(1)} ${block(1.5)}`,
 };

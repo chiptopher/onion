@@ -1,17 +1,17 @@
 import { BorderSpacing } from '../size';
-import { BlockSpacing } from './util';
+import { SpacingValues } from './types';
 
 export function resolveBorderSpacing(value: {
-    all?: BlockSpacing;
-    bottom?: BlockSpacing;
-    left?: BlockSpacing;
-    right?: BlockSpacing;
-    top?: BlockSpacing;
+    all?: SpacingValues;
+    bottom?: SpacingValues;
+    left?: SpacingValues;
+    right?: SpacingValues;
+    top?: SpacingValues;
 }): BorderSpacing {
-    let topValue: BlockSpacing = value.all || '0';
-    let bottom: BlockSpacing = value.all || '0';
-    let left: BlockSpacing = value.all || '0';
-    let right: BlockSpacing = value.all || '0';
+    let topValue: SpacingValues = value.all || '0';
+    let bottom: SpacingValues = value.all || '0';
+    let left: SpacingValues = value.all || '0';
+    let right: SpacingValues = value.all || '0';
 
     if (value.top) {
         topValue = value.top;

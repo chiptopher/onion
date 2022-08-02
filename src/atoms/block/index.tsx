@@ -16,14 +16,29 @@ interface _Props {
     borderRadius?: boolean;
     children: React.ReactNode;
     color?: Colors;
+    colorHover?: Colors;
     colorTint?: Tint;
+    colorTintHover?: Tint;
+    cursor?: 'pointer';
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     justifyContent?: JustifyContent;
     tagName?: TagName;
 }
 
-type Props = _Props & BorderProps & PaddingProps & MarginProps;
+// TODO make an eslint warning when giving type but tagName isn't set to 'button'
+type ButtonOnlyProps = {
+    type?: 'reset' | 'button' | 'submit';
+};
+
+type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick'>;
+
+type Props = _Props &
+    BorderProps &
+    PaddingProps &
+    MarginProps &
+    ButtonOnlyProps &
+    HTMLTypes;
 
 export const Block: React.FunctionComponent<Props> = ({
     tagName = 'div',
@@ -35,11 +50,22 @@ export const Block: React.FunctionComponent<Props> = ({
     paddingBottom,
     paddingRight,
     paddingLeft,
+    paddingTopHover,
+    paddingBottomHover,
+    paddingRightHover,
+    paddingLeftHover,
+    marginHover,
+    marginTopHover,
+    marginBottomHover,
+    marginRightHover,
+    marginLeftHover,
     margin,
     marginTop,
     marginBottom,
     marginRight,
     marginLeft,
+    colorHover,
+    colorTintHover,
     alignItems,
     ...rest
 }) => {
@@ -63,7 +89,12 @@ export const Block: React.FunctionComponent<Props> = ({
                 right: paddingRight,
                 top: paddingTop,
             })}
-            {...resolveColors(theme, { color, tint: colorTint })}
+            {...resolveColors(theme, {
+                color,
+                colorHover: colorHover,
+                tint: colorTint,
+                tintHover: colorTintHover,
+            })}
             {...rest}
         />
     );
@@ -72,8 +103,10 @@ export const Block: React.FunctionComponent<Props> = ({
 type SCProps = BorderProps & {
     alignItems?: string;
     backgroundColor: string;
+    backgroundColorHover?: string;
     borderRadius: number;
     color: string;
+    cursor?: string;
     display?: string;
     flexDirection?: string;
     justifyContent?: string;
@@ -99,4 +132,11 @@ const Container = styled.div<SCProps>`
     ${p => p.borderRight && `border-right: ${p.borderRight};`}
     ${p => p.borderBottom && `border-bottom: ${p.borderBottom};`}
     ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
+    ${p => p.cursor && `cursor: ${p.cursor};`}
+
+    &:hover {
+        ${p =>
+            p.backgroundColorHover &&
+            `background-color: ${p.backgroundColorHover};`}
+    }
 `;

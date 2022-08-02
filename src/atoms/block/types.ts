@@ -8,15 +8,27 @@ type DirectionOptions<T extends string> =
     | `${T}Right`
     | `${T}`;
 
+type HoverOptions<T extends string> = `${T}` | `${T}Hover`;
+
 export type Directions<T extends string, V> = Partial<
-    Mapping<DirectionOptions<T>, V>
+    Mapping<DirectionOptions<T> | HoverOptions<DirectionOptions<T>>, V>
 >;
 
-export type PaddingProps = Directions<'padding', BlockSpacing>;
-export type MarginProps = Directions<'margin', BlockSpacing>;
+export type Hoverable<T extends string, V> = Partial<
+    Mapping<T | `${T}Hover`, V>
+>;
+
+export type SpacingNonNumber = 'auto';
+
+export type SpacingValues = BlockSpacing | SpacingNonNumber;
+
+export type PaddingProps = Directions<'padding', SpacingValues>;
+export type MarginProps = Directions<'margin', SpacingValues>;
 
 type BorderStyleOptions = 'solid' | 'none';
 type BorderWidthType = `${number}px`;
 type BorderColorType = string;
-type BorderType = `${BorderStyleOptions} ${BorderWidthType} ${BorderColorType}`;
+type BorderType =
+    | 'none'
+    | `${BorderStyleOptions} ${BorderWidthType} ${BorderColorType}`;
 export type BorderProps = Directions<'border', BorderType>;

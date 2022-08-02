@@ -23,9 +23,6 @@ const Container = styled.div<{ breakpoints: Breakpoints }>`
     margin: 0 auto;
     width: 60%;
 
-    .inner-gutter {
-    }
-
     ${p => isLessThan(p.breakpoints.mobile.upper)} {
         width: 100%;
 
