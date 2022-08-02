@@ -1,10 +1,9 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { block, Body } from '../..';
+import { Body } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { useLoading } from './contex';
+import { BlockContainer } from './dot-container';
 
 interface Props {}
 
@@ -33,19 +32,13 @@ const Dots: React.FunctionComponent<Props> = () => {
 
     return (
         <Body>
-            <Container>
-                {dots > 0 && <span>&#8226;</span>}
-                {dots > 1 && <span>&#8226;</span>}
-                {dots > 2 && <span>&#8226;</span>}
-            </Container>
+            <div>
+                {dots > 0 && <BlockContainer>&#8226;</BlockContainer>}
+                {dots > 1 && <BlockContainer>&#8226;</BlockContainer>}
+                {dots > 2 && <BlockContainer>&#8226;</BlockContainer>}
+            </div>
         </Body>
     );
 };
-
-const Container = styled.span`
-    span {
-        margin-right: ${block(1)};
-    }
-`;
 
 LoadingSpinner.displayName = 'Loading.Spinner';

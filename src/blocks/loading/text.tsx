@@ -1,10 +1,9 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { block, Body } from '../..';
+import { Body } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { useLoading } from './contex';
+import { BlockContainer } from './dot-container';
 
 interface Props {}
 
@@ -33,20 +32,14 @@ const Dots: React.FunctionComponent<Props> = () => {
 
     return (
         <Body>
-            <Container>
-                <span>Loading</span>
-                {dots > 0 && <span>.</span>}
-                {dots > 1 && <span>.</span>}
-                {dots > 2 && <span>.</span>}
-            </Container>
+            <div>
+                <BlockContainer>Loading</BlockContainer>
+                {dots > 0 && <BlockContainer>.</BlockContainer>}
+                {dots > 1 && <BlockContainer>.</BlockContainer>}
+                {dots > 2 && <BlockContainer>.</BlockContainer>}
+            </div>
         </Body>
     );
 };
-
-const Container = styled.span`
-    span {
-        margin-right: ${block(1)};
-    }
-`;
 
 LoadingText.displayName = 'Loading.Text';
