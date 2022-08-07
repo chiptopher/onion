@@ -16,7 +16,8 @@ export type Directions<T extends string, V> = Partial<
 export type Hoverable<T> = T & Appended<T, 'Hover'>;
 export type LastChild<T> = T & Appended<T, 'LastChild'>;
 
-export type SpacingNonNumber = 'auto';
+export const spacingNonNumberValues = ['auto'] as const;
+export type SpacingNonNumber = typeof spacingNonNumberValues[number];
 
 export type SpacingValues = BlockSpacing | SpacingNonNumber;
 

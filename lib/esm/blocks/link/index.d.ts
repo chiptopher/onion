@@ -1,13 +1,10 @@
 import React from 'react';
 import { Colors } from '../../atoms/colors';
-interface SharedProps {
+interface Props {
     children: React.ReactNode;
     color?: Colors;
+    href?: string;
     tagName?: 'a' | 'button' | 'span';
 }
-declare type Props = SharedProps | (SharedProps & {
-    href?: string;
-    tagName?: 'a';
-});
 export declare const Link: React.FunctionComponent<Props>;
 export {};

@@ -1,5 +1,10 @@
-import { BorderSpacing } from '../size';
-import { SpacingValues } from './types';
+import { BorderSpacing, IndividaulPadding } from '../size';
+import {
+    SpacingNonNumber,
+    spacingNonNumberValues,
+    SpacingValues,
+} from './types';
+import { BlockSpacing } from './util';
 
 export function resolveBorderSpacing(value: {
     all?: SpacingValues;
@@ -26,5 +31,15 @@ export function resolveBorderSpacing(value: {
         right = value.right;
     }
 
-    return `${topValue}rem ${right}rem ${bottom}rem ${left}rem`;
+    return `${determineValue(topValue)} ${determineValue(
+        right
+    )} ${determineValue(bottom)} ${determineValue(left)}`;
+}
+
+function determineValue(value: SpacingValues): IndividaulPadding {
+    if (spacingNonNumberValues.includes(value as any)) {
+        return value as SpacingNonNumber;
+    } else {
+        return `${value as BlockSpacing}rem`;
+    }
 }

@@ -1,9 +1,9 @@
 import { BorderSpacing } from '../size';
-import { BlockSpacing } from './util';
+import { SpacingValues } from './types';
 export declare function resolveBorderSpacing(value: {
-    all?: BlockSpacing;
-    bottom?: BlockSpacing;
-    left?: BlockSpacing;
-    right?: BlockSpacing;
-    top?: BlockSpacing;
+    all?: SpacingValues;
+    bottom?: SpacingValues;
+    left?: SpacingValues;
+    right?: SpacingValues;
+    top?: SpacingValues;
 }): BorderSpacing;
