@@ -14,6 +14,7 @@ import { Title } from './blocks/typography/title';
 import { Breadcrumbs } from './components/breadcrumbs';
 import { Buttons } from './components/buttons';
 import { Callout } from './components/callout';
+import { Copyable } from './components/copyable';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
@@ -55,4 +56,5 @@ export {
     Flow,
     useTheme,
     ButtonProps,
+    Copyable,
 };

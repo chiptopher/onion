@@ -28,6 +28,7 @@ interface _Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     href?: string;
+    id?: string;
     justifyContent?: JustifyContent;
     listStyleType?: 'none';
     tagName?: TagName;
@@ -148,6 +149,8 @@ const Container = styled.div<SCProps>`
     margin: ${p => p.margin};
 
     border-radius: ${p => p.borderRadius}px;
+
+    font-size: inherit;
 
     ${p => p.display && `display: ${p.display};`}
     ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
