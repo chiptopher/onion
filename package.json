@@ -36,7 +36,7 @@
     "typescript-eslint-parser": "^22.0.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
