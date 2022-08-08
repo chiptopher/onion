@@ -3,7 +3,6 @@ import { ChildrenOnlyProps } from '../../atoms/util';
 import { CopyableActionProps } from './action';
 export declare const CopyableContext: React.Context<{
     copied: boolean;
-    id: string;
     setCopied: (value: boolean) => void;
 }>;
 export declare const Copyable: React.FunctionComponent<ChildrenOnlyProps> & {

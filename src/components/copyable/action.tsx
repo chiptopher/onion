@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,9 +15,15 @@ export interface CopyableActionProps {
 export const CopyableAction: React.FunctionComponent<CopyableActionProps> = ({
     style,
 }) => {
-    const { id, setCopied } = React.useContext(CopyableContext);
+    const ref = useRef<HTMLSpanElement>(null);
+    const { setCopied } = React.useContext(CopyableContext);
     const onClick = () => {
-        const copyText = document.getElementById(id);
+        const copyText = ref?.current
+            ?.closest('.copyable')
+            ?.querySelector('.copyable-content');
+
+        console.log(ref.current);
+        console.log(copyText);
         if (copyText) {
             navigator.clipboard.writeText(copyText.textContent || '');
         }
@@ -32,7 +38,11 @@ export const CopyableAction: React.FunctionComponent<CopyableActionProps> = ({
                 return <IconAction onClick={onClick} />;
         }
     };
-    return <Block marginRight="0.5">{body()}</Block>;
+    return (
+        <span ref={ref}>
+            <Block marginRight="0.5">{body()}</Block>
+        </span>
+    );
 };
 
 CopyableAction.displayName = 'Copyable.Action';

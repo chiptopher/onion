@@ -1,44 +1,41 @@
 import React from 'react';
 
-import { Body } from '../..';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from 'styled-components';
+
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { useLoading } from './contex';
-import { BlockContainer } from './dot-container';
-
-interface Props {}
 
 export const LoadingSpinner: React.FunctionComponent<ChildrenOnlyProps> = ({
     children,
 }) => {
     const [loading] = useLoading();
     if (loading) {
-        return <Dots />;
+        return (
+            <Container>
+                <FontAwesomeIcon icon={faCircleNotch} />
+            </Container>
+        );
     } else {
         return <>{children}</>;
     }
 };
 
-const Dots: React.FunctionComponent<Props> = () => {
-    const [dots, setDots] = React.useState(1);
-    React.useEffect(() => {
-        const interval = setInterval(() => {
-            setDots(dots + 1);
-            if (dots >= 10) {
-                setDots(1);
-            }
-        }, 250);
-        return () => clearInterval(interval);
-    }, [dots, setDots]);
-
-    return (
-        <Body>
-            <div>
-                {dots > 0 && <BlockContainer>&#8226;</BlockContainer>}
-                {dots > 1 && <BlockContainer>&#8226;</BlockContainer>}
-                {dots > 2 && <BlockContainer>&#8226;</BlockContainer>}
-            </div>
-        </Body>
-    );
-};
-
 LoadingSpinner.displayName = 'Loading.Spinner';
+
+const Container = styled.div`
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+`;
