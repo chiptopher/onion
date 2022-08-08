@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 import { Block } from '../../atoms/block';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { Body } from '../../blocks/typography/body';
-import { Caption } from '../../blocks/typography/caption';
 import { Flow } from '../../layout/flow';
+import { CopyableAction, CopyableActionProps } from './action';
 
-const CopyableContext = React.createContext<{
+export const CopyableContext = React.createContext<{
     copied: boolean;
     id: string;
     setCopied: (value: boolean) => void;
 }>({ copied: false, id: '', setCopied: console.log });
 
 export const Copyable: React.FunctionComponent<ChildrenOnlyProps> & {
-    Action: React.FunctionComponent;
+    Action: React.FunctionComponent<CopyableActionProps>;
     Content: React.FunctionComponent<CopyableContentProps>;
 } = ({ children }) => {
     const [copied, setCopied] = useState(false);
@@ -45,38 +45,6 @@ const CopyableContent: React.FunctionComponent<CopyableContentProps> = ({
 };
 
 CopyableContent.displayName = 'Copyable.Content';
-
-const CopyableAction: React.FunctionComponent = () => {
-    const { copied, id, setCopied } = React.useContext(CopyableContext);
-    return (
-        <Block marginRight="0.5">
-            <Caption color="primary">
-                {copied ? (
-                    <span>Copied!</span>
-                ) : (
-                    <Block
-                        border="none"
-                        onClick={() => {
-                            const copyText = document.getElementById(id);
-                            if (copyText) {
-                                navigator.clipboard.writeText(
-                                    copyText.textContent || ''
-                                );
-                            }
-                            setCopied(true);
-                        }}
-                        tagName="button"
-                        type="button"
-                    >
-                        Copy
-                    </Block>
-                )}
-            </Caption>
-        </Block>
-    );
-};
-
-CopyableAction.displayName = 'Copyable.Action';
 
 Copyable.Content = CopyableContent;
 Copyable.Action = CopyableAction;
