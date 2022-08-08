@@ -11,6 +11,7 @@ interface _Props {
     display?: 'flex';
     flexDirection?: 'column' | 'row';
     href?: string;
+    id?: string;
     justifyContent?: JustifyContent;
     listStyleType?: 'none';
     tagName?: TagName;
