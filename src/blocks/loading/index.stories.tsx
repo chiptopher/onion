@@ -21,6 +21,13 @@ const Template: ComponentStory<typeof Loading> = args => (
                 </Toggle>
             </Loading>
         </Block>
+        <Block marginBottom="1">
+            <Loading initialState={true}>
+                <Toggle>
+                    <Loading.Spinner>Start with loading</Loading.Spinner>
+                </Toggle>
+            </Loading>
+        </Block>
         <div>
             <Loading>
                 <Toggle>

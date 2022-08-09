@@ -5,11 +5,16 @@ import { LoadingContext } from './contex';
 import { LoadingSpinner } from './spinner';
 import { LoadingText } from './text';
 
-export const Loading: React.FunctionComponent<ChildrenOnlyProps> & {
+interface Props {
+    children?: React.ReactNode;
+    initialState?: boolean;
+}
+
+export const Loading: React.FunctionComponent<Props> & {
     Spinner: React.FunctionComponent<ChildrenOnlyProps>;
     Text: React.FunctionComponent<ChildrenOnlyProps>;
-} = ({ children }) => {
-    const [loading, setLoading] = React.useState(false);
+} = ({ children, initialState = false }) => {
+    const [loading, setLoading] = React.useState(initialState);
     return (
         <LoadingContext.Provider value={{ loading, setLoading }}>
             {children}
