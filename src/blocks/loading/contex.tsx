@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+import { doNothing } from '../../util';
+
 interface State {
     loading: boolean;
     setLoading: (v: boolean) => void;
@@ -7,7 +9,7 @@ interface State {
 
 export const LoadingContext = createContext<State>({
     loading: false,
-    setLoading: console.log,
+    setLoading: doNothing,
 });
 
 export function useLoading(): [boolean, (value: boolean) => void] {

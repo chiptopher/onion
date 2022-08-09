@@ -22,8 +22,6 @@ export const CopyableAction: React.FunctionComponent<CopyableActionProps> = ({
             ?.closest('.copyable')
             ?.querySelector('.copyable-content');
 
-        console.log(ref.current);
-        console.log(copyText);
         if (copyText) {
             navigator.clipboard.writeText(copyText.textContent || '');
         }
