@@ -55,69 +55,77 @@ type Props = _Props &
     Hoverable<ColorProps> &
     HTMLTypes;
 
-export const Block: React.FunctionComponent<Props> = ({
-    tagName = 'div',
-    color,
-    colorTint,
-    borderRadius,
-    padding,
-    paddingTop,
-    paddingBottom,
-    paddingRight,
-    paddingLeft,
-    paddingTopHover,
-    paddingBottomHover,
-    paddingRightHover,
-    paddingLeftHover,
-    marginHover,
-    marginTopHover,
-    marginBottomHover,
-    marginRightHover,
-    marginLeftHover,
-    margin,
-    marginTop,
-    marginBottom,
-    marginRight,
-    marginLeft,
-    colorHover,
-    colorTintHover,
-    alignItems,
-    textColor,
-    textColorTint,
-    ...rest
-}) => {
-    const theme = useTheme();
-    return (
-        <Container
-            alignItems={alignItems}
-            as={tagName}
-            borderRadius={borderRadius ? 4 : 0}
-            margin={resolveBorderSpacing({
-                all: margin,
-                bottom: marginBottom,
-                left: marginLeft,
-                right: marginRight,
-                top: marginTop,
-            })}
-            padding={resolveBorderSpacing({
-                all: padding,
-                bottom: paddingBottom,
-                left: paddingLeft,
-                right: paddingRight,
-                top: paddingTop,
-            })}
-            {...resolveColors(theme, {
-                color,
-                colorHover: colorHover,
-                textColor: textColor,
-                textColorTint: textColorTint,
-                tint: colorTint,
-                tintHover: colorTintHover,
-            })}
-            {...rest}
-        />
-    );
-};
+export const Block = React.forwardRef(
+    (
+        {
+            tagName = 'div',
+            color,
+            colorTint,
+            borderRadius,
+            padding,
+            paddingTop,
+            paddingBottom,
+            paddingRight,
+            paddingLeft,
+            paddingTopHover,
+            paddingBottomHover,
+            paddingRightHover,
+            paddingLeftHover,
+            marginHover,
+            marginTopHover,
+            marginBottomHover,
+            marginRightHover,
+            marginLeftHover,
+            margin,
+            marginTop,
+            marginBottom,
+            marginRight,
+            marginLeft,
+            colorHover,
+            colorTintHover,
+            alignItems,
+            textColor,
+            textColorTint,
+            ...rest
+        }: Props,
+        ref: any
+    ) => {
+        const theme = useTheme();
+        return (
+            <Container
+                alignItems={alignItems}
+                as={tagName}
+                borderRadius={borderRadius ? 4 : 0}
+                margin={resolveBorderSpacing({
+                    all: margin,
+                    bottom: marginBottom,
+                    left: marginLeft,
+                    right: marginRight,
+                    top: marginTop,
+                })}
+                padding={resolveBorderSpacing({
+                    all: padding,
+                    bottom: paddingBottom,
+                    left: paddingLeft,
+                    right: paddingRight,
+                    top: paddingTop,
+                })}
+                {...resolveColors(theme, {
+                    color,
+                    colorHover: colorHover,
+                    textColor: textColor,
+                    textColorTint: textColorTint,
+                    tint: colorTint,
+                    tintHover: colorTintHover,
+                })}
+                {...rest}
+                ref={ref}
+            />
+        );
+    }
+);
+
+Block.displayName = 'Block';
 
 type SCProps = BorderProps & {
     alignItems?: string;

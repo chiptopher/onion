@@ -1,7 +1,7 @@
 import React from 'react';
 import { Colors, Tint } from '../colors';
 import { Percents, Pixels, REMs, TagName } from '../types';
-import { BorderProps, ColorProps, Hoverable, MarginProps, PaddingProps } from './types';
+import { ColorProps, Hoverable } from './types';
 export declare type JustifyContent = 'space-between' | 'center';
 interface _Props {
     alignItems?: 'center' | 'flex-start' | 'flex-end';
@@ -26,6 +26,5 @@ declare type ButtonOnlyProps = {
     type?: 'reset' | 'button' | 'submit';
 };
 declare type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick'>;
-declare type Props = _Props & BorderProps & PaddingProps & MarginProps & ButtonOnlyProps & Hoverable<ColorProps> & HTMLTypes;
-export declare const Block: React.FunctionComponent<Props>;
+export declare const Block: React.ForwardRefExoticComponent<_Props & Partial<Hoverable<import("../util").Mapping<"border" | "borderBottom" | "borderLeft" | "borderRight" | "borderTop", "none" | `none ${number}px ${string}` | `solid ${number}px ${string}`>>> & import("../util").Appended<Partial<Hoverable<import("../util").Mapping<"border" | "borderBottom" | "borderLeft" | "borderRight" | "borderTop", "none" | `none ${number}px ${string}` | `solid ${number}px ${string}`>>>, "LastChild"> & Partial<Hoverable<import("../util").Mapping<"padding" | "paddingBottom" | "paddingLeft" | "paddingRight" | "paddingTop", import("./types").SpacingValues>>> & Partial<Hoverable<import("../util").Mapping<"margin" | "marginBottom" | "marginLeft" | "marginRight" | "marginTop", import("./types").SpacingValues>>> & ButtonOnlyProps & ColorProps & import("../util").Appended<ColorProps, "Hover"> & HTMLTypes & React.RefAttributes<unknown>>;
 export {};
