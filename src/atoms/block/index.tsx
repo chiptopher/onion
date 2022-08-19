@@ -32,7 +32,7 @@ interface _Props {
     justifyContent?: JustifyContent;
     listStyleType?: 'none';
     tagName?: TagName;
-    textAlign?: 'left' | 'right';
+    textAlign?: 'left' | 'right' | 'center';
     textColor?: Colors;
     textColorTint?: Tint;
     textDecoration?: 'underline';
