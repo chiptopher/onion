@@ -4,7 +4,10 @@
   "types": "./lib/esm/index.d.ts",
   "name": "@chiptopher/onion",
   "repository": "git://github.com/chiptopher/onion.git",
-  "version": "0.1.27",
+  "version": "0.1.28",
+  "files": [
+      "lib"
+  ],
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@chiptopher/push-reminder": "^0.1.12",
@@ -38,7 +41,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "rm -rf lib && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "build:storybook": "npm run build-storybook",
