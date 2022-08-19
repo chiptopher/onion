@@ -8,6 +8,7 @@ import { Body } from './blocks/typography/body';
 import { Caption } from './blocks/typography/caption';
 import { Heading } from './blocks/typography/header';
 import { Label } from './blocks/typography/label';
+import { LargerBody } from './blocks/typography/larger-body';
 import { Subheader } from './blocks/typography/subheader';
 import { Text2 as Text } from './blocks/typography/text';
 import { Title } from './blocks/typography/title';
@@ -57,4 +58,5 @@ export {
     useTheme,
     ButtonProps,
     Copyable,
+    LargerBody,
 };

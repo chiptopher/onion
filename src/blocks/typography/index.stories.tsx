@@ -6,6 +6,7 @@ import { Body } from './body';
 import { Caption } from './caption';
 import { Heading } from './header';
 import { Label } from './label';
+import { LargerBody } from './larger-body';
 import { Subheader } from './subheader';
 import { Text2 } from './text';
 import { Title } from './title';
@@ -39,6 +40,9 @@ export const Presets = () => (
         <Subheader heirarchy="3">
             SubHeader: The quick brown fox jumps over the lazy dog
         </Subheader>
+        <LargerBody>
+            LargerBody: The quick brown fox jumps over the lazy dog
+        </LargerBody>
         <Body>Body: The quick brown fox jumps over the lazy dog</Body>
         <Label>Label: The quick brown fox jumps over the lazy dog</Label>
         <Caption>Caption: The quick brown fox jumps over the lazy dog</Caption>

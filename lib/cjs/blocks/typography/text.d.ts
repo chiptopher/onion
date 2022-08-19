@@ -7,7 +7,7 @@ export interface TextProps {
     color?: Colors;
     colorTint?: Tint;
     marginBottom?: Block;
-    style: 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption';
+    style: 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption' | 'larger-body';
     tagName: TagName;
     underlined?: boolean;
 }

@@ -13,7 +13,14 @@ export interface TextProps {
     color?: Colors;
     colorTint?: Tint;
     marginBottom?: Block;
-    style: 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption';
+    style:
+        | 'title'
+        | 'header'
+        | 'subheader'
+        | 'body'
+        | 'label'
+        | 'caption'
+        | 'larger-body';
     tagName: TagName;
     underlined?: boolean;
 }
@@ -48,6 +55,8 @@ export const Text2: React.FunctionComponent<TextProps> = ({
             return <SubheaderStlyeTag {...props} />;
         case 'label':
             return <LabelStyleTag {...props} />;
+        case 'larger-body':
+            return <LargerBodyTag {...props} />;
     }
 };
 
@@ -92,4 +101,8 @@ const LabelStyleTag = styled(Container)`
     font-weight: bold;
     margin-bottom: ${block(1)};
     font-size: 1rem;
+`;
+
+const LargerBodyTag = styled(Container)`
+    font-size: 1.2rem;
 `;

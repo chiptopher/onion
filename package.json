@@ -4,9 +4,9 @@
   "types": "./lib/esm/index.d.ts",
   "name": "@chiptopher/onion",
   "repository": "git://github.com/chiptopher/onion.git",
-  "version": "0.1.28",
+  "version": "0.1.29",
   "files": [
-      "lib/"
+      "lib"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -47,6 +47,7 @@
     "build:storybook": "npm run build-storybook",
     "lint": "eslint . --ext .ts,.tsx,.js,json",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,json --fix",
+    "deploy": "npm run build && npm publish",
     "prepare": "husky install"
   },
   "dependencies": {
