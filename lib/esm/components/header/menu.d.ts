@@ -10,5 +10,6 @@ export declare const HeaderNavContainer: React.FunctionComponent<HeaderNavContai
 export declare type HeaderMenuItemProps = {
     children: React.ReactNode;
     contrasting?: boolean;
+    cta?: boolean;
 } & Pick<ButtonProps, 'onClick'>;
 export declare const HeaderMenuItem: React.FunctionComponent<HeaderMenuItemProps>;

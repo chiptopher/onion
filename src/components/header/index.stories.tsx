@@ -3,12 +3,17 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Header } from '.';
+import { Text2 } from '../../blocks/typography/text';
 
 export default {
     argTypes: {
+        inverted: {
+            control: 'boolean',
+            defaultValue: false,
+        },
         showError: {
             control: 'boolean',
-            defaultValue: 'true',
+            defaultValue: true,
         },
     },
     component: Header,
@@ -22,7 +27,11 @@ const Template: ComponentStory<typeof Header> = ({
     <>
         <Header {...args}>
             <Header.PrimaryNav>
-                <Header.Brand>Company Name</Header.Brand>
+                <Header.Brand>
+                    <Text2 style="header" tagName="span">
+                        🧅 Onion Corp
+                    </Text2>
+                </Header.Brand>
                 <Header.Menu>
                     <Header.NavContainer side="start">
                         <Header.MenuItem>About</Header.MenuItem>

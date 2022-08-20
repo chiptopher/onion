@@ -4,8 +4,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Block, block } from '../..';
+import { Colors } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { CalloutColorOptions } from '../callout';
+import { HeaderContext } from './context';
 import {
     HeaderMenu,
     HeaderMenuItem,
@@ -14,26 +15,35 @@ import {
     HeaderMenuItemProps,
 } from './menu';
 
-export const Header: React.FunctionComponent<ChildrenOnlyProps> & {
+interface Props {
+    children: React.ReactNode;
+    inverted?: boolean;
+}
+export const Header: React.FunctionComponent<Props> & {
     Brand: React.FunctionComponent<ChildrenOnlyProps>;
     Menu: React.FunctionComponent<ChildrenOnlyProps>;
     MenuItem: React.FunctionComponent<HeaderMenuItemProps>;
     Message: React.FunctionComponent<HeaderMessageProps>;
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
     PrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
-} = ({ children }) => (
-    <Block marginBottom="1.5" tagName="header">
-        {children}
-    </Block>
+} = ({ children, inverted }) => (
+    <HeaderContext.Provider value={{ inverted: Boolean(inverted) }}>
+        <Block marginBottom="1.5" tagName="header">
+            {children}
+        </Block>
+    </HeaderContext.Provider>
 );
 
 export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
     children,
-}) => (
-    <Block color="primary" tagName="div">
-        <Container>{children}</Container>
-    </Block>
-);
+}) => {
+    const { inverted } = React.useContext(HeaderContext);
+    return (
+        <Block color={inverted ? undefined : 'primary'} tagName="div">
+            <Container>{children}</Container>
+        </Block>
+    );
+};
 
 HeaderPrimaryNav.displayName = 'Header.PrimaryNav';
 
@@ -54,12 +64,12 @@ const Container = styled.nav`
 
 interface HeaderMessageProps {
     children: React.ReactNode;
-    color: CalloutColorOptions;
+    color?: Colors;
 }
 
 export const HeaderMessage: React.FunctionComponent<HeaderMessageProps> = ({
-    color,
     children,
+    color,
 }) => (
     <Block
         color={color}

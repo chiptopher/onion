@@ -1,8 +1,12 @@
 import React from 'react';
+import { Colors } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { CalloutColorOptions } from '../callout';
 import { HeaderNavContainerProps, HeaderMenuItemProps } from './menu';
-export declare const Header: React.FunctionComponent<ChildrenOnlyProps> & {
+interface Props {
+    children: React.ReactNode;
+    inverted?: boolean;
+}
+export declare const Header: React.FunctionComponent<Props> & {
     Brand: React.FunctionComponent<ChildrenOnlyProps>;
     Menu: React.FunctionComponent<ChildrenOnlyProps>;
     MenuItem: React.FunctionComponent<HeaderMenuItemProps>;
@@ -13,7 +17,7 @@ export declare const Header: React.FunctionComponent<ChildrenOnlyProps> & {
 export declare const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
 interface HeaderMessageProps {
     children: React.ReactNode;
-    color: CalloutColorOptions;
+    color?: Colors;
 }
 export declare const HeaderMessage: React.FunctionComponent<HeaderMessageProps>;
 export declare const HeaderBrand: React.FunctionComponent<ChildrenOnlyProps & {
