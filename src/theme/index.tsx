@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { breakpoint, Breakpoints } from '../atoms/breakpoints';
 import {
+    ColorArrangment,
     ColorMapping,
     Colors,
     ColorValue,
@@ -14,6 +15,11 @@ const defaultBackgroundColors: ColorMapping = {
         light: '#FF8679',
         regular: '#e74c3c',
     },
+    grey: {
+        dark: '#5A5C5C',
+        light: '#fafafa',
+        regular: '#efefef',
+    },
     light: '#efefef',
     primary: {
         dark: '#1b98b1',
@@ -22,6 +28,7 @@ const defaultBackgroundColors: ColorMapping = {
     },
     text: 'transparent',
     warning: '#f1c40f',
+    white: 'white',
 };
 
 export type Theme = {
@@ -40,18 +47,14 @@ const defaultTheme: Theme = {
     },
     backgroundTextColor: {
         danger: 'white',
+        grey: 'black',
         light: 'black',
         primary: 'white',
         text: 'black',
         warning: 'black',
+        white: 'black',
     },
-    base: {
-        grey: {
-            dark: '#5A5C5C',
-            light: '#fafafa',
-            regular: '#efefef',
-        },
-    },
+    base: { grey: { ...(defaultBackgroundColors.grey as ColorArrangment) } },
     breakpoints: {
         desktop: breakpoint(1025, 1440),
         mobile: breakpoint(0, 425),

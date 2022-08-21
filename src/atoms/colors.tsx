@@ -1,10 +1,17 @@
 import { Mapping } from './util';
 
 type ColorArangementOptions = 'dark' | 'light' | 'regular';
-type ColorArrangment = Mapping<ColorArangementOptions>;
+export type ColorArrangment = Mapping<ColorArangementOptions>;
 
 export type ColorValue = string | ColorArrangment;
-export type Colors = 'primary' | 'warning' | 'danger' | 'text' | 'light';
+export type Colors =
+    | 'primary'
+    | 'warning'
+    | 'danger'
+    | 'text'
+    | 'light'
+    | 'grey'
+    | 'white';
 export type ColorMapping = Mapping<Colors, ColorValue>;
 
 export type Tint = ColorArangementOptions;

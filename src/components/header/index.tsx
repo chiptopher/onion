@@ -39,7 +39,7 @@ export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
 }) => {
     const { inverted } = React.useContext(HeaderContext);
     return (
-        <Block color={inverted ? undefined : 'primary'} tagName="div">
+        <Block color={inverted ? 'white' : 'primary'} tagName="div">
             <Container>{children}</Container>
         </Block>
     );
