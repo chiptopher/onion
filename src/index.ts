@@ -1,4 +1,5 @@
 import { Block } from './atoms/block';
+import { resolveColorValue } from './atoms/colors';
 import { block } from './atoms/spacing';
 import { Button, ButtonProps } from './blocks/button';
 import { Link } from './blocks/link';
@@ -59,4 +60,5 @@ export {
     ButtonProps,
     Copyable,
     LargerBody,
+    resolveColorValue,
 };
