@@ -9,20 +9,32 @@ import { Label } from '../typography/label';
 export interface Props {
     color?: Colors;
     size?: Size;
+}
+
+export interface AsButtonProps {
+    href?: never;
     type?: 'reset' | 'button' | 'submit';
 }
 
+export interface AsAnchorProps {
+    href?: string;
+    type?: never;
+}
+
 export type ButtonProps = Props &
-    React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>;
+    React.ButtonHTMLAttributes<HTMLButtonElement> &
+    (AsButtonProps | AsAnchorProps);
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
     type = 'button',
     color = 'primary',
     size = 'regular',
     children,
+    href,
     onClick,
 }) => {
     let p: Partial<PaddingProps>;
+    const tagName = href ? 'a' : 'button';
 
     switch (size) {
         case 'large':
@@ -60,8 +72,10 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             colorTintHover="dark"
             cursor="pointer"
             {...p}
+            href={href}
             onClick={onClick}
-            tagName="button"
+            tagName={tagName}
+            textDecoration="none"
             type={type}
         >
             <Label>{children}</Label>

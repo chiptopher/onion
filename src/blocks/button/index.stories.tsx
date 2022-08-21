@@ -10,6 +10,10 @@ export default {
             control: 'text',
             defaultValue: 'Click me!',
         },
+        href: {
+            control: 'text',
+            defaultValue: undefined,
+        },
     },
     component: Button,
     title: `Blocks/Button`,

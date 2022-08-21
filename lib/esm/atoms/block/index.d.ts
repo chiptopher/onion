@@ -18,7 +18,7 @@ interface _Props {
     textAlign?: 'left' | 'right' | 'center';
     textColor?: Colors;
     textColorTint?: Tint;
-    textDecoration?: 'underline';
+    textDecoration?: 'underline' | 'none';
     verticalAlign?: 'top';
     width?: Pixels | REMs | Percents;
 }
