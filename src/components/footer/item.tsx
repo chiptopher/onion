@@ -10,7 +10,12 @@ export const FooterItem: React.FunctionComponent<FooterItemProps> = ({
     children,
 }) => {
     return (
-        <Block marginBottom="0.25" tagName="li">
+        <Block
+            cursor="pointer"
+            marginBottom="0.25"
+            tagName="li"
+            textDecoration="underline"
+        >
             <Body>{children}</Body>
         </Block>
     );
