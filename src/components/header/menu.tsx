@@ -1,25 +1,75 @@
 import React from 'react';
 
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
-import { block, Button } from '../..';
+import { block, Button, useTheme } from '../..';
+import { Breakpoints } from '../../atoms/breakpoints';
 import { Colors } from '../../atoms/colors';
+import { isLessThan } from '../../atoms/media';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ButtonProps } from '../../blocks/button';
-import { HeaderContext } from './context';
+import { HeaderContext, MenuContentContext } from './context';
 
 export const HeaderMenu: React.FunctionComponent<Partial<ChildrenOnlyProps>> =
-    props => {
-        return <Container {...props} />;
+    ({ children, ...rest }) => {
+        const breakpoints = useTheme().breakpoints;
+        const [hamburgerOpen, setHamburgerOpen] = React.useState(false);
+        const { setContent, setVisible } = React.useContext(MenuContentContext);
+
+        React.useEffect(() => {
+            setContent(children);
+        }, []);
+
+        React.useEffect(() => {
+            setVisible(hamburgerOpen);
+        }, [hamburgerOpen]);
+
+        return (
+            <Container {...rest} breakpoints={breakpoints}>
+                {children}
+                <a
+                    aria-expanded="false"
+                    aria-label="menu"
+                    className="navbar-burger"
+                    data-target="navbarBasicExample"
+                    onClick={() => setHamburgerOpen(!hamburgerOpen)}
+                    role="button"
+                >
+                    {hamburgerOpen ? (
+                        <FontAwesomeIcon icon={faX} />
+                    ) : (
+                        <FontAwesomeIcon icon={faBars} />
+                    )}
+                </a>
+            </Container>
+        );
     };
 
 HeaderMenu.displayName = 'Header.Menu';
 
-const Container = styled.div`
+const Container = styled.div<{ breakpoints: Breakpoints }>`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    .navbar-burger {
+        display: none;
+        ${p => isLessThan(p.breakpoints.mobile.upper)} {
+            display: block;
+        }
+    }
+
+    ${p => isLessThan(p.breakpoints.mobile.upper)} {
+        justify-content: flex-end;
+
+        .header-menu-start,
+        .header-menu-end {
+            display: none;
+        }
+    }
 
     .header-menu-end {
         .menu-item {

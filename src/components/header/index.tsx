@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { Block, block } from '../..';
 import { Colors } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { HeaderContext } from './context';
+import { HeaderContext, MenuContentContext } from './context';
 import {
     HeaderMenu,
     HeaderMenuItem,
@@ -26,21 +26,31 @@ export const Header: React.FunctionComponent<Props> & {
     Message: React.FunctionComponent<HeaderMessageProps>;
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
     PrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
-} = ({ children, inverted }) => (
-    <HeaderContext.Provider value={{ inverted: Boolean(inverted) }}>
-        <Block marginBottom="1.5" tagName="header">
-            {children}
-        </Block>
-    </HeaderContext.Provider>
-);
+} = ({ children, inverted }) => {
+    const [content, setContent] = React.useState<any>();
+    const [visible, setVisible] = React.useState<boolean>();
+    return (
+        <MenuContentContext.Provider
+            value={{ content, setContent, setVisible, visible }}
+        >
+            <HeaderContext.Provider value={{ inverted: Boolean(inverted) }}>
+                <Block marginBottom="1.5" tagName="header">
+                    {children}
+                </Block>
+            </HeaderContext.Provider>
+        </MenuContentContext.Provider>
+    );
+};
 
 export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
     children,
 }) => {
     const { inverted } = React.useContext(HeaderContext);
+    const { content, visible } = React.useContext(MenuContentContext);
     return (
         <Block color={inverted ? 'white' : 'primary'} tagName="div">
             <Container>{children}</Container>
+            {content && visible && <div>{content}</div>}
         </Block>
     );
 };
