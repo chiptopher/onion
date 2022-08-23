@@ -25,7 +25,7 @@ interface _Props {
     borderRadius?: boolean;
     children: React.ReactNode;
     cursor?: 'pointer';
-    display?: 'flex';
+    display?: 'flex' | 'none';
     flexDirection?: 'column' | 'row';
     href?: string;
     id?: string;
