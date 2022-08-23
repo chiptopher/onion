@@ -57,12 +57,12 @@ const Container = styled.div<{ breakpoints: Breakpoints }>`
 
     .navbar-burger {
         display: none;
-        ${p => isLessThan(p.breakpoints.mobile.upper)} {
+        ${p => isLessThan(p.breakpoints.tablet.upper)} {
             display: block;
         }
     }
 
-    ${p => isLessThan(p.breakpoints.mobile.upper)} {
+    ${p => isLessThan(p.breakpoints.tablet.upper)} {
         justify-content: flex-end;
 
         .header-menu-start,

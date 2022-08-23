@@ -56,9 +56,9 @@ const defaultTheme: Theme = {
     },
     base: { grey: { ...(defaultBackgroundColors.grey as ColorArrangment) } },
     breakpoints: {
-        desktop: breakpoint(1025, 1440),
+        desktop: breakpoint(801, 1440),
         mobile: breakpoint(0, 425),
-        tablet: breakpoint(426, 1024),
+        tablet: breakpoint(426, 800),
         wide: breakpoint(1441, Infinity),
     },
     textColor: {

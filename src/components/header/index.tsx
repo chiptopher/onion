@@ -50,12 +50,27 @@ export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
     return (
         <Block color={inverted ? 'white' : 'primary'} tagName="div">
             <Container>{children}</Container>
-            {content && visible && <div>{content}</div>}
+            {content && (
+                <Block display={visible ? undefined : 'none'} paddingBottom="1">
+                    <MobileNavContainer className="mobile-header-menu">
+                        {content}
+                    </MobileNavContainer>
+                </Block>
+            )}
         </Block>
     );
 };
 
 HeaderPrimaryNav.displayName = 'Header.PrimaryNav';
+
+const MobileNavContainer = styled.div`
+    .header-menu-start,
+    .header-menu-end {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+`;
 
 const Container = styled.nav`
     display: flex;
