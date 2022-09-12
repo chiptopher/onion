@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { block } from '..';
+import { Block, block } from '..';
 import { Colors, resolveColorValue } from '../atoms/colors';
 import { Caption } from '../blocks/typography/caption';
 import { Label } from '../blocks/typography/label';
@@ -32,7 +32,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     return (
         <Container borderColor={resolveColorValue(theme.base.grey, 'regular')}>
             {label && <Label htmlFor={htmlFor}>{label}</Label>}
-            <div>{children}</div>
+            <Block marginBottom="0.5">{children}</Block>
             <HelpText help={help} />
         </Container>
     );
@@ -47,7 +47,7 @@ const Container = styled.div<{ borderColor: string }>`
         width: 100%;
         border: solid 1px ${p => p.borderColor};
         font-size: 1rem;
-        padding: 0.25rem 0.25rem;
+        padding: 0.5rem 0.5rem;
     }
 `;
 
