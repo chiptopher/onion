@@ -22,7 +22,7 @@ export const Loading: React.FunctionComponent<Props> & {
     );
 };
 
-export function withLoading(Component: any) {
+export function withLoading<T>(Component: React.FunctionComponent<T>) {
     // eslint-disable-next-line react/display-name
     return (props: any) => (
         <Loading>
