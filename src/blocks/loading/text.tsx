@@ -31,7 +31,7 @@ const Dots: React.FunctionComponent<Props> = () => {
     }, [dots, setDots]);
 
     return (
-        <Body>
+        <Body tagName="span">
             <div>
                 <BlockContainer>Loading</BlockContainer>
                 {dots > 0 && <BlockContainer>.</BlockContainer>}
