@@ -4,7 +4,7 @@ import { Block } from '../../atoms/block';
 import { PaddingProps } from '../../atoms/block/types';
 import { Colors } from '../../atoms/colors';
 import { Size } from '../../atoms/size';
-import { Label } from '../typography/label';
+import { Text2 } from '../typography/text';
 
 export interface Props {
     color?: Colors;
@@ -78,7 +78,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             textDecoration="none"
             type={type}
         >
-            <Label>{children}</Label>
+            <Text2 style="label" tagName="span">
+                {children}
+            </Text2>
         </Block>
     );
 };
