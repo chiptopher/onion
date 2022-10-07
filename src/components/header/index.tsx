@@ -112,7 +112,7 @@ HeaderMessage.displayName = 'Header.Message';
 
 export const HeaderBrand: React.FunctionComponent<
     ChildrenOnlyProps & { href?: string }
-> = props => <a className="header-brand" {...props} />;
+> = props => <span className="header-brand" {...props} />;
 
 HeaderBrand.displayName = 'Header.Brand';
 
