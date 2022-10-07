@@ -38,7 +38,7 @@ export const TableBodyCell: React.FunctionComponent<TableBodyCellProps> = ({
             tagName="td"
             {...rest}
         >
-            <Body>{children}</Body>
+            <Body tagName="span">{children}</Body>
         </Block>
     );
 };
