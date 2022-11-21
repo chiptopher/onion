@@ -21,9 +21,9 @@ export const Gutter: React.FunctionComponent<ChildrenOnlyProps> = ({
 
 const Container = styled.div<{ breakpoints: Breakpoints }>`
     margin: 0 auto;
-    width: 60%;
+    width: 1024px;
 
-    ${p => isLessThan(p.breakpoints.mobile.upper)} {
+    ${p => isLessThan(p.breakpoints.desktop.upper)} {
         width: 100%;
 
         .inner-gutter {
