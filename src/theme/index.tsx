@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import merge from 'lodash/merge';
+
 import { breakpoint, Breakpoints } from '../atoms/breakpoints';
 import {
     ColorArrangment,
@@ -8,6 +10,7 @@ import {
     ColorValue,
     resolveColorValue,
 } from '../atoms/colors';
+import { DeepPartial } from '../util';
 
 const defaultBackgroundColors: ColorMapping = {
     danger: {
@@ -68,7 +71,21 @@ const defaultTheme: Theme = {
 };
 
 export const ThemeContext = React.createContext<Theme>(defaultTheme);
-export const ThemeProvider = ThemeContext.Provider;
+
+interface ProviderProps {
+    children: React.ReactNode;
+    themeOverride: DeepPartial<Theme>;
+}
+
+export const ThemeProvider: React.FunctionComponent<ProviderProps> = ({
+    children,
+    themeOverride,
+}) => (
+    <ThemeContext.Provider value={merge(defaultTheme, themeOverride)}>
+        {children}
+    </ThemeContext.Provider>
+);
+
 export const useTheme = () => useContext(ThemeContext);
 
 /**
