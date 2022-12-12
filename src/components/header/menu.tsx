@@ -103,15 +103,14 @@ export const HeaderNavContainer: React.FunctionComponent<HeaderNavContainerProps
 HeaderNavContainer.displayName = 'Header.NavContainer';
 
 export type HeaderMenuItemProps = {
-    children: React.ReactNode;
     contrasting?: boolean;
     cta?: boolean;
-} & Pick<ButtonProps, 'onClick'>;
+} & Exclude<ButtonProps, 'color'>;
 
 export const HeaderMenuItem: React.FunctionComponent<HeaderMenuItemProps> = ({
     contrasting = false,
     cta,
-    ...rest
+    ...buttonProps
 }) => {
     const { inverted } = React.useContext(HeaderContext);
     let color: Colors | undefined;
@@ -132,7 +131,7 @@ export const HeaderMenuItem: React.FunctionComponent<HeaderMenuItemProps> = ({
 
     return (
         <span className="menu-item">
-            <Button color={color} {...rest} />
+            <Button color={color} {...buttonProps} />
         </span>
     );
 };

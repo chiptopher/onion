@@ -74,7 +74,7 @@ const MobileNavContainer = styled.div`
 
 const Container = styled.nav`
     display: flex;
-    padding: ${block(1)} ${block(3)};
+    padding: ${block(1)} 0;
 
     .header-brand {
         display: flex;
