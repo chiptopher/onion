@@ -8,8 +8,7 @@ export interface HeaderNavContainerProps {
 }
 export declare const HeaderNavContainer: React.FunctionComponent<HeaderNavContainerProps>;
 export declare type HeaderMenuItemProps = {
-    children: React.ReactNode;
     contrasting?: boolean;
     cta?: boolean;
-} & Pick<ButtonProps, 'onClick'>;
+} & Exclude<ButtonProps, 'color'>;
 export declare const HeaderMenuItem: React.FunctionComponent<HeaderMenuItemProps>;

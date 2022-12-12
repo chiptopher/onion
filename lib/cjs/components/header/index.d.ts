@@ -12,9 +12,12 @@ export declare const Header: React.FunctionComponent<Props> & {
     MenuItem: React.FunctionComponent<HeaderMenuItemProps>;
     Message: React.FunctionComponent<HeaderMessageProps>;
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
-    PrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
+    PrimaryNav: React.FunctionComponent<HeaderPrimaryNavProps>;
 };
-export declare const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
+interface HeaderPrimaryNavProps extends ChildrenOnlyProps {
+    gutter?: boolean;
+}
+export declare const HeaderPrimaryNav: React.FunctionComponent<HeaderPrimaryNavProps>;
 interface HeaderMessageProps {
     children: React.ReactNode;
     color?: Colors;

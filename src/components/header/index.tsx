@@ -3,7 +3,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Block, block } from '../..';
+import { Block, block, Gutter } from '../..';
 import { Colors } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { HeaderContext, MenuContentContext } from './context';
@@ -25,7 +25,7 @@ export const Header: React.FunctionComponent<Props> & {
     MenuItem: React.FunctionComponent<HeaderMenuItemProps>;
     Message: React.FunctionComponent<HeaderMessageProps>;
     NavContainer: React.FunctionComponent<HeaderNavContainerProps>;
-    PrimaryNav: React.FunctionComponent<ChildrenOnlyProps>;
+    PrimaryNav: React.FunctionComponent<HeaderPrimaryNavProps>;
 } = ({ children, inverted }) => {
     const [content, setContent] = React.useState<any>();
     const [visible, setVisible] = React.useState<boolean>();
@@ -42,24 +42,37 @@ export const Header: React.FunctionComponent<Props> & {
     );
 };
 
-export const HeaderPrimaryNav: React.FunctionComponent<ChildrenOnlyProps> = ({
-    children,
-}) => {
-    const { inverted } = React.useContext(HeaderContext);
-    const { content, visible } = React.useContext(MenuContentContext);
-    return (
-        <Block color={inverted ? 'white' : 'primary'} tagName="div">
-            <Container>{children}</Container>
-            {content && (
-                <Block display={visible ? undefined : 'none'} paddingBottom="1">
-                    <MobileNavContainer className="mobile-header-menu">
-                        {content}
-                    </MobileNavContainer>
-                </Block>
-            )}
-        </Block>
-    );
-};
+interface HeaderPrimaryNavProps extends ChildrenOnlyProps {
+    gutter?: boolean;
+}
+
+export const HeaderPrimaryNav: React.FunctionComponent<HeaderPrimaryNavProps> =
+    ({ children, gutter }) => {
+        const { inverted } = React.useContext(HeaderContext);
+        const { content, visible } = React.useContext(MenuContentContext);
+        return (
+            <Block color={inverted ? 'white' : 'primary'} tagName="div">
+                {gutter ? (
+                    <Gutter>
+                        <Container>{children}</Container>
+                    </Gutter>
+                ) : (
+                    <Container>{children}</Container>
+                )}
+
+                {content && (
+                    <Block
+                        display={visible ? undefined : 'none'}
+                        paddingBottom="1"
+                    >
+                        <MobileNavContainer className="mobile-header-menu">
+                            {content}
+                        </MobileNavContainer>
+                    </Block>
+                )}
+            </Block>
+        );
+    };
 
 HeaderPrimaryNav.displayName = 'Header.PrimaryNav';
 
@@ -74,7 +87,7 @@ const MobileNavContainer = styled.div`
 
 const Container = styled.nav`
     display: flex;
-    padding: ${block(1)} 0;
+    min-height: ${block(8)};
 
     .header-brand {
         display: flex;

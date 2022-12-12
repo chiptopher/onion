@@ -2,7 +2,7 @@ import { REMValue } from './types';
 
 export const spacingBaseSizeInRems = 0.5;
 
-export type PossibleScale = 0.5 | 1 | 1.5 | 2 | 3 | 4 | 6;
+export type PossibleScale = 0.5 | 1 | 1.5 | 2 | 3 | 4 | 6 | 8;
 
 export type Block = `${PossibleScale}`;
 

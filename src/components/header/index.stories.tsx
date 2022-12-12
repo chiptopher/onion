@@ -7,6 +7,10 @@ import { Text2 } from '../../blocks/typography/text';
 
 export default {
     argTypes: {
+        gutter: {
+            control: 'boolean',
+            defaultValue: false,
+        },
         inverted: {
             control: 'boolean',
             defaultValue: false,
@@ -22,11 +26,12 @@ export default {
 
 const Template: ComponentStory<typeof Header> = ({
     showError,
+    gutter,
     ...args
 }: any) => (
     <>
         <Header {...args}>
-            <Header.PrimaryNav>
+            <Header.PrimaryNav gutter={gutter}>
                 <Header.Brand>
                     <Text2 style="header" tagName="span">
                         🧅 Onion Corp
