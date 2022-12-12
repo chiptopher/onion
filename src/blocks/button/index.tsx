@@ -37,6 +37,14 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     const tagName = href ? 'a' : 'button';
 
     switch (size) {
+        case 'none':
+            p = {
+                paddingBottom: '0',
+                paddingLeft: '0',
+                paddingRight: '0',
+                paddingTop: '0',
+            };
+            break;
         case 'large':
             p = {
                 paddingBottom: '1',

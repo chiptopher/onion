@@ -1,7 +1,7 @@
 import { SpacingNonNumber } from './block/types';
 import { Mapping } from './util';
 
-export type Size = 'regular' | 'small' | 'large';
+export type Size = 'regular' | 'small' | 'large' | 'none';
 export type Sized<T> = Mapping<Size, T>;
 
 export type IndividaulPadding = `${number}rem` | SpacingNonNumber;
