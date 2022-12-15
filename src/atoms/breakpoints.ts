@@ -1,4 +1,4 @@
-interface Bounds {
+export interface Bounds {
     lower: number;
     upper: number;
 }
