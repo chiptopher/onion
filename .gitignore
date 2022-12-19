@@ -2,3 +2,5 @@ node_modules/
 .rollup.cache/
 storybook-static/
 .env
+
+lib/
