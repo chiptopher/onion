@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Block } from '../../atoms/block';
-import { ColorProps, PaddingProps } from '../../atoms/block/types';
+import { ColorProps, Hoverable, PaddingProps } from '../../atoms/block/types';
 import { Size } from '../../atoms/size';
 import { Text2 } from '../typography/text';
 
@@ -21,6 +21,7 @@ export interface AsAnchorProps {
 
 export type ButtonProps = Props &
     ColorProps &
+    Hoverable<ColorProps> &
     React.ButtonHTMLAttributes<HTMLButtonElement> &
     (AsButtonProps | AsAnchorProps);
 
@@ -29,9 +30,11 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     color = 'primary',
     colorTint = 'regular',
     size = 'regular',
+    colorTintHover = 'dark',
     children,
     href,
     onClick,
+    colorHover,
 }) => {
     let p: Partial<PaddingProps>;
     const tagName = href ? 'a' : 'button';
@@ -76,9 +79,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             border="none"
             borderRadius
             color={color}
-            colorHover={color}
+            colorHover={colorHover || color}
             colorTint={colorTint}
-            colorTintHover="dark"
+            colorTintHover={colorTintHover}
             cursor="pointer"
             {...p}
             href={href}
