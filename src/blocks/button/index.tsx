@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { Block } from '../../atoms/block';
-import { PaddingProps } from '../../atoms/block/types';
-import { Colors } from '../../atoms/colors';
+import { ColorProps, PaddingProps } from '../../atoms/block/types';
 import { Size } from '../../atoms/size';
 import { Text2 } from '../typography/text';
 
 export interface Props {
-    color?: Colors;
     size?: Size;
 }
 
@@ -22,12 +20,14 @@ export interface AsAnchorProps {
 }
 
 export type ButtonProps = Props &
+    ColorProps &
     React.ButtonHTMLAttributes<HTMLButtonElement> &
     (AsButtonProps | AsAnchorProps);
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
     type = 'button',
     color = 'primary',
+    colorTint = 'regular',
     size = 'regular',
     children,
     href,
@@ -77,6 +77,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             borderRadius
             color={color}
             colorHover={color}
+            colorTint={colorTint}
             colorTintHover="dark"
             cursor="pointer"
             {...p}
