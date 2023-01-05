@@ -4,7 +4,7 @@
   "types": "./lib/esm/index.d.ts",
   "name": "@chiptopher/onion",
   "repository": "git://github.com/chiptopher/onion.git",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "files": [
     "lib"
   ],
