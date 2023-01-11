@@ -6,6 +6,7 @@ import { Colors } from '../../atoms/colors';
 export type Props = {
     children: React.ReactNode;
     color?: Colors;
+    tagName?: 'span' | 'a';
 } & Pick<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     'onClick' | 'target' | 'href'
@@ -13,7 +14,14 @@ export type Props = {
 
 export const Link = React.forwardRef(
     (
-        { color = 'primary', children, href, onClick, target }: Props,
+        {
+            color = 'primary',
+            children,
+            href,
+            onClick,
+            target,
+            tagName = 'a',
+        }: Props,
         ref: any
     ) => {
         const targetProps =
@@ -27,7 +35,7 @@ export const Link = React.forwardRef(
                 href={href}
                 onClick={onClick}
                 ref={ref}
-                tagName="a"
+                tagName={tagName}
                 textColor={color}
                 textDecoration="underline"
                 {...targetProps}
