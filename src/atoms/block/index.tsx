@@ -17,6 +17,11 @@ import {
 
 export type JustifyContent = 'space-between' | 'center';
 
+type AnchorProps = Pick<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    'target' | 'rel'
+>;
+
 // TODO Illegal prop combons
 //   verticalAlign - only on tbody
 
@@ -48,6 +53,7 @@ type ButtonOnlyProps = {
 type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick'>;
 
 type Props = _Props &
+    AnchorProps &
     BorderProps &
     PaddingProps &
     MarginProps &

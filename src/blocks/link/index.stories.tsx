@@ -18,7 +18,7 @@ export default {
 
 const Template: ComponentStory<typeof Link> = props => (
     <Body>
-        <Link {...props} />
+        <Link href="https://google.com" target="_blank" {...props} />
     </Body>
 );
 
