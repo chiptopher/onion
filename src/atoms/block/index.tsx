@@ -50,7 +50,10 @@ type ButtonOnlyProps = {
     type?: 'reset' | 'button' | 'submit';
 };
 
-type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick'>;
+type HTMLTypes = Pick<
+    React.ButtonHTMLAttributes<HTMLElement>,
+    'onClick' | 'className'
+>;
 
 type Props = _Props &
     AnchorProps &
