@@ -102,7 +102,7 @@ const Container = styled.div<{ breakpoints: Breakpoints; size: GutterSize }>`
 
     .desktop__none,
     .desktop__regular {
-        ${p => isLessThan(p.breakpoints.desktop.upper)} {
+        ${p => isLessThan(p.breakpoints.desktop.lower)} {
             width: 100%;
 
             &.mobile__regular {
