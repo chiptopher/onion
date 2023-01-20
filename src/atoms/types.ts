@@ -23,7 +23,9 @@ export type TagName =
     | 'ul'
     | 'nav'
     | 'li'
-    | 'table';
+    | 'table'
+    | 'summary'
+    | 'details';
 
 export type Pixels = `${number}px`;
 export type REMs = `${number}rem`;
