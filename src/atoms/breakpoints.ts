@@ -16,3 +16,8 @@ export function breakpoint(lower: number, upper: number) {
         upper,
     };
 }
+
+export type ForBreakpoints<
+    T,
+    E extends keyof Breakpoints = 'mobile' | 'tablet' | 'wide' | 'desktop'
+> = T | Partial<Pick<Record<keyof Breakpoints, T>, E>>;

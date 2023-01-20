@@ -1,3 +1,4 @@
+import { ForBreakpoints } from '../breakpoints';
 import { Colors, Tint } from '../colors';
 import { Appended, Mapping } from '../util';
 import { BlockSpacing } from './util';
@@ -21,7 +22,8 @@ export type SpacingNonNumber = typeof spacingNonNumberValues[number];
 
 export type SpacingValues = BlockSpacing | SpacingNonNumber;
 
-export type PaddingProps = Directions<'padding', SpacingValues>;
+export type SpacingPropsValue = ForBreakpoints<SpacingValues>;
+export type PaddingProps = Directions<'padding', SpacingPropsValue>;
 export type MarginProps = Directions<'margin', SpacingValues>;
 
 type BorderStyleOptions = 'solid' | 'none';

@@ -21,6 +21,8 @@
   "exclude": [
     "node_modules",
     "lib",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
     "src/**/*.stories.tsx",
     "src/**/stories.tsx"
   ]

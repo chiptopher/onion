@@ -4,15 +4,15 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 
 import { block } from '../..';
-import { Breakpoints } from '../../atoms/breakpoints';
+import { Breakpoints, ForBreakpoints } from '../../atoms/breakpoints';
 import { isLessThan } from '../../atoms/media';
 import { Size } from '../../atoms/size';
 import { useTheme } from '../../theme';
 
 type P<T> = Partial<Pick<Record<keyof Breakpoints, T>, 'desktop' | 'mobile'>>;
-type ForBreakpoints<T> = T | P<T>;
 type I = Extract<Size, 'regular' | 'none'>;
-type GutterSize = ForBreakpoints<I>;
+
+type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
 
 interface Props extends PropsWithChildren {
     size?: GutterSize;

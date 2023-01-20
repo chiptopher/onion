@@ -6,7 +6,7 @@ import { useTheme } from '../../theme';
 import { Colors, Tint } from '../colors';
 import { Percents, Pixels, REMs, TagName } from '../types';
 import { resolveColors } from './resolve-colors';
-import { resolveBorderSpacing } from './resolve-padding';
+import { resolveBorderSpacing, resolveBorderSpacing2 } from './resolve-padding';
 import {
     BorderProps,
     ColorProps,
@@ -109,13 +109,16 @@ export const Block = React.forwardRef(
                     right: marginRight,
                     top: marginTop,
                 })}
-                padding={resolveBorderSpacing({
-                    all: padding,
-                    bottom: paddingBottom,
-                    left: paddingLeft,
-                    right: paddingRight,
-                    top: paddingTop,
-                })}
+                padding={resolveBorderSpacing2(
+                    {
+                        padding,
+                        paddingBottom,
+                        paddingLeft,
+                        paddingRight,
+                        paddingTop,
+                    },
+                    theme.breakpoints
+                )}
                 {...resolveColors(theme, {
                     color,
                     colorHover: colorHover,
@@ -159,7 +162,7 @@ type SCProps = BorderProps & {
 const Container = styled.div<SCProps>`
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
-    padding: ${p => p.padding};
+    ${p => p.padding}
     margin: ${p => p.margin};
 
     border-radius: ${p => p.borderRadius}px;
