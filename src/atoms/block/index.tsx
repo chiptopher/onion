@@ -64,6 +64,8 @@ type Props = _Props &
     Hoverable<ColorProps> &
     HTMLTypes;
 
+export type BlockProps = Props;
+
 export const Block = React.forwardRef(
     (
         {

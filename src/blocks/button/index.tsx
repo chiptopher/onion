@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Block } from '../../atoms/block';
+import { Block, BlockProps } from '../../atoms/block';
 import { ColorProps, Hoverable, PaddingProps } from '../../atoms/block/types';
 import { Size } from '../../atoms/size';
+import { useTheme } from '../../theme';
 import { Text2 } from '../typography/text';
 
 export interface Props {
@@ -20,6 +21,7 @@ export interface AsAnchorProps {
 }
 
 export type ButtonProps = Props &
+    Pick<BlockProps, 'borderRadius'> &
     ColorProps &
     Hoverable<ColorProps> &
     React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -34,10 +36,15 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     children,
     href,
     onClick,
+    borderRadius,
     colorHover,
 }) => {
     let p: Partial<PaddingProps>;
     const tagName = href ? 'a' : 'button';
+
+    const theme = useTheme();
+    const finalBorderRadius =
+        borderRadius || theme.components?.button?.borderRadius;
 
     switch (size) {
         case 'none':
@@ -77,7 +84,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     return (
         <Block
             border="none"
-            borderRadius
+            borderRadius={finalBorderRadius}
             color={color}
             colorHover={colorHover || color}
             colorTint={colorTint}

@@ -17,6 +17,11 @@ const Template: ComponentStory<typeof ThemeProvider> = () => (
                 backgroundColor: {
                     primary: 'red',
                 },
+                components: {
+                    button: {
+                        borderRadius: false,
+                    },
+                },
             }}
         >
             <Button color="primary">hello</Button>

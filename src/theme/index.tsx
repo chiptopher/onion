@@ -41,6 +41,11 @@ export type Theme = {
         grey: ColorValue;
     };
     breakpoints: Breakpoints;
+    components?: {
+        button?: {
+            borderRadius?: boolean;
+        };
+    };
     textColor: ColorMapping;
 };
 
@@ -63,6 +68,11 @@ const defaultTheme: Theme = {
         mobile: breakpoint(0, 425),
         tablet: breakpoint(426, 800),
         wide: breakpoint(1441, Infinity),
+    },
+    components: {
+        button: {
+            borderRadius: true,
+        },
     },
     textColor: {
         ...defaultBackgroundColors,
