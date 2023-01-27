@@ -36,6 +36,7 @@ interface _Props {
     id?: string;
     justifyContent?: JustifyContent;
     listStyleType?: 'none';
+    open?: boolean;
     tagName?: TagName;
     textAlign?: 'left' | 'right' | 'center';
     textColor?: Colors;

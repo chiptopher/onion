@@ -8,19 +8,21 @@ import { Block } from '../../atoms/spacing';
 import { TagName } from '../../atoms/types';
 import { useTextColor } from '../../theme';
 
+export type TextStlye =
+    | 'title'
+    | 'header'
+    | 'subheader'
+    | 'body'
+    | 'label'
+    | 'caption'
+    | 'larger-body';
+
 export interface TextProps {
     children: React.ReactNode;
     color?: Colors;
     colorTint?: Tint;
     marginBottom?: Block;
-    style:
-        | 'title'
-        | 'header'
-        | 'subheader'
-        | 'body'
-        | 'label'
-        | 'caption'
-        | 'larger-body';
+    style: TextStlye;
     tagName: TagName;
     underlined?: boolean;
 }
@@ -37,6 +39,7 @@ export const Text2: React.FunctionComponent<TextProps> = ({
     const textColor = useTextColor(color);
     const props = {
         as: tagName,
+        className: 'onion-text',
         color: resolveColorValue(textColor, colorTint),
         ...rest,
     };
