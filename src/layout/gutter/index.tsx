@@ -95,6 +95,7 @@ const Container = styled.div<{ breakpoints: Breakpoints; size: GutterSize }>`
     .desktop__regular {
         margin: 0 auto;
         width: 1024px;
+        max-width: 100%;
     }
 
     .desktop__none {
