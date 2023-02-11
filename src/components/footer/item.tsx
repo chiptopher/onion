@@ -8,9 +8,13 @@ export interface FooterItemProps {
     children: React.ReactNode;
 }
 
-export const FooterItem: React.FunctionComponent<FooterItemProps> = ({
+/*
+ * @deprecated Favor Footer.Nav.Item
+ */
+export const FooterNavItem: React.FunctionComponent<FooterItemProps> = ({
     children,
 }) => {
+    console.warn('FooterItem is a deprecated component');
     return (
         <Container
             cursor="pointer"

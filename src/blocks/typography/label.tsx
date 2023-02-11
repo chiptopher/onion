@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Text2, TextProps } from './text';
 
-type Props = Pick<React.LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor'>;
+type _Props = Pick<React.LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor'>;
 
-export const Label: React.FunctionComponent<
-    Omit<TextProps, 'tagName' | 'style'> & Props
-> = props => {
+export type LabelProps = Omit<TextProps, 'tagName' | 'style'> & _Props;
+
+export const Label: React.FunctionComponent<LabelProps> = props => {
     return <Text2 marginBottom="1" style="label" tagName="label" {...props} />;
 };

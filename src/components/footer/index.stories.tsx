@@ -20,8 +20,8 @@ const Template: ComponentStory<typeof Footer> = () => (
     <Footer>
         <Footer.Title>Meme</Footer.Title>
         <Footer.Nav>
-            <Footer.Item>Thing the First</Footer.Item>
-            <Footer.Item>
+            <Footer.Nav.Item>Thing the First</Footer.Nav.Item>
+            <Footer.Nav.Item>
                 <OutboundLink
                     color="text"
                     href="https://google.com"
@@ -29,8 +29,22 @@ const Template: ComponentStory<typeof Footer> = () => (
                 >
                     Second Doodad
                 </OutboundLink>
-            </Footer.Item>
-            <Footer.Item>Another One</Footer.Item>
+            </Footer.Nav.Item>
+            <Footer.Nav.Item>Another One</Footer.Nav.Item>
+        </Footer.Nav>
+        <Footer.Nav>
+            <Footer.Nav.Title>Nav Section Title</Footer.Nav.Title>
+            <Footer.Nav.Item>Thing the First</Footer.Nav.Item>
+            <Footer.Nav.Item>
+                <OutboundLink
+                    color="text"
+                    href="https://google.com"
+                    target="_blank"
+                >
+                    Second Doodad
+                </OutboundLink>
+            </Footer.Nav.Item>
+            <Footer.Nav.Item>Another One</Footer.Nav.Item>
         </Footer.Nav>
         <Footer.Flavor>✨ Razzle Dazzle ✨</Footer.Flavor>
         <Footer.Copyright>Meme Lord</Footer.Copyright>
