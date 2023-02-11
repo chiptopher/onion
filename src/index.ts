@@ -21,6 +21,7 @@ import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
 import { Modal } from './components/modal';
+import { OutboundLink } from './components/outbound-link';
 import { Section } from './components/section';
 import { Table } from './components/table';
 import { Form } from './form';
@@ -61,4 +62,5 @@ export {
     Copyable,
     LargerBody,
     resolveColorValue,
+    OutboundLink,
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Footer } from '.';
+import { OutboundLink } from '../outbound-link';
 
 export default {
     argTypes: {
@@ -20,7 +21,15 @@ const Template: ComponentStory<typeof Footer> = () => (
         <Footer.Title>Meme</Footer.Title>
         <Footer.Nav>
             <Footer.Item>Thing the First</Footer.Item>
-            <Footer.Item>Second Doodad</Footer.Item>
+            <Footer.Item>
+                <OutboundLink
+                    color="text"
+                    href="https://google.com"
+                    target="_blank"
+                >
+                    Second Doodad
+                </OutboundLink>
+            </Footer.Item>
             <Footer.Item>Another One</Footer.Item>
         </Footer.Nav>
         <Footer.Flavor>✨ Razzle Dazzle ✨</Footer.Flavor>
