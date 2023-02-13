@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Block, Flow } from '../../';
+import { Block } from '../../';
 
 export interface SectionHeaderProps {
     children: React.ReactNode;
@@ -9,10 +9,14 @@ export interface SectionHeaderProps {
 export const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
     children,
 }) => (
-    <Block marginBottom="1">
-        <Flow direction="horizontal" style="separate">
-            {children}
-        </Flow>
+    <Block
+        alignItems="flex-start"
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        marginBottom="1"
+    >
+        {children}
     </Block>
 );
 
