@@ -37,7 +37,15 @@ const Container = styled.footer<{ bc: string }>`
     text-align: center;
 `;
 
-Footer.Item = FooterNavItem;
+/*
+ * @deprecated Favor Footer.Nav.Item
+ */
+Footer.Item = props => {
+    console.warn('FooterItem is a deprecated component');
+    return <FooterNavItem {...props} />;
+};
+
+Footer.Item.displayName = 'Footer.Item';
 Footer.Flavor = FooterFlavor;
 Footer.Copyright = FooterCopyright;
 Footer.Title = FooterTitle;
