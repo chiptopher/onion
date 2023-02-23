@@ -2,6 +2,8 @@ import React from 'react';
 
 export type DesiredInputProps =
     | 'onChange'
+    | 'onKeyUp'
+    | 'onKeyDown'
     | 'disabled'
     | 'id'
     | 'placeholder'
