@@ -7,6 +7,7 @@ export type DesiredInputProps =
     | 'disabled'
     | 'id'
     | 'placeholder'
+    | 'autoFocus'
     | 'value';
 
 export type SharedInputProps = Pick<
