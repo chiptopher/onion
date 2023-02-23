@@ -12,14 +12,20 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
     id,
     placeholder,
     value,
+    autoFocus,
+    onKeyUp,
+    onKeyDown,
     ...wrapperProps
 }) => {
     return (
         <Wrapper {...wrapperProps} htmlFor={id}>
             <input
+                autoFocus={autoFocus}
                 disabled={disabled}
                 id={id}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
+                onKeyUp={onKeyUp}
                 placeholder={placeholder}
                 type="text"
                 value={value}
