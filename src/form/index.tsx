@@ -10,6 +10,7 @@ import { FormColor, FormColorProps } from './color';
 import { FormErrorMessage } from './error-message';
 import { FormInput, FormInputProps } from './input';
 import { FormTextarea, FormTextareaProps } from './textarea';
+import { Wrapper, WrapperProps } from './wrapper';
 
 interface Props extends ChildrenOnlyProps {
     onReset: () => void;
@@ -44,6 +45,7 @@ export const Form: React.FunctionComponent<Props> & {
     Color: React.FunctionComponent<FormColorProps>;
     ErrorMessage: React.FunctionComponent<ChildrenOnlyProps>;
     Input: React.FunctionComponent<FormInputProps>;
+    InputWrapper: React.FunctionComponent<WrapperProps>;
     Textarea: React.FunctionComponent<FormTextareaProps>;
 } = props => (
     <Loading>
@@ -56,3 +58,4 @@ Form.Input = FormInput;
 Form.Textarea = FormTextarea;
 Form.Color = FormColor;
 Form.ErrorMessage = FormErrorMessage;
+Form.InputWrapper = Wrapper;

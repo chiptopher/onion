@@ -22,7 +22,13 @@ const Template: ComponentStory<typeof Form> = ({ showError, ...args }: any) => (
         onSubmit={() => new Promise(resolve => setTimeout(resolve, 3000))}
     >
         <Form.Input help="Help" label="Label" />
-        <Form.Input help="Help 2" label="Label 2" />
+        <Form.Input
+            autoFocus
+            help="Help 2"
+            label="Label 2"
+            onKeyDown={console.log}
+            onKeyUp={console.log}
+        />
         <Form.Textarea help="Help 3" label="Label 2" />
         <Form.Input
             help={{ color: 'primary', text: 'Help 4' }}
