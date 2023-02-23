@@ -24,6 +24,11 @@ export const ModalOpener: React.FunctionComponent<ModalOpenerProps> = ({
     return <div onClick={setOpen}>{children}</div>;
 };
 
+export function useModalControl() {
+    const { setOpen, setClosed } = React.useContext(ModalContext);
+    return (state: boolean) => (state ? setOpen() : setClosed());
+}
+
 ModalOpener.displayName = 'Modal.Opener';
 
 Modal.Content = ModalContent;

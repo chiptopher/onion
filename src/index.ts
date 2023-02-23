@@ -20,7 +20,7 @@ import { Copyable } from './components/copyable';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
-import { Modal } from './components/modal';
+import { Modal, useModalControl } from './components/modal';
 import { OutboundLink } from './components/outbound-link';
 import { Section } from './components/section';
 import { Table } from './components/table';
@@ -63,4 +63,5 @@ export {
     LargerBody,
     resolveColorValue,
     OutboundLink,
+    useModalControl,
 };
