@@ -15,7 +15,14 @@ import {
     PaddingProps,
 } from './types';
 
-export type JustifyContent = 'space-between' | 'center';
+type FlexJustify =
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'center';
+
+export type JustifyContent = FlexJustify;
 
 type AnchorProps = Pick<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -26,7 +33,7 @@ type AnchorProps = Pick<
 //   verticalAlign - only on tbody
 
 interface _Props {
-    alignItems?: 'center' | 'flex-start' | 'flex-end';
+    alignItems?: FlexJustify;
     borderRadius?: boolean;
     children: React.ReactNode;
     cursor?: 'pointer';
@@ -34,7 +41,7 @@ interface _Props {
     flexDirection?: 'column' | 'row';
     href?: string;
     id?: string;
-    justifyContent?: JustifyContent;
+    justifyContent?: FlexJustify;
     listStyleType?: 'none';
     open?: boolean;
     tagName?: TagName;
