@@ -16,15 +16,21 @@ export const FormTextarea: React.FunctionComponent<FormTextareaProps> = ({
     placeholder,
     value,
     rows = 4,
+    autoFocus,
+    onKeyUp,
+    onKeyDown,
     ...wrapperProps
 }) => {
     return (
         <Wrapper {...wrapperProps} htmlFor={id}>
             <textarea
+                autoFocus={autoFocus}
                 className="input"
                 disabled={disabled}
                 id={id}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
+                onKeyUp={onKeyUp}
                 placeholder={placeholder}
                 rows={rows}
                 value={value}
