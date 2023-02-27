@@ -3,10 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { block } from '../..';
+import { Breakpoints } from '../../atoms/breakpoints';
 import { Colors, resolveColorValue, Tint } from '../../atoms/colors';
+import { isLessThan } from '../../atoms/media';
 import { Block } from '../../atoms/spacing';
 import { TagName } from '../../atoms/types';
-import { useTextColor } from '../../theme';
+import { useTextColor, useTheme } from '../../theme';
 
 export type TextStlye =
     | 'title'
@@ -36,9 +38,11 @@ export const Text2: React.FunctionComponent<TextProps> = ({
     colorTint,
     ...rest
 }) => {
+    const { breakpoints } = useTheme();
     const textColor = useTextColor(color);
     const props = {
         as: tagName,
+        breakpoints,
         className: 'onion-text',
         color: resolveColorValue(textColor, colorTint),
         ...rest,
@@ -64,6 +68,7 @@ export const Text2: React.FunctionComponent<TextProps> = ({
 };
 
 const Container = styled.div<{
+    breakpoints: Breakpoints;
     color: string;
     marginBottom?: Block;
     underlined?: boolean;
@@ -77,11 +82,6 @@ const Container = styled.div<{
     cursor: inherit;
 `;
 
-const TitleStyleTag = styled(Container)`
-    font-size: 2.75rem;
-    font-weight: bold;
-`;
-
 const BodyStyleTag = styled(Container)`
     font-size: 1rem;
 `;
@@ -90,14 +90,30 @@ const CaptionStyleTag = styled(Container)`
     font-size: 0.8rem;
 `;
 
+const TitleStyleTag = styled(Container)`
+    font-size: 2.75rem;
+    font-weight: bold;
+
+    ${p => isLessThan(p.breakpoints.tablet.lower)} {
+        font-size: 1.75rem;
+    }
+`;
+
 const HeaderStyleTag = styled(Container)`
     font-size: 1.75rem;
     font-weight: bold;
+
+    ${p => isLessThan(p.breakpoints.tablet.lower)} {
+        font-size: 1.5rem;
+    }
 `;
 
 const SubheaderStlyeTag = styled(Container)`
     font-size: 1.5rem;
     margin-bottom: ${block(1.5)};
+    ${p => isLessThan(p.breakpoints.tablet.lower)} {
+        font-size: 1.25rem;
+    }
 `;
 
 const LabelStyleTag = styled(Container)`
