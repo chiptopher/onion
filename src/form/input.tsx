@@ -1,35 +1,22 @@
 import React from 'react';
 
-import { SharedInputProps } from './util';
 import { Wrapper, WrapperProps } from './wrapper';
 
-export type FormInputProps = SharedInputProps &
+export type FormInputProps = Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type'
+> &
     Omit<WrapperProps, 'children' | 'htmlFor'>;
 
 export const FormInput: React.FunctionComponent<FormInputProps> = ({
-    onChange,
-    disabled,
     id,
-    placeholder,
-    value,
-    autoFocus,
-    onKeyUp,
-    onKeyDown,
-    ...wrapperProps
+    help,
+    label,
+    ...rest
 }) => {
     return (
-        <Wrapper {...wrapperProps} htmlFor={id}>
-            <input
-                autoFocus={autoFocus}
-                disabled={disabled}
-                id={id}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
-                onKeyUp={onKeyUp}
-                placeholder={placeholder}
-                type="text"
-                value={value}
-            />
+        <Wrapper help={help} htmlFor={id} label={label}>
+            <input className="input" id={id} type="text" {...rest} />
         </Wrapper>
     );
 };
