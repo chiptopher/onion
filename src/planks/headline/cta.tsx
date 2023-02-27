@@ -19,7 +19,10 @@ export const HeadlineCTA: React.FunctionComponent<HeadlineCTAProps> = ({
     _containerColor,
 }) => {
     return (
-        <Button color={_containerColor === undefined ? 'primary' : 'light'}>
+        <Button
+            color={_containerColor === undefined ? 'primary' : 'light'}
+            href={href}
+        >
             {children}&nbsp;
             {href && (
                 <Block marginLeft="0.5" tagName="span">
