@@ -3,15 +3,17 @@ import { Mapping } from './util';
 type ColorArangementOptions = 'dark' | 'light' | 'regular';
 export type ColorArrangment = Mapping<ColorArangementOptions>;
 
+export const ColorsOptions = [
+    'primary',
+    'warning',
+    'danger',
+    'text',
+    'light',
+    'grey',
+    'white',
+] as const;
+export type Colors = typeof ColorsOptions[number];
 export type ColorValue = string | ColorArrangment;
-export type Colors =
-    | 'primary'
-    | 'warning'
-    | 'danger'
-    | 'text'
-    | 'light'
-    | 'grey'
-    | 'white';
 export type ColorMapping = Mapping<Colors, ColorValue>;
 
 export type Tint = ColorArangementOptions;

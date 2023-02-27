@@ -19,6 +19,13 @@ export const Headline: React.FunctionComponent<Props> & {
     CTA: React.FunctionComponent<HeadlineCTAProps>;
     Content: React.FunctionComponent<HeadlineContentProps>;
 } = ({ background = undefined, title, children, heirarchy = '1' }) => {
+    const validChildren = React.Children.toArray(children).map((child: any) => {
+        if (child.type === HeadlineCTA) {
+            return React.cloneElement(child, { _containerColor: background });
+        } else {
+            return child;
+        }
+    });
     return (
         <Block
             color={background}
@@ -30,7 +37,7 @@ export const Headline: React.FunctionComponent<Props> & {
                 <Block marginBottom="1">
                     <Title heirarchy={heirarchy}>{title}</Title>
                 </Block>
-                {children}
+                {validChildren}
             </Gutter>
         </Block>
     );

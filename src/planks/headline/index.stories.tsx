@@ -3,9 +3,17 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Headline } from '.';
+import { ColorsOptions } from '../../atoms/colors';
 
 export default {
     argTypes: {
+        background: {
+            control: {
+                // @ts-ignore
+                options: [undefined].concat(ColorsOptions),
+                type: 'select',
+            },
+        },
         contentText: {
             control: 'text',
             defaultValue:

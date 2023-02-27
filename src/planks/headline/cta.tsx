@@ -4,9 +4,11 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Block } from '../../atoms/block';
+import { Colors } from '../../atoms/colors';
 import { Button } from '../../blocks/button';
 
 export interface HeadlineCTAProps {
+    _containerColor?: Colors;
     children: React.ReactNode;
     href?: string;
 }
@@ -14,9 +16,10 @@ export interface HeadlineCTAProps {
 export const HeadlineCTA: React.FunctionComponent<HeadlineCTAProps> = ({
     children,
     href,
+    _containerColor,
 }) => {
     return (
-        <Button color="light">
+        <Button color={_containerColor === undefined ? 'primary' : 'light'}>
             {children}&nbsp;
             {href && (
                 <Block marginLeft="0.5" tagName="span">
