@@ -27,6 +27,7 @@ import { Table } from './components/table';
 import { Form } from './form';
 import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
+import { Headline } from './planks/headline';
 import { ThemeProvider, useTheme } from './theme';
 
 export {
@@ -64,4 +65,5 @@ export {
     resolveColorValue,
     OutboundLink,
     useModalControl,
+    Headline,
 };
