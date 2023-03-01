@@ -1,16 +1,18 @@
 import React from 'react';
 
-import { Block, JustifyContent } from '../../atoms/block';
+import { Block, FlexDirection, JustifyContent } from '../../atoms/block';
 
 interface Props {
     children?: React.ReactNode;
     direction: 'horizontal' | 'vertical';
+    reverse?: boolean;
     style?: 'separate';
 }
 
 export const Flow: React.FunctionComponent<Props> = ({
     children,
     direction,
+    reverse,
     ...rest
 }) => {
     let justifyContent: JustifyContent | undefined;
@@ -21,11 +23,18 @@ export const Flow: React.FunctionComponent<Props> = ({
         default:
             break;
     }
+
+    let finalDirection: FlexDirection =
+        direction === 'horizontal' ? 'row' : 'column';
+    if (reverse) {
+        finalDirection = `${finalDirection}-reverse`;
+    }
+
     return (
         <Block
             alignItems="center"
             display="flex"
-            flexDirection={direction === 'horizontal' ? 'row' : 'column'}
+            flexDirection={finalDirection}
             justifyContent={justifyContent}
         >
             {children}

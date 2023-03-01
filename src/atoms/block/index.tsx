@@ -22,6 +22,7 @@ type FlexJustify =
     | 'space-between'
     | 'center';
 
+export type FlexDirection = 'column' | 'row' | 'row-reverse' | 'column-reverse';
 export type JustifyContent = FlexJustify;
 
 type AnchorProps = Pick<
@@ -38,7 +39,7 @@ interface _Props {
     children: React.ReactNode;
     cursor?: 'pointer';
     display?: 'flex' | 'none';
-    flexDirection?: 'column' | 'row';
+    flexDirection?: FlexDirection;
     href?: string;
     id?: string;
     justifyContent?: FlexJustify;
