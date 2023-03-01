@@ -21,7 +21,7 @@ export const ModalOpener: React.FunctionComponent<ModalOpenerProps> = ({
     children,
 }) => {
     const { setOpen } = React.useContext(ModalContext);
-    return <div onClick={setOpen}>{children}</div>;
+    return <span onClick={setOpen}>{children}</span>;
 };
 
 export function useModalControl() {
