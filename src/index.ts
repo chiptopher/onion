@@ -1,5 +1,6 @@
 import { Block } from './atoms/block';
 import { resolveColorValue } from './atoms/colors';
+import { isGreaterThan, isLessThan } from './atoms/media';
 import { block } from './atoms/spacing';
 import { Button, ButtonProps } from './blocks/button';
 import { Link } from './blocks/link';
@@ -70,4 +71,6 @@ export {
     Headline,
     Details,
     MultiBlock,
+    isLessThan,
+    isGreaterThan,
 };
