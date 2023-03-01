@@ -29,6 +29,7 @@ import { Form } from './form';
 import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
 import { Headline } from './planks/headline';
+import { MultiBlock } from './planks/multi-block';
 import { ThemeProvider, useTheme } from './theme';
 
 export {
@@ -68,4 +69,5 @@ export {
     useModalControl,
     Headline,
     Details,
+    MultiBlock,
 };
