@@ -17,6 +17,7 @@ import { Breadcrumbs } from './components/breadcrumbs';
 import { Buttons } from './components/buttons';
 import { Callout } from './components/callout';
 import { Copyable } from './components/copyable';
+import { Details } from './components/details';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
@@ -66,4 +67,5 @@ export {
     OutboundLink,
     useModalControl,
     Headline,
+    Details,
 };
