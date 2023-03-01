@@ -27,7 +27,7 @@ export const Headline: React.FunctionComponent<Props> & {
     });
     return (
         <PlankWrapper background={background} {...wrapperProps}>
-            <Block paddingBottom="4" paddingTop="2" textAlign="center">
+            <Block textAlign="center">
                 <Gutter>
                     <Block marginBottom="1">
                         <Title heirarchy={heirarchy}>{title}</Title>

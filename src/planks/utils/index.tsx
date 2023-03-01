@@ -23,8 +23,8 @@ export const PlankWrapper: React.FunctionComponent<Props> = ({
         <Block
             color={background}
             colorTint={backgroundTint}
-            paddingBottom="3"
-            paddingTop="3"
+            paddingBottom="6"
+            paddingTop="6"
         >
             {children}
         </Block>
