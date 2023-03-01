@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { Block } from '../../atoms/block';
-import { Colors } from '../../atoms/colors';
 import { Heirarcy } from '../../blocks/typography/header-shared';
 import { Title } from '../../blocks/typography/title';
 import { Gutter } from '../../layout/gutter';
+import { PlankWrapper, PlankWrapperProps } from '../utils';
 import { HeadlineContent, HeadlineContentProps } from './content';
 import { HeadlineCTA, HeadlineCTAProps } from './cta';
 
-interface Props {
-    background?: Colors;
+interface Props extends PlankWrapperProps {
     children?: React.ReactNode;
     heirarchy?: Heirarcy;
     title: React.ReactNode | string;
@@ -18,7 +17,7 @@ interface Props {
 export const Headline: React.FunctionComponent<Props> & {
     CTA: React.FunctionComponent<HeadlineCTAProps>;
     Content: React.FunctionComponent<HeadlineContentProps>;
-} = ({ background = undefined, title, children, heirarchy = '1' }) => {
+} = ({ title, children, heirarchy = '1', background, ...wrapperProps }) => {
     const validChildren = React.Children.toArray(children).map((child: any) => {
         if (child.type === HeadlineCTA) {
             return React.cloneElement(child, { _containerColor: background });
@@ -27,19 +26,16 @@ export const Headline: React.FunctionComponent<Props> & {
         }
     });
     return (
-        <Block
-            color={background}
-            paddingBottom="4"
-            paddingTop="2"
-            textAlign="center"
-        >
-            <Gutter>
-                <Block marginBottom="1">
-                    <Title heirarchy={heirarchy}>{title}</Title>
-                </Block>
-                {validChildren}
-            </Gutter>
-        </Block>
+        <PlankWrapper background={background} {...wrapperProps}>
+            <Block paddingBottom="4" paddingTop="2" textAlign="center">
+                <Gutter>
+                    <Block marginBottom="1">
+                        <Title heirarchy={heirarchy}>{title}</Title>
+                    </Block>
+                    {validChildren}
+                </Gutter>
+            </Block>
+        </PlankWrapper>
     );
 };
 
