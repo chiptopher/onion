@@ -1,5 +1,5 @@
 import { Block } from './atoms/block';
-import { resolveColorValue } from './atoms/colors';
+import { Colors, resolveColorValue } from './atoms/colors';
 import { isGreaterThan, isLessThan } from './atoms/media';
 import { block } from './atoms/spacing';
 import { Button, ButtonProps } from './blocks/button';
@@ -75,4 +75,5 @@ export {
     isLessThan,
     isGreaterThan,
     PlankWrapper,
+    Colors,
 };
