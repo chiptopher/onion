@@ -31,6 +31,7 @@ import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
 import { Headline } from './planks/headline';
 import { MultiBlock } from './planks/multi-block';
+import { PlankWrapper } from './planks/utils';
 import { ThemeProvider, useTheme } from './theme';
 
 export {
@@ -73,4 +74,5 @@ export {
     MultiBlock,
     isLessThan,
     isGreaterThan,
+    PlankWrapper,
 };
