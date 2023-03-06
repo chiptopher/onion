@@ -64,6 +64,8 @@ const Container = styled.div`
     width: 100%;
     max-width: 20rem;
 
+    text-align: center;
+
     .multi-block_chunk_icon-container {
         font-size: 5rem;
     }
