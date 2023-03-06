@@ -9,6 +9,7 @@ import { HeadlineContent, HeadlineContentProps } from './content';
 import { HeadlineCTA, HeadlineCTAProps } from './cta';
 
 interface Props extends PlankWrapperProps {
+    alignment?: 'left' | 'right' | 'center';
     children?: React.ReactNode;
     heirarchy?: Heirarcy;
     title: React.ReactNode | string;
@@ -17,7 +18,14 @@ interface Props extends PlankWrapperProps {
 export const Headline: React.FunctionComponent<Props> & {
     CTA: React.FunctionComponent<HeadlineCTAProps>;
     Content: React.FunctionComponent<HeadlineContentProps>;
-} = ({ title, children, heirarchy = '1', background, ...wrapperProps }) => {
+} = ({
+    alignment = 'center',
+    title,
+    children,
+    heirarchy = '1',
+    background,
+    ...wrapperProps
+}) => {
     const validChildren = React.Children.toArray(children).map((child: any) => {
         if (child.type === HeadlineCTA) {
             return React.cloneElement(child, { _containerColor: background });
@@ -27,7 +35,7 @@ export const Headline: React.FunctionComponent<Props> & {
     });
     return (
         <PlankWrapper background={background} {...wrapperProps}>
-            <Block textAlign="center">
+            <Block textAlign={alignment}>
                 <Gutter>
                     <Block marginBottom="1">
                         <Title heirarchy={heirarchy}>{title}</Title>
