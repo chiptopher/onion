@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { block } from '../..';
+import { TextAlignment } from '../../atoms/block';
 import { Breakpoints } from '../../atoms/breakpoints';
 import { Colors, resolveColorValue, Tint } from '../../atoms/colors';
 import { isLessThan } from '../../atoms/media';
@@ -20,6 +21,7 @@ export type TextStlye =
     | 'larger-body';
 
 export interface TextProps {
+    alignment?: TextAlignment;
     children: React.ReactNode;
     color?: Colors;
     colorTint?: Tint;
@@ -31,6 +33,7 @@ export interface TextProps {
 
 // TODO move to atoms folder
 export const Text2: React.FunctionComponent<TextProps> = ({
+    alignment,
     color,
     tagName,
     underlined,
@@ -45,6 +48,7 @@ export const Text2: React.FunctionComponent<TextProps> = ({
         breakpoints,
         className: 'onion-text',
         color: resolveColorValue(textColor, colorTint),
+        textAlign: alignment,
         ...rest,
     };
 
@@ -71,6 +75,7 @@ const Container = styled.div<{
     breakpoints: Breakpoints;
     color: string;
     marginBottom?: Block;
+    textAlign?: string;
     underlined?: boolean;
 }>`
     color: ${props => props.color};
@@ -78,7 +83,8 @@ const Container = styled.div<{
     font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
-    ${props => props.underlined && 'text-decoration: underline'}
+    ${props => props.underlined && 'text-decoration: underline;'}
+    ${props => props.textAlign && `text-align: ${props.textAlign};`}
     cursor: inherit;
 `;
 

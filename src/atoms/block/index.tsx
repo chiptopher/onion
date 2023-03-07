@@ -24,6 +24,7 @@ type FlexJustify =
 
 export type FlexDirection = 'column' | 'row' | 'row-reverse' | 'column-reverse';
 export type JustifyContent = FlexJustify;
+export type TextAlignment = 'left' | 'right' | 'center';
 
 type AnchorProps = Pick<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -46,7 +47,7 @@ interface _Props {
     listStyleType?: 'none';
     open?: boolean;
     tagName?: TagName;
-    textAlign?: 'left' | 'right' | 'center';
+    textAlign?: TextAlignment;
     textColor?: Colors;
     textColorTint?: Tint;
     textDecoration?: 'underline' | 'none';
