@@ -38,7 +38,8 @@ interface _Props {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
     children: React.ReactNode;
-    cursor?: 'pointer';
+    cursor?: 'pointer' | 'not-allowed';
+    disabled?: boolean;
     display?: 'flex' | 'none';
     flexDirection?: FlexDirection;
     href?: string;
@@ -83,6 +84,7 @@ export const Block = React.forwardRef(
             color,
             colorTint,
             borderRadius,
+            disabled,
             padding,
             paddingTop,
             paddingBottom,
@@ -117,6 +119,7 @@ export const Block = React.forwardRef(
                 alignItems={alignItems}
                 as={tagName}
                 borderRadius={borderRadius ? 4 : 0}
+                disabled={disabled}
                 margin={resolveBorderSpacing({
                     all: margin,
                     bottom: marginBottom,

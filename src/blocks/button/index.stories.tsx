@@ -19,7 +19,9 @@ export default {
     title: `Blocks/Button`,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => (
+    <Button {...args} onClick={e => console.log(e)} />
+);
 
 export const Playground = Template.bind({});
 

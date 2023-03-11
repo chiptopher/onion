@@ -21,7 +21,7 @@ export interface AsAnchorProps {
 }
 
 export type ButtonProps = Props &
-    Pick<BlockProps, 'borderRadius'> &
+    Pick<BlockProps, 'borderRadius' | 'disabled'> &
     ColorProps &
     Hoverable<ColorProps> &
     React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -38,6 +38,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     onClick,
     borderRadius,
     colorHover,
+    disabled,
 }) => {
     let p: Partial<PaddingProps>;
     const tagName = href ? 'a' : 'button';
@@ -86,11 +87,12 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             border="none"
             borderRadius={finalBorderRadius}
             color={color}
-            colorHover={colorHover || color}
-            colorTint={colorTint}
-            colorTintHover={colorTintHover}
-            cursor="pointer"
+            colorHover={disabled ? undefined : colorHover || color}
+            colorTint={disabled ? 'light' : colorTint}
+            colorTintHover={disabled ? undefined : colorTintHover}
+            cursor={disabled ? 'not-allowed' : 'pointer'}
             {...p}
+            disabled={disabled}
             href={href}
             onClick={onClick}
             tagName={tagName}
