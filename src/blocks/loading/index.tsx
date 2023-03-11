@@ -22,10 +22,13 @@ export const Loading: React.FunctionComponent<Props> & {
     );
 };
 
-export function withLoading<T>(Component: React.FunctionComponent<T>) {
+export function withLoading<T>(
+    Component: React.FunctionComponent<T>
+): React.FunctionComponent<T> {
     // eslint-disable-next-line react/display-name
-    return (props: any) => (
+    return (props: T) => (
         <Loading>
+            {/* @ts-ignore */}
             <Component {...props} />
         </Loading>
     );
