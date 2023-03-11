@@ -70,7 +70,7 @@ const ContentContainer = styled.div<{ width?: string }>`
 
     & > div {
         background-color: white;
-        padding: ${block(2)};
+        padding: ${block(3)};
         z-index: 99;
         border-radius: 4px;
 
