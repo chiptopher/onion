@@ -29,7 +29,11 @@ ${type}${direction ? `-${direction}` : ''}: ${value}rem;
 `;
     } else {
         return `
-${type}${direction ? `-${direction}` : ''}: ${value.desktop}rem;
+${
+    value.desktop
+        ? `${type}${direction ? `-${direction}` : ''}: ${value.desktop}rem;`
+        : ''
+}
 ${Boolean(value.mobile) && isLessThan(breakpoints.mobile.upper)} {
     ${type}${direction ? `-${direction}` : ''}: ${value.mobile}rem;
 }

@@ -53,4 +53,26 @@ ${isGreaterThan(breakpoints.wide.lower)} {
 }
 `);
     });
+
+    test('resolved a responsive value', () => {
+        const output = evaluateValue({
+            breakpoints: breakpoints,
+            direction: 'top',
+            type: 'padding',
+            value: { mobile: '1', tablet: '0.25', wide: '4' },
+        });
+
+        expect(output).toEqual(`
+
+${isLessThan(breakpoints.mobile.upper)} {
+    padding-top: 1rem;
+}
+${isLessThan(breakpoints.tablet.upper)} {
+    padding-top: 0.25rem;
+}
+${isGreaterThan(breakpoints.wide.lower)} {
+    padding-top: 4rem;
+}
+`);
+    });
 });
