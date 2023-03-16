@@ -1,8 +1,11 @@
 import React from 'react';
 
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Form } from '.';
+import { Button } from '../blocks/button';
 
 export default {
     argTypes: {
@@ -23,6 +26,11 @@ const Template: ComponentStory<typeof Form> = ({ showError, ...args }: any) => (
     >
         <Form.Input help="Help" label="Label" />
         <Form.Input
+            action={
+                <Button size="small">
+                    <FontAwesomeIcon icon={faArrowRight} />
+                </Button>
+            }
             autoFocus
             help="Help 2"
             label="Label 2"

@@ -14,10 +14,12 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
     label,
     borderRadius,
     prefix,
+    action,
     ...rest
 }) => {
     return (
         <Wrapper
+            action={action}
             borderRadius={borderRadius}
             help={help}
             htmlFor={id}

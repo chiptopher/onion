@@ -16,6 +16,7 @@ type Help =
       };
 
 export interface WrapperProps {
+    action?: React.ReactNode;
     borderRadius?: boolean;
     children: React.ReactNode;
     help?: Help;
@@ -31,6 +32,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     label,
     help,
     prefix,
+    action,
 }) => {
     const theme = useTheme();
     return (
@@ -55,6 +57,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
                     </Block>
                 )}
                 <>{children}</>
+                {action && <Block marginLeft="0.5">{action}</Block>}
             </Block>
             <HelpText help={help} />
         </Container>

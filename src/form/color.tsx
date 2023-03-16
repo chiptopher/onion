@@ -7,7 +7,7 @@ export type FormColorProps = Pick<
     React.InputHTMLAttributes<HTMLInputElement>,
     DesiredInputProps
 > &
-    Omit<WrapperProps, 'children' | 'htmlFor'>;
+    Omit<WrapperProps, 'children' | 'htmlFor' | 'prefix' | 'action'>;
 
 export const FormColor: React.FunctionComponent<FormColorProps> = ({
     onChange,
