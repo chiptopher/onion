@@ -12,10 +12,16 @@ export const FormTextarea: React.FunctionComponent<FormTextareaProps> = ({
     id,
     help,
     label,
+    borderRadius,
     ...rest
 }) => {
     return (
-        <Wrapper help={help} htmlFor={id} label={label}>
+        <Wrapper
+            borderRadius={borderRadius}
+            help={help}
+            htmlFor={id}
+            label={label}
+        >
             <textarea className="input" id={id} {...rest} />
         </Wrapper>
     );

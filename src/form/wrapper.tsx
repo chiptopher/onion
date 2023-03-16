@@ -16,6 +16,7 @@ type Help =
       };
 
 export interface WrapperProps {
+    borderRadius?: boolean;
     children: React.ReactNode;
     help?: Help;
     htmlFor?: string;
@@ -23,6 +24,7 @@ export interface WrapperProps {
 }
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
+    borderRadius = true,
     children,
     htmlFor,
     label,
@@ -30,7 +32,10 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
 }) => {
     const theme = useTheme();
     return (
-        <Container borderColor={resolveColorValue(theme.base.grey, 'regular')}>
+        <Container
+            borderColor={resolveColorValue(theme.base.grey, 'regular')}
+            borderRadius={borderRadius}
+        >
             {label && <Label htmlFor={htmlFor}>{label}</Label>}
             <Block marginBottom="0.5">{children}</Block>
             <HelpText help={help} />
@@ -38,12 +43,17 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     );
 };
 
-const Container = styled.div<{ borderColor: string }>`
+interface ContainerProps {
+    borderColor: string;
+    borderRadius: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
     margin-bottom: ${block(1)};
 
     input,
     textarea {
-        border-radius: 4px;
+        ${p => p.borderRadius && 'border-radius: 4px;'}
         width: 100%;
         border: solid 1px ${p => p.borderColor};
         font-size: 1rem;

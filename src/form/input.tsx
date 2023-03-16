@@ -12,10 +12,16 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
     id,
     help,
     label,
+    borderRadius,
     ...rest
 }) => {
     return (
-        <Wrapper help={help} htmlFor={id} label={label}>
+        <Wrapper
+            borderRadius={borderRadius}
+            help={help}
+            htmlFor={id}
+            label={label}
+        >
             <input className="input" id={id} type="text" {...rest} />
         </Wrapper>
     );
