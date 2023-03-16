@@ -28,6 +28,7 @@ const Template: ComponentStory<typeof Form> = ({ showError, ...args }: any) => (
             label="Label 2"
             onKeyDown={console.log}
             onKeyUp={console.log}
+            prefix="Words"
         />
         <Form.Textarea help="Help 3" label="Label 2" />
         <Form.Input

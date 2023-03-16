@@ -6,7 +6,7 @@ export type FormTextareaProps = Omit<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     'type'
 > &
-    Omit<WrapperProps, 'children' | 'htmlFor'>;
+    Omit<WrapperProps, 'children' | 'htmlFor' | 'prefix'>;
 
 export const FormTextarea: React.FunctionComponent<FormTextareaProps> = ({
     id,

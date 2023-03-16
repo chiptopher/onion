@@ -9,6 +9,10 @@ export default {
         borderRadius: {
             control: 'boolean',
         },
+        prefix: {
+            control: 'text',
+            defaultValue: undefined,
+        },
     },
     component: FormInput,
     title: `Components/Form/FormInput`,

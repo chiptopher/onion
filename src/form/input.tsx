@@ -13,6 +13,7 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
     help,
     label,
     borderRadius,
+    prefix,
     ...rest
 }) => {
     return (
@@ -21,6 +22,7 @@ export const FormInput: React.FunctionComponent<FormInputProps> = ({
             help={help}
             htmlFor={id}
             label={label}
+            prefix={prefix}
         >
             <input className="input" id={id} type="text" {...rest} />
         </Wrapper>

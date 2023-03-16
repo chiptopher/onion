@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Block, block } from '..';
+import { Block, block, Body } from '..';
 import { Colors, resolveColorValue } from '../atoms/colors';
 import { Caption } from '../blocks/typography/caption';
 import { Label } from '../blocks/typography/label';
@@ -21,6 +21,7 @@ export interface WrapperProps {
     help?: Help;
     htmlFor?: string;
     label?: string | React.ReactNode;
+    prefix?: string;
 }
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
@@ -29,15 +30,32 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     htmlFor,
     label,
     help,
+    prefix,
 }) => {
     const theme = useTheme();
     return (
         <Container
             borderColor={resolveColorValue(theme.base.grey, 'regular')}
             borderRadius={borderRadius}
+            hasPrefix={Boolean(prefix)}
         >
             {label && <Label htmlFor={htmlFor}>{label}</Label>}
-            <Block marginBottom="0.5">{children}</Block>
+            <Block display="flex" marginBottom="0.5">
+                {prefix && (
+                    <Block
+                        alignItems="center"
+                        className="onion-input-wrapper--prefix"
+                        color="grey"
+                        colorTint="light"
+                        display="flex"
+                        paddingLeft="0.75"
+                        paddingRight="0.75"
+                    >
+                        <Body>{prefix}</Body>
+                    </Block>
+                )}
+                <>{children}</>
+            </Block>
             <HelpText help={help} />
         </Container>
     );
@@ -46,14 +64,29 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
 interface ContainerProps {
     borderColor: string;
     borderRadius: boolean;
+    hasPrefix: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
     margin-bottom: ${block(1)};
 
+    .onion-input-wrapper--prefix {
+        border: solid 1px ${p => p.borderColor};
+        border-right: none;
+        ${p => p.borderRadius && 'border-radius: 4px;'}
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
     input,
     textarea {
         ${p => p.borderRadius && 'border-radius: 4px;'}
+        ${p =>
+            p.hasPrefix &&
+            `
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        `}
         width: 100%;
         border: solid 1px ${p => p.borderColor};
         font-size: 1rem;
