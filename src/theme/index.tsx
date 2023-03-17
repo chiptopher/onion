@@ -40,6 +40,7 @@ export type Theme = {
     base: {
         grey: ColorValue;
     };
+    border: ColorValue;
     breakpoints: Breakpoints;
     components?: {
         button?: {
@@ -63,6 +64,7 @@ const defaultTheme: Theme = {
         white: 'black',
     },
     base: { grey: { ...(defaultBackgroundColors.grey as ColorArrangment) } },
+    border: '#D8D8D8',
     breakpoints: {
         desktop: breakpoint(801, 1024),
         mobile: breakpoint(0, 425),

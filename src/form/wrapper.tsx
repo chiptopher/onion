@@ -37,7 +37,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     const theme = useTheme();
     return (
         <Container
-            borderColor={resolveColorValue(theme.base.grey, 'regular')}
+            borderColor={resolveColorValue(theme.border, 'regular')}
             borderRadius={borderRadius}
             hasPrefix={Boolean(prefix)}
         >
