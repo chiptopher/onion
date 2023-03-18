@@ -17,6 +17,13 @@ export default {
             control: 'text',
             defaultValue: 'Click me!',
         },
+        fontFamily: {
+            control: {
+                defaultValue: 'Nunito',
+                options: ['IBM Plex Sans', 'Nunito'],
+                type: 'select',
+            },
+        },
     },
     component: Text2,
     title: `Blocks/Typography`,
