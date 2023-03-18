@@ -25,6 +25,7 @@ export interface TextProps {
     children: React.ReactNode;
     color?: Colors;
     colorTint?: Tint;
+    fontFamily?: string;
     marginBottom?: Block;
     style: TextStlye;
     tagName: TagName;
@@ -39,6 +40,7 @@ export const Text2: React.FunctionComponent<TextProps> = ({
     underlined,
     style,
     colorTint,
+    fontFamily = "'Nunito', sans-serif",
     ...rest
 }) => {
     const { breakpoints } = useTheme();
@@ -48,6 +50,7 @@ export const Text2: React.FunctionComponent<TextProps> = ({
         breakpoints,
         className: 'onion-text',
         color: resolveColorValue(textColor, colorTint),
+        fontFamily,
         textAlign: alignment,
         ...rest,
     };
@@ -74,13 +77,14 @@ export const Text2: React.FunctionComponent<TextProps> = ({
 const Container = styled.div<{
     breakpoints: Breakpoints;
     color: string;
+    fontFamily: string;
     marginBottom?: Block;
     textAlign?: string;
     underlined?: boolean;
 }>`
     color: ${props => props.color};
     ${props => props.marginBottom && `margin-bottom: ${block(1.5)}`};
-    font-family: 'Nunito', sans-serif;
+    font-family: ${p => p.fontFamily};
     margin: 0;
     padding: 0;
     ${props => props.underlined && 'text-decoration: underline;'}
