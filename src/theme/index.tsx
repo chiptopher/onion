@@ -34,6 +34,12 @@ const defaultBackgroundColors: ColorMapping = {
     white: 'white',
 };
 
+interface _TypographyDefaults {
+    fontFamily: string;
+}
+
+export type TypographyDefaults = Partial<_TypographyDefaults>;
+
 export type Theme = {
     backgroundColor: ColorMapping;
     backgroundTextColor: ColorMapping;
@@ -46,6 +52,15 @@ export type Theme = {
         button?: {
             borderRadius?: boolean;
         };
+        typography?: Partial<{
+            body: TypographyDefaults;
+            caption: TypographyDefaults;
+            heading: TypographyDefaults;
+            label: TypographyDefaults;
+            largerBody: TypographyDefaults;
+            subheader: TypographyDefaults;
+            title: TypographyDefaults;
+        }>;
     };
     textColor: ColorMapping;
 };

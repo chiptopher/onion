@@ -10,6 +10,7 @@ import { isLessThan } from '../../atoms/media';
 import { Block } from '../../atoms/spacing';
 import { TagName } from '../../atoms/types';
 import { useTextColor, useTheme } from '../../theme';
+import { useFontFamily } from './use-font-family';
 
 export type TextStlye =
     | 'title'
@@ -40,17 +41,18 @@ export const Text2: React.FunctionComponent<TextProps> = ({
     underlined,
     style,
     colorTint,
-    fontFamily = "'Nunito', sans-serif",
+    fontFamily,
     ...rest
 }) => {
     const { breakpoints } = useTheme();
     const textColor = useTextColor(color);
+    const finalFontFamily = useFontFamily(fontFamily, style);
     const props = {
         as: tagName,
         breakpoints,
         className: 'onion-text',
         color: resolveColorValue(textColor, colorTint),
-        fontFamily,
+        fontFamily: finalFontFamily,
         textAlign: alignment,
         ...rest,
     };
