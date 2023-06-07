@@ -1,0 +1,14 @@
+.onion-multi-block-chunk {
+    display: inline-block;
+    width: 100%;
+    max-width: 20rem;
+
+    text-align: center;
+
+    .multi-block_chunk_icon-container {
+    }
+}
+
+.onion-multi-block-chunk > .icon-container {
+    font-size: 5rem;
+}

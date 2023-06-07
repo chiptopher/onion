@@ -1,0 +1,189 @@
+@import '../../variables.css';
+
+.onion-block.background-color--danger--dark,
+.onion-block.background-color--danger--dark--hover:hover {
+    background-color: var(--background-color--danger--dark);
+    color: var(--background-color--danger--text-color);
+}
+
+.onion-block.background-color--danger--light,
+.onion-block.background-color--danger--light--hover:hover {
+    background-color: var(--background-color--dangeer--light);
+    color: var(--background-color--danger--text-color);
+}
+.onion-block.background-color--danger--regular,
+.onion-block.background-color--danger--regular--hover:hover {
+    background-color: var(--background-color--danger--regular);
+    color: var(--background-color--danger--text-color);
+}
+
+.onion-block.background-color--grey--dark,
+.onion-block.background-color--grey--dark--hover:hover {
+    background-color: var(--background-color--grey--dark);
+    color: var(--background-color--grey--text-color);
+}
+.onion-block.background-color--grey--light,
+.onion-block.background-color--grey--light--hover:hover {
+    background-color: var(--background-color--grey--light);
+    color: var(--background-color--grey--text-color);
+}
+.onion-block.background-color--grey--regular,
+.onion-block.background-color--grey--regular--hover:hover {
+    background-color: var(--background-color--grey--regular);
+    color: var(--background-color--grey--text-color);
+}
+
+.onion-block.background-color--light--regular,
+.onion-block.background-color--light--regular--hover:hover {
+    background-color: var(--background-color--light--regular);
+    color: var(--background-color--grey--text-color);
+}
+.onion-block.background-color--light--dark,
+.onion-block.background-color--light--dark--hover:hover {
+    background-color: var(--background-color--light--dark);
+    color: var(--background-color--grey--text-color);
+}
+.onion-block.background-color--light--light,
+.onion-block.background-color--light--light--hover:hover {
+    background-color: var(--background-color--light--light);
+    color: var(--background-color--grey--text-color);
+}
+
+.onion-block.background-color--primary--dark,
+.onion-block.background-color--primary--dark--hover:hover {
+    background-color: var(--background-color--primary--dark);
+    color: var(--background-color--primary--text-color);
+}
+
+.onion-block.background-color--primary--light,
+.onion-block.background-color--primary--light--hover:hover {
+    background-color: var(--background-color--primary--light);
+    color: var(--background-color--primary--text-color);
+}
+
+.onion-block.background-color--primary--regular,
+.onion-block.background-color--primary--regular--hover:hover {
+    background-color: var(--background-color--primary--regular);
+    color: var(--background-color--primary--text-color);
+}
+
+.onion-block.background-color--text--dark,
+.onion-block.background-color--text--dark--hover:hover {
+    background-color: var(--background-color--text--dark);
+    color: var(--background-color--text--text-color);
+}
+.onion-block.background-color--text--light,
+.onion-block.background-color--text--light--hover:hover {
+    background-color: var(--background-color--text--light);
+    color: var(--background-color--text--text-color);
+}
+.onion-block.background-color--text--regular,
+.onion-block.background-color--text--regular--hover:hover {
+    background-color: var(--background-color--text--light);
+    color: var(--background-color--text--text-color);
+}
+
+.onion-block.background-color--warning--dark,
+.onion-block.background-color--warning--dark--hover:hover {
+    background-color: var(--background-color--warning--dark);
+    color: var(--background-color--warning--text-color);
+}
+.onion-block.background-color--warning--light,
+.onion-block.background-color--warning--light--hover:hover {
+    background-color: var(--background-color--warning--light);
+    color: var(--background-color--warning--text-color);
+}
+.onion-block.background-color--warning--regular,
+.onion-block.background-color--warning--regular--hover:hover {
+    background-color: var(--background-color--warning--regular);
+    color: var(--background-color--warning--text-color);
+}
+
+.onion-block.background-color--white--dark,
+.onion-block.background-color--white--dark--hover:hover {
+    background-color: var(--background-color--white--dark);
+    color: var(--background-color--white--text-color);
+}
+.onion-block.background-color--white--light,
+.onion-block.background-color--white--light--hover:hover {
+    background-color: var(--background-color--white--light);
+    color: var(--background-color--white--text-color);
+}
+.onion-block.background-color--white--regular,
+.onion-block.background-color--white--regular--hover:hover {
+    background-color: var(--background-color--white--regular);
+    color: var(--background-color--white--text-color);
+}
+
+.onion-block.text-color--danger--dark {
+    color: var(--text-color--danger--dark);
+}
+
+.onion-block.text-color--danger--light {
+    color: var(--text-color--danger--light);
+}
+.onion-block.text-color--danger--regular {
+    color: var(--text-color--danger--regular);
+}
+
+.onion-block.text-color--grey--dark {
+    color: var(--text-color--grey--dark);
+}
+.onion-block.text-color--grey--light {
+    color: var(--text-color--grey--light);
+}
+.onion-block.text-color--grey--regular {
+    color: var(--text-color--grey--regular);
+}
+
+.onion-block.text-color--light--regular {
+    color: var(--text-color--grey--regular);
+}
+.onion-block.text-color--light--dark {
+    color: var(--text-color--grey--dark);
+}
+.onion-block.text-color--light--light {
+    color: var(--text-color--grey--light);
+}
+
+.onion-block.text-color--primary--dark {
+    color: var(--text-color--primary--dark);
+}
+
+.onion-block.text-color--primary--light {
+    color: var(--text-color--primary--light);
+}
+
+.onion-block.text-color--primary--regular {
+    color: var(--text-color--primary--regular);
+}
+
+.onion-block.text-color--text--dark {
+    color: var(--text-color--text--dark);
+}
+.onion-block.text-color--text--light {
+    color: var(--text-color--text--light);
+}
+.onion-block.text-color--text--regular {
+    color: var(--text-color--text--regular);
+}
+
+.onion-block.text-color--warning--dark {
+    color: var(--text-color--warning--dark);
+}
+.onion-block.text-color--warning--light {
+    color: var(--text-color--warning--light);
+}
+.onion-block.text-color--warning--regular {
+    color: var(--text-color--warning--regular);
+}
+
+.onion-block.text-color--white--dark {
+    color: var(--text-color--white--dark);
+}
+.onion-block.text-color--white--light {
+    color: var(--text-color--white--light);
+}
+.onion-block.text-color--white--regular {
+    color: var(--text-color--white--regular);
+}

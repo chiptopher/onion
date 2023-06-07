@@ -1,10 +1,10 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
 import { Block } from '../../atoms/block';
 import { TagName } from '../../atoms/types';
-import { TextStlye, Text2 } from '../../blocks/typography/text';
+import { TextStlye, Text3 } from '../../blocks/typography/text3';
 import { Flow } from '../../layout/flow';
 
 export interface DetailsSummaryProps {
@@ -21,7 +21,7 @@ export const DetailsSummary: React.FunctionComponent<DetailsSummaryProps> = ({
     textStyle = 'subheader',
 }) => {
     return (
-        <Summary
+        <Block
             color="primary"
             paddingBottom="0.5"
             paddingLeft="1"
@@ -30,29 +30,15 @@ export const DetailsSummary: React.FunctionComponent<DetailsSummaryProps> = ({
             tagName="summary"
         >
             <Flow direction="horizontal" style="separate">
-                <Text2 style={textStyle} tagName={tagName}>
+                <Text3 style={textStyle} tagName={tagName}>
                     {children}
-                </Text2>
+                </Text3>
                 {indicator && (
-                    <div className="ontion-details__open-indicator">
+                    <div className={styles['onion-details__open-indicator']}>
                         {indicator}
                     </div>
                 )}
             </Flow>
-        </Summary>
+        </Block>
     );
 };
-
-const Summary = styled(Block)`
-    list-style: none;
-    &::-webkit-details-marker {
-        display: none;
-    }
-
-    .onion-text {
-        margin-bottom: 0;
-    }
-
-    .ontion-details__open-indicator {
-    }
-`;

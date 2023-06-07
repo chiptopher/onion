@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
 
 import { CopyableContext } from '.';
 import { Block } from '../../atoms/block';
@@ -78,7 +77,7 @@ export const IconAction: React.FunctionComponent<SprecificActionProps> = ({
 }) => {
     const { copied } = React.useContext(CopyableContext);
     return (
-        <Container paddingLeft="0.5">
+        <Block paddingLeft="0.5">
             <Body color="primary">
                 {copied ? (
                     <FontAwesomeIcon icon={faCheck} />
@@ -95,12 +94,6 @@ export const IconAction: React.FunctionComponent<SprecificActionProps> = ({
                     </Block>
                 )}
             </Body>
-        </Container>
+        </Block>
     );
 };
-
-const Container = styled(Block)`
-    svg {
-        min-width: 18px;
-    }
-`;

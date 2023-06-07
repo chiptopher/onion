@@ -8,7 +8,6 @@ import { Body, Button, Heading } from '../../';
 export default {
     argTypes: {},
     component: Section,
-    title: `Components/Section`,
 } as ComponentMeta<typeof Section>;
 
 const Template: ComponentStory<typeof Section> = args => (

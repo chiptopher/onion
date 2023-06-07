@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Block, Body, useTheme } from '../..';
-import { resolveColorValue } from '../../atoms/colors';
+import { Block, Body } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ChildrenOnlyComponent } from '../../util';
 
@@ -26,13 +25,9 @@ export const TableBodyCell: React.FunctionComponent<TableBodyCellProps> = ({
     children,
     ...rest
 }) => {
-    const theme = useTheme();
     return (
         <Block
-            borderBottom={`solid 2px ${resolveColorValue(
-                theme.base.grey,
-                'regular'
-            )}`}
+            borderBottom={`solid 2px var(--background-color--grey--regular)`}
             paddingBottom="0.5"
             paddingTop="0.5"
             tagName="td"

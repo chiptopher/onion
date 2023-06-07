@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Block } from '../../atoms/block';
-import { SpacingValues } from '../../atoms/block/types';
-import { BlockSpacing } from '../../atoms/block/util';
+import { BlockSpacing, SpacingValues } from '../../atoms/block/types';
 import { Colors, Tint } from '../../atoms/colors';
 
 export interface PlankWrapperProps {

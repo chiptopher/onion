@@ -1,0 +1,35 @@
+.onion-modal-conent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.onion-modal-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.onion-modal-content-container > div {
+    background-color: white;
+    z-index: 99;
+    border-radius: 4px;
+}
+
+.onion-modal-content-container--width--regular > div {
+    width: 720px;
+}
+
+.onion-modal-content-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+

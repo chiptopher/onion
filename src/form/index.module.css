@@ -1,0 +1,11 @@
+@import '../variables.css';
+
+.onion-input-wrapper input,
+.onion-input-wrapper textarea {
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    border: solid 1px var(--background-color--grey--regular);
+    font-size: 1rem;
+    padding: 0.5rem 0.5rem;
+}

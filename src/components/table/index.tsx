@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
 import { Block } from '../../atoms/block';
 import { ChildrenOnlyComponent } from '../../util';
@@ -18,28 +18,11 @@ export const Table: ChildrenOnlyComponent & {
     };
 } = ({ children }) => {
     return (
-        <Container>
+        <div className={styles['onion-table']}>
             <Block tagName="table">{children}</Block>
-        </Container>
+        </div>
     );
 };
-
-const Container = styled.div`
-    table {
-        border-collapse: collapse;
-        table-layout: fixed;
-        width: 100%;
-
-        tbody {
-            // TODO figure out how to do this in Block
-            tr:last-child {
-                td {
-                    border-style: none;
-                }
-            }
-        }
-    }
-`;
 
 Table.Header = TableHeader;
 Table.Body = TableBody;

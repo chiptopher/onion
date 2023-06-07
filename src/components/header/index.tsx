@@ -1,9 +1,9 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { Block, block, Gutter } from '../..';
+import { Block, Gutter } from '../..';
 import { Colors } from '../../atoms/colors';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { HeaderContext, MenuContentContext } from './context';
@@ -34,7 +34,11 @@ export const Header: React.FunctionComponent<Props> & {
             value={{ content, setContent, setVisible, visible }}
         >
             <HeaderContext.Provider value={{ inverted: Boolean(inverted) }}>
-                <Block marginBottom="1.5" tagName="header">
+                <Block
+                    className={styles['onion-header']}
+                    marginBottom="1.5"
+                    tagName="header"
+                >
                     {children}
                 </Block>
             </HeaderContext.Provider>
@@ -46,59 +50,37 @@ interface HeaderPrimaryNavProps extends ChildrenOnlyProps {
     gutter?: boolean;
 }
 
-export const HeaderPrimaryNav: React.FunctionComponent<HeaderPrimaryNavProps> =
-    ({ children, gutter }) => {
-        const { inverted } = React.useContext(HeaderContext);
-        const { content, visible } = React.useContext(MenuContentContext);
-        return (
-            <Block color={inverted ? 'white' : 'primary'} tagName="div">
-                {gutter ? (
-                    <Gutter>
-                        <Container>{children}</Container>
-                    </Gutter>
-                ) : (
-                    <Container>{children}</Container>
-                )}
-
-                {content && (
-                    <Block
-                        display={visible ? undefined : 'none'}
-                        paddingBottom="1"
-                    >
-                        <MobileNavContainer className="mobile-header-menu">
-                            {content}
-                        </MobileNavContainer>
+export const HeaderPrimaryNav: React.FunctionComponent<
+    HeaderPrimaryNavProps
+> = ({ children, gutter }) => {
+    const { inverted } = React.useContext(HeaderContext);
+    const { content, visible } = React.useContext(MenuContentContext);
+    return (
+        <Block color={inverted ? 'white' : 'primary'} tagName="div">
+            {gutter ? (
+                <Gutter>
+                    <Block className={styles['onion-primary-nav']}>
+                        {children}
                     </Block>
-                )}
-            </Block>
-        );
-    };
+                </Gutter>
+            ) : (
+                <Block className={styles['onion-primary-nav']}>
+                    {children}
+                </Block>
+            )}
+
+            {content && (
+                <Block display={visible ? undefined : 'none'} paddingBottom="1">
+                    <div className={styles['mobile-header-menu']}>
+                        {content}
+                    </div>
+                </Block>
+            )}
+        </Block>
+    );
+};
 
 HeaderPrimaryNav.displayName = 'Header.PrimaryNav';
-
-const MobileNavContainer = styled.div`
-    .header-menu-start,
-    .header-menu-end {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-`;
-
-const Container = styled.nav`
-    display: flex;
-    min-height: ${block(8)};
-
-    .header-brand {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-
-        * {
-            margin-right: ${block(2)};
-        }
-    }
-`;
 
 interface HeaderMessageProps {
     children: React.ReactNode;
@@ -125,7 +107,7 @@ HeaderMessage.displayName = 'Header.Message';
 
 export const HeaderBrand: React.FunctionComponent<
     ChildrenOnlyProps & { href?: string }
-> = props => <span className="header-brand" {...props} />;
+> = props => <span className={styles['header-brand']} {...props} />;
 
 HeaderBrand.displayName = 'Header.Brand';
 

@@ -1,0 +1,7 @@
+.onion-block.cursor--pointer {
+    cursor: pointer;
+}
+
+.onion-block.cursor--not-allowed {
+    cursor: not-allowed;
+}

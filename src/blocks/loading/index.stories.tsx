@@ -9,7 +9,6 @@ import { useLoading } from './contex';
 
 export default {
     component: Loading,
-    title: `Blocks/Loading`,
 } as ComponentMeta<typeof Loading>;
 
 const Template: ComponentStory<typeof Loading> = args => (

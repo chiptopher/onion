@@ -1,0 +1,51 @@
+.onion-block.display--flex {
+    display: flex;
+}
+
+.onion-block.display--flex.justify-content--center {
+    justify-content: center;
+}
+
+.onion-block.display--flex.justify-content--flex-start {
+    justify-content: flex-start;
+}
+
+.onion-block.display--flex.justify-content--flex-end {
+    justify-content: flex-end;
+}
+
+.onion-block.display--flex.justify-content--space-between {
+    justify-content: space-between;
+}
+
+.onion-block.display--flex.align-items--center {
+    align-items: center;
+}
+
+.onion-block.display--flex.align-items--flex-start {
+    align-items: flex-start;
+}
+
+.onion-block.display--flex.align-items--flex-end {
+    align-items: flex-end;
+}
+
+.onion-block.display--flex.align-items--space-between {
+    align-items: space-between;
+}
+
+.onion-block.display--flex.flex-direction--column {
+    flex-direction: column;
+}
+
+.onion-block.display--flex.flex-direction--row {
+    flex-direction: row;
+}
+
+.onion-block.display--flex.flex-direction--row-reverse {
+    flex-direction: row-reverse;
+}
+
+.onion-block.display--flex.flex-direction--column-reverse {
+    flex-direction: column-reverse;
+}

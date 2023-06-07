@@ -13,7 +13,6 @@ export default {
         },
     },
     component: Footer,
-    title: `Components/Footer`,
 } as ComponentMeta<typeof Footer>;
 
 const Template: ComponentStory<typeof Footer> = () => (

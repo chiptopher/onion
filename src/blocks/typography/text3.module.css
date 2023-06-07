@@ -1,0 +1,67 @@
+@import '../../variables.css';
+
+.onion-text3 {
+    font-family: 'Nunito', sans-serif;
+    cursor: inherit;
+}
+
+.onion-text3.header.margin-bottom,
+.onion-text3.label.margin-bottom,
+.onion-text3.caption.margin-bottom,
+.onion-text3.emphasized.margin-bottom,
+.onion-text3.body.margin-bottom {
+    margin-bottom: var(--size-0_75);
+}
+
+.onion-text3.title {
+    font-size: 2.75rem;
+}
+
+.onion-text3.title.margin-bottom {
+    margin-bottom: var(--size-1_5);
+}
+
+.onion-text3.caption {
+    font-size: 0.8rem;
+}
+
+.onion-text3.header {
+    font-size: 1.75rem;
+}
+
+.onion-text3.subheader {
+    font-size: 1.5rem;
+}
+
+.onion-text3.label {
+    font-size: 1rem;
+}
+
+.onion-text3.emphasized {
+    font-size: 1.2rem;
+}
+
+.onion-text3.body {
+    font-size: 1rem;
+}
+
+.onion-text3.subheader.margin-bottom {
+    margin-bottom: var(--size-1);
+}
+
+/* TODO: figuere out way to use --breakpoint-tablet-upper */
+@media screen and (max-width: 800px) {
+    .onion-text3.title {
+        font-size: 1.75rem;
+    }
+
+    .onion-text3.header {
+        font-size: 1.5rem;
+    }
+
+    .onion-text3.subheader {
+        font-size: 1.25rem;
+    }
+}
+
+/* default margin bottom */

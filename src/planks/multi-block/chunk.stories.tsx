@@ -32,7 +32,6 @@ export default {
         },
     },
     component: MultiBlockChunk,
-    title: `Planks/MultiBlock/MultiBlockChunk`,
 } as ComponentMeta<typeof MultiBlockChunk>;
 
 const Template: ComponentStory<typeof MultiBlockChunk> = ({

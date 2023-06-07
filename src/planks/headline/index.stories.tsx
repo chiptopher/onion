@@ -34,7 +34,6 @@ export default {
         },
     },
     component: Headline,
-    title: `Planks/Headline`,
 } as ComponentMeta<typeof Headline>;
 
 const Template: ComponentStory<any> = ({

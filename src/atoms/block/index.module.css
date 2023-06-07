@@ -1,0 +1,26 @@
+@import './font.module.css';
+@import './flex.module.css';
+@import './color.module.css';
+@import './gap.module.css';
+@import './cursor.module.css';
+@import './text-decoration.module.css';
+@import './list-style-type.module.css';
+@import './text-align.module.css';
+@import './padding.module.css';
+@import './margin.module.css';
+
+.onion-block {
+    font-size: inherit;
+}
+
+.onion-block.display--none {
+    display: none;
+}
+
+.onion-block.border-radius {
+    border-radius: 4px;
+}
+
+.onion-block.vertical-align--top {
+    vertical-align: top;
+}

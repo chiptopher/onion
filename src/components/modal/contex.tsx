@@ -30,3 +30,12 @@ export const ModalProvider = (props: Props) => {
         </ModalContext.Provider>
     );
 };
+
+export function withModal<T>(Component: React.FunctionComponent<T>) {
+    // eslint-disable-next-line react/display-name
+    return (props: T) => (
+        <ModalProvider>
+            <Component {...props} />
+        </ModalProvider>
+    );
+}

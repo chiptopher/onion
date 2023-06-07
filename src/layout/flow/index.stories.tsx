@@ -8,10 +8,9 @@ import { Block } from '../../atoms/block';
 export default {
     argTypes: {},
     component: Flow,
-    title: `Layout/Flow`,
 } as ComponentMeta<typeof Flow>;
 
-const Template: ComponentStory<typeof Flow> = args => (
+export const Playground: ComponentStory<typeof Flow> = args => (
     <Flow {...args}>
         <Block color="primary" tagName="span">
             Block 1
@@ -21,7 +20,5 @@ const Template: ComponentStory<typeof Flow> = args => (
         </Block>
     </Flow>
 );
-
-export const Playground = Template.bind({});
 
 Playground.args = {};

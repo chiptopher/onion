@@ -1,0 +1,21 @@
+@import '../../variables.css';
+
+.onion-breadcrumbs {
+}
+
+.onion-breadcrumbs ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.onion-breadcrumbs li:before {
+    content: '/';
+    margin: var(--size-0_75) var(--size-0_75);
+}
+
+.onion-breadcrumbs li:first-child:before {
+    margin-left: 0;
+}

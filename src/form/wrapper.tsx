@@ -1,12 +1,12 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { Block, block, Body } from '..';
-import { Colors, resolveColorValue } from '../atoms/colors';
+import { Block } from '../atoms/block';
+import { Colors } from '../atoms/colors';
+import { Body } from '../blocks/typography/body';
 import { Caption } from '../blocks/typography/caption';
 import { Label } from '../blocks/typography/label';
-import { useTheme } from '../theme';
 
 type Help =
     | string
@@ -34,18 +34,14 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     prefix,
     action,
 }) => {
-    const theme = useTheme();
     return (
-        <Container
-            borderColor={resolveColorValue(theme.border, 'regular')}
-            borderRadius={borderRadius}
-            hasPrefix={Boolean(prefix)}
-        >
+        <Block className={styles['onion-input-wrapper']}>
             {label && <Label htmlFor={htmlFor}>{label}</Label>}
             <Block display="flex" marginBottom="0.5">
                 {prefix && (
                     <Block
                         alignItems="center"
+                        borderRadius={borderRadius}
                         className="onion-input-wrapper--prefix"
                         color="grey"
                         colorTint="light"
@@ -60,42 +56,9 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
                 {action && <Block marginLeft="0.5">{action}</Block>}
             </Block>
             <HelpText help={help} />
-        </Container>
+        </Block>
     );
 };
-
-interface ContainerProps {
-    borderColor: string;
-    borderRadius: boolean;
-    hasPrefix: boolean;
-}
-
-const Container = styled.div<ContainerProps>`
-    margin-bottom: ${block(1)};
-
-    .onion-input-wrapper--prefix {
-        border: solid 1px ${p => p.borderColor};
-        border-right: none;
-        ${p => p.borderRadius && 'border-radius: 4px;'}
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    input,
-    textarea {
-        ${p => p.borderRadius && 'border-radius: 4px;'}
-        ${p =>
-            p.hasPrefix &&
-            `
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        `}
-        width: 100%;
-        border: solid 1px ${p => p.borderColor};
-        font-size: 1rem;
-        padding: 0.5rem 0.5rem;
-    }
-`;
 
 export const HelpText: React.FunctionComponent<{ help?: Help }> = ({
     help,

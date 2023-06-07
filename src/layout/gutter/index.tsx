@@ -1,13 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 
-import classnames from 'classnames';
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { block } from '../..';
-import { Breakpoints, ForBreakpoints } from '../../atoms/breakpoints';
-import { isLessThan } from '../../atoms/media';
+import classnames from 'classnames';
+
 import { Size } from '../../atoms/size';
-import { useTheme } from '../../theme';
+import { Breakpoints, ForBreakpoints } from '../../atoms/types';
 
 type P<T> = Partial<Pick<Record<keyof Breakpoints, T>, 'desktop' | 'mobile'>>;
 type I = Extract<Size, 'regular' | 'none'>;
@@ -20,24 +18,26 @@ interface Props extends PropsWithChildren {
 
 function dynamicPropsForSize(size?: GutterSize) {
     const result = {
-        desktop__none: false,
-        desktop__regular: false,
-        mobile__none: false,
-        mobile__regular: false,
+        desktop: {
+            none: false,
+            regular: false,
+        },
+        mobile: { none: false, regular: false },
     };
+
     if (!size) {
-        result.desktop__regular = true;
-        result.mobile__regular = true;
+        result.desktop.regular = true;
+        result.mobile.regular = true;
     }
     if (typeof size === 'string') {
         switch (size) {
             case 'regular':
-                result.desktop__regular = true;
-                result.mobile__regular = true;
+                result.desktop.regular = true;
+                result.mobile.regular = true;
                 break;
             case 'none':
-                result.desktop__none = true;
-                result.mobile__none = true;
+                result.desktop.none = true;
+                result.mobile.none = true;
                 break;
         }
     } else {
@@ -46,30 +46,29 @@ function dynamicPropsForSize(size?: GutterSize) {
         if (cast.desktop) {
             switch (cast.desktop) {
                 case 'regular':
-                    result.desktop__regular = true;
+                    result.desktop.regular = true;
                     break;
                 case 'none':
-                    result.desktop__none = true;
+                    result.desktop.none = true;
                     break;
             }
         } else {
-            result.desktop__regular = true;
+            result.desktop.regular = true;
         }
 
         if (cast.mobile) {
             switch (cast.mobile) {
                 case 'regular':
-                    result.mobile__regular = true;
+                    result.mobile.regular = true;
                     break;
                 case 'none':
-                    result.mobile__none = true;
+                    result.mobile.none = true;
                     break;
             }
         } else {
-            result.mobile__regular = true;
+            result.mobile.regular = true;
         }
     }
-
     return result;
 }
 
@@ -77,40 +76,21 @@ export const Gutter: React.FunctionComponent<Props> = ({
     children,
     size = 'regular',
 }) => {
-    const theme = useTheme();
+    const result = dynamicPropsForSize(size);
     return (
-        <Container breakpoints={theme.breakpoints} size={size}>
+        <div>
             <div
-                className={classnames('outer-gutter', {
-                    ...dynamicPropsForSize(size),
+                className={classnames('outer-gutter', styles['onion-gutter'], {
+                    [styles[`onion-desktop-size--regular`]]:
+                        result.desktop.regular,
+                    [styles[`onion-desktop-size--none`]]: result.desktop.none,
+                    [styles[`onion-mobile-size--regular`]]:
+                        result.mobile.regular,
+                    [styles[`onion-mobile-size--none`]]: result.mobile.none,
                 })}
             >
-                <div className="inner-gutter">{children}</div>
+                <div className={styles['onion-inner-gutter']}>{children}</div>
             </div>
-        </Container>
+        </div>
     );
 };
-
-const Container = styled.div<{ breakpoints: Breakpoints; size: GutterSize }>`
-    .desktop__regular {
-        margin: 0 auto;
-        width: 1024px;
-        max-width: 100%;
-    }
-
-    .desktop__none {
-    }
-
-    .desktop__none,
-    .desktop__regular {
-        ${p => isLessThan(p.breakpoints.desktop.lower)} {
-            width: 100%;
-
-            &.mobile__regular {
-                .inner-gutter {
-                    padding: 0 ${block(2)};
-                }
-            }
-        }
-    }
-`;

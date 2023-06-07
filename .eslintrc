@@ -53,14 +53,18 @@
               "group": "builtin",
               "position": "before"
             },
+            {
+              "pattern": "./**/*.module.css",
+              "group": "builtin",
+              "position": "after"
+            }
         ],
         "newlines-between": "always",
         "alphabetize": {
-            order: 'asc',
-            caseInsensitive: true
+            "order": "asc",
+            "caseInsensitive": true
         },
-        pathGroupsExcludedImportTypes: []
-    }],
-
+        "pathGroupsExcludedImportTypes": []
+    }]
   }
 }

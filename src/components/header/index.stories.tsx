@@ -3,7 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Header } from '.';
-import { Text2 } from '../../blocks/typography/text';
+import { Text3 } from '../../blocks/typography/text3';
 
 export default {
     argTypes: {
@@ -21,7 +21,6 @@ export default {
         },
     },
     component: Header,
-    title: `Components/Header`,
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = ({
@@ -33,9 +32,9 @@ const Template: ComponentStory<typeof Header> = ({
         <Header {...args}>
             <Header.PrimaryNav gutter={gutter}>
                 <Header.Brand>
-                    <Text2 style="header" tagName="span">
+                    <Text3 style="header" tagName="span">
                         🧅 Onion Corp
-                    </Text2>
+                    </Text3>
                 </Header.Brand>
                 <Header.Menu>
                     <Header.NavContainer side="start">

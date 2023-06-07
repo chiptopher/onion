@@ -7,7 +7,6 @@ import { Table } from '.';
 export default {
     argTypes: {},
     component: Table,
-    title: `Components/Table`,
 } as ComponentMeta<typeof Table>;
 
 const Template: ComponentStory<typeof Table> = args => (

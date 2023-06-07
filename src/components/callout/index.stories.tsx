@@ -12,7 +12,6 @@ export default {
         },
     },
     component: Callout,
-    title: `Components/Callout`,
 } as ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = args => <Callout {...args} />;

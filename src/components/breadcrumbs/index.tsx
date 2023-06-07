@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { Block, block } from '../..';
+import { Block } from '../..';
 import { BreadcrumbItem, BreadcrumbItemProps } from './item';
 
 interface Props {
@@ -13,35 +13,16 @@ export const Breadcrumbs: React.FunctionComponent<Props> & {
     Item: React.FunctionComponent<BreadcrumbItemProps>;
 } = ({ children }) => {
     return (
-        <Block marginBottom="1">
-            <Container>
-                <ol>
-                    {React.Children.toArray(children).map((child, index) => (
-                        <li key={index}>{child}</li>
-                    ))}
-                </ol>
-            </Container>
+        <Block className={styles['onion-breadcrumbs']} marginBottom="1">
+            <ol>
+                {React.Children.toArray(children).map((child, index) => (
+                    <Block key={index} tagName="li">
+                        {child}
+                    </Block>
+                ))}
+            </ol>
         </Block>
     );
 };
 
 Breadcrumbs.Item = BreadcrumbItem;
-
-const Container = styled.div`
-    ol {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        list-style-type: none;
-
-        li:before {
-            content: '/';
-            margin: ${block(1.5)} ${block(1.5)};
-        }
-
-        li:first-child:before {
-            margin-left: 0;
-        }
-    }
-`;

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Text2, TextProps } from './text';
+import { Text3, TextProps } from './text3';
 
-export const LargerBody: React.FunctionComponent<
-    Omit<TextProps, 'tagName' | 'style'> & {
+export const Emphasized: React.FunctionComponent<
+    Omit<TextProps, 'tagName' | 'style' | 'marginBottom'> & {
+        marginBottom?: boolean;
         tagName?: 'p' | 'span';
     }
 > = ({ tagName = 'p', ...rest }) => {
-    return <Text2 style="larger-body" tagName={tagName} {...rest} />;
+    return <Text3 style="emphasized" tagName={tagName} {...rest} />;
 };

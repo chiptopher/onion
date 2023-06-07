@@ -1,0 +1,26 @@
+.onion-details--open-indeicator {
+    transition: transform 0.15s ease-out;
+}
+
+.onion-details__open-indicator {
+}
+
+.onion-details:not([open]) .onion-details__open-indicator {
+    transform: rotate(0deg);
+}
+
+.onion-details[open] .onion-details__open-indicator {
+    transform: rotate(90deg);
+}
+
+.onion-details summary {
+    list-style: none;
+}
+
+.onion-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.onion-details summary .onion-text {
+    margin-bottom: 0;
+}

@@ -1,0 +1,9 @@
+.onion-table table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.onion-table tbody tr:last-child td {
+    border-style: none;
+}

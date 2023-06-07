@@ -1,15 +1,18 @@
 //TODO move to types
 
-type BlockSpacingValuesNumbericalValues =
-    | 0
-    | 0.25
-    | 0.5
-    | 0.75
-    | 1
-    | 1.5
-    | 2
-    | 3
-    | 4
-    | 6;
+import { SpacingValues } from './types';
 
-export type BlockSpacing = `${BlockSpacingValuesNumbericalValues}`;
+export function mapSpacingToClassNameString(spacing: SpacingValues) {
+    switch (spacing) {
+        case '0.25':
+            return '0_25';
+        case '0.5':
+            return '0_5';
+        case '0.75':
+            return '0_75';
+        case '1.5':
+            return '1_5';
+        default:
+            return spacing;
+    }
+}

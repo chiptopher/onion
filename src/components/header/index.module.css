@@ -1,0 +1,55 @@
+@import '../../variables.css';
+
+.onion-header {
+}
+
+.onion-primary-nav {
+    display: flex;
+    min-height: var(--size-4);
+}
+
+.onion-primary-nav .header-brand {
+    gap: var(--size-1);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.mobile-header-menu > .header-menu-end,
+.mobile-header-menu > .header-menu-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.onion-header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.onion-header-menu > .header-menu-end > .menu-item {
+    margin-left: var(--size-1);
+}
+
+.onion-header-menu > .navbar-burger {
+    display: none;
+}
+
+/* TODO: figuere out way to use --breakpoint-tablet-upper */
+@media screen and (max-width: 800px) {
+    .onion-header-menu {
+        justify-content: flex-end;
+    }
+
+    .onion-header-menu > .navbar-burger {
+        display: block;
+    }
+
+    .onion-header-menu > .header-menu-start,
+    .onion-header-menu > .header-menu-end {
+        padding-left: var(--block-0_5);
+        display: none;
+    }
+}

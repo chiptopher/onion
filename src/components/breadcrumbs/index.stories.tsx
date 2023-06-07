@@ -7,7 +7,6 @@ import { Block } from '../../atoms/block';
 
 export default {
     component: Breadcrumbs,
-    title: `Components/Breadcrumbs`,
 } as ComponentMeta<typeof Breadcrumbs>;
 
 const Template: ComponentStory<typeof Breadcrumbs> = ({

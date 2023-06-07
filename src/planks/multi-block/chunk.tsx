@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './chunk.module.css';
+
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import classNames from 'classnames';
 
 import { Block } from '../../atoms/block';
 import { Body } from '../../blocks/typography/body';
@@ -38,16 +40,11 @@ export const MultiBlockChunk: React.FunctionComponent<MultiBlockChunkProps> = ({
         iconProps = rest as _WithIconProps;
     }
 
-    console.log(keys);
-
     return (
-        <Container>
+        <div className={classNames(styles['onion-multi-block-chunk'])}>
             {imageProps && <img src={imageProps.imageUrl} />}
             {iconProps && (
-                <Block
-                    className="multi-block_chunk_icon-container"
-                    marginBottom="1"
-                >
+                <Block className={styles['icon-container']} marginBottom="1">
                     <FontAwesomeIcon icon={iconProps.icon} />
                 </Block>
             )}
@@ -55,18 +52,6 @@ export const MultiBlockChunk: React.FunctionComponent<MultiBlockChunkProps> = ({
                 <Label>{title}</Label>
             </Block>
             <Body>{children}</Body>
-        </Container>
+        </div>
     );
 };
-
-const Container = styled.div`
-    display: inline-block;
-    width: 100%;
-    max-width: 20rem;
-
-    text-align: center;
-
-    .multi-block_chunk_icon-container {
-        font-size: 5rem;
-    }
-`;

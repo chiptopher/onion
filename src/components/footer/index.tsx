@@ -1,11 +1,7 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { block } from '../..';
-import { resolveColorValue } from '../../atoms/colors';
+import { Block } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { useTheme } from '../../theme';
 import { FooterCopyright } from './copyright';
 import { FooterFlavor } from './favor';
 import { FooterItemProps, FooterNavItem } from './item';
@@ -23,19 +19,20 @@ export const Footer: React.FunctionComponent<Props> & {
     Nav: FooterNavType;
     Title: React.FunctionComponent<ChildrenOnlyProps>;
 } = ({ children }) => {
-    const theme = useTheme();
     return (
-        <Container bc={resolveColorValue(theme.base.grey, 'light')}>
+        <Block
+            color="grey"
+            colorTint="light"
+            paddingBottom="1.5"
+            paddingLeft="0"
+            paddingRight="0"
+            paddingTop="3"
+            textAlign="center"
+        >
             {children}
-        </Container>
+        </Block>
     );
 };
-
-const Container = styled.footer<{ bc: string }>`
-    background-color: ${props => props.bc};
-    padding: ${block(6)} 0 ${block(3)};
-    text-align: center;
-`;
 
 /*
  * @deprecated Favor Footer.Nav.Item

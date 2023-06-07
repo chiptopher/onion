@@ -1,0 +1,76 @@
+@import '../../variables.css';
+
+@each $size in 0, 0_25, 0_5, 0_75, 1, 2, 3, 4, 6 {
+    .onion-block.padding--size-$(size) {
+        padding: var(--size-$(size));
+    }
+    .onion-block.padding-top--size-$(size) {
+        padding-top: var(--size-$(size));
+    }
+    .onion-block.padding-bottom--size-$(size) {
+        padding-bottom: var(--size-$(size));
+    }
+    .onion-block.padding-left--size-$(size) {
+        padding-left: var(--size-$(size));
+    }
+    .onion-block.padding-right--size-$(size) {
+        padding-right: var(--size-$(size));
+    }
+
+    /* TODO: use variable */
+    @media screen and (max-width: 1024px) {
+        .onion-block.padding--size-$(size)--breakpoint-desktop {
+            padding: var(--size-$(size));
+        }
+        .onion-block.padding-top--size-$(size)--breakpoint-desktop {
+            padding-top: var(--size-$(size));
+        }
+        .onion-block.padding-bottom--size-$(size)--breakpoint-desktop {
+            padding-bottom: var(--size-$(size));
+        }
+        .onion-block.padding-left--size-$(size)--breakpoint-desktop {
+            padding-left: var(--size-$(size));
+        }
+        .onion-block.padding-right--size-$(size)--breakpoint-desktop {
+            padding-right: var(--size-$(size));
+        }
+    }
+
+    /* TODO: use variable */
+    @media screen and (max-width: 800px) {
+        .onion-block.padding--size-$(size)--breakpoint-tablet {
+            padding: var(--size-$(size));
+        }
+        .onion-block.padding-top--size-$(size)--breakpoint-tablet {
+            padding-top: var(--size-$(size));
+        }
+        .onion-block.padding-bottom--size-$(size)--breakpoint-tablet {
+            padding-bottom: var(--size-$(size));
+        }
+        .onion-block.padding-left--size-$(size)--breakpoint-tablet {
+            padding-left: var(--size-$(size));
+        }
+        .onion-block.padding-right--size-$(size)--breakpoint-tablet {
+            padding-right: var(--size-$(size));
+        }
+    }
+
+    /* TODO: use variable */
+    @media screen and (max-width: 425px) {
+        .onion-block.padding--size-$(size)--breakpoint-mobile {
+            padding: var(--size-$(size));
+        }
+        .onion-block.padding-top--size-$(size)--breakpoint-mobile {
+            padding-top: var(--size-$(size));
+        }
+        .onion-block.padding-bottom--size-$(size)--breakpoint-mobile {
+            padding-bottom: var(--size-$(size));
+        }
+        .onion-block.padding-left--size-$(size)--breakpoint-mobile {
+            padding-left: var(--size-$(size));
+        }
+        .onion-block.padding-right--size-$(size)--breakpoint-mobile {
+            padding-right: var(--size-$(size));
+        }
+    }
+}

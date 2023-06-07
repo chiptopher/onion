@@ -13,14 +13,13 @@ export default {
         },
     },
     component: Gutter,
-    title: `Layout/Gutter`,
 } as ComponentMeta<typeof Gutter>;
 
 const Template: ComponentStory<typeof Gutter> = ({ children, ...args }) => (
     <ColoredBlock color="warning" tagName="div">
         <Gutter {...args}>
             <ColoredBlock color="primary" tagName="div">
-                {children}
+                Hello World
             </ColoredBlock>
         </Gutter>
     </ColoredBlock>

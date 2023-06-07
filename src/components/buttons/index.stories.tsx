@@ -8,7 +8,6 @@ import { Modal } from '../modal';
 
 export default {
     component: Buttons,
-    title: `Components/Buttons`,
 } as ComponentMeta<typeof Buttons>;
 
 const Template: ComponentStory<typeof Buttons> = args => (

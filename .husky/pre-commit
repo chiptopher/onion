@@ -4,3 +4,6 @@
 npx lint-staged --allow-empty
 npm run test
 npm run build:storybook
+npm run build
+
+git add dist/

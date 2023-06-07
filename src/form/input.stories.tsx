@@ -15,7 +15,7 @@ export default {
         },
     },
     component: FormInput,
-    title: `Components/Form/FormInput`,
+    title: 'Components/Form/FormInput',
 } as ComponentMeta<typeof FormInput>;
 
 const Template: ComponentStory<typeof FormInput> = args => (

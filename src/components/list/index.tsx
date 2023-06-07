@@ -1,7 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
+import { Block } from '../..';
 import { ListItem, ListItemProps } from './item';
 
 interface Props {
@@ -11,13 +10,11 @@ interface Props {
 export const List: React.FunctionComponent<Props> & {
     Item: React.FunctionComponent<ListItemProps>;
 } = ({ children }) => {
-    return <Container>{children}</Container>;
+    return (
+        <Block listStyleType="none" margin="0" padding="0" tagName="ul">
+            {children}
+        </Block>
+    );
 };
-
-const Container = styled.ul`
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-`;
 
 List.Item = ListItem;

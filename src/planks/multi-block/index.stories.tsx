@@ -8,7 +8,6 @@ import { MultiBlock } from '.';
 export default {
     argTypes: {},
     component: MultiBlock,
-    title: `Planks/MultiBlock`,
 } as ComponentMeta<typeof MultiBlock>;
 
 const Template: ComponentStory<typeof MultiBlock> = args => (

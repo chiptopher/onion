@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
 import { Block } from '../../atoms/block';
 import { DetailsBody, DetailsBodyProps } from './body';
@@ -25,28 +25,15 @@ export const Details: React.FunctionComponent<Props> & {
     });
 
     return (
-        <Container open={initialOpen} tagName="details">
+        <Block
+            className={styles['onion-details']}
+            open={initialOpen}
+            tagName="details"
+        >
             {validChildren}
-        </Container>
+        </Block>
     );
 };
 
 Details.Summary = DetailsSummary;
 Details.Body = DetailsBody;
-
-const Container = styled(Block)`
-    .ontion-details__open-indicator {
-        transition: transform 0.15s ease-out;
-    }
-
-    &:not([open]) {
-        .ontion-details__open-indicator {
-            transform: rotate(0deg);
-        }
-    }
-    &[open] {
-        .ontion-details__open-indicator {
-            transform: rotate(90deg);
-        }
-    }
-`;

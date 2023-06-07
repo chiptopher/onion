@@ -13,7 +13,6 @@ export default {
         },
     },
     component: Link,
-    title: `Blocks/Link`,
 } as ComponentMeta<typeof Link>;
 
 const Template: ComponentStory<typeof Link> = props => (

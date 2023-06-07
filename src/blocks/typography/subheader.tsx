@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Heirarcy } from './header-shared';
-import { Text2, TextProps } from './text';
+import { Text3, TextProps } from './text3';
 
 interface SubheaderProps {
     heirarchy: Heirarcy;
@@ -9,13 +9,12 @@ interface SubheaderProps {
 
 type Props = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
 
-export const Subheader: React.FunctionComponent<Props> = ({
-    heirarchy,
-    ...rest
-}) => {
+export const Subheader: React.FunctionComponent<
+    Omit<Props, 'marginBottom'>
+> = ({ heirarchy, ...rest }) => {
     return (
-        <Text2
-            marginBottom="1.5"
+        <Text3
+            marginBottom
             style="subheader"
             tagName={`h${heirarchy}`}
             {...rest}

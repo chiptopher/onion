@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Block } from '../../atoms/block';
-import { Text2 as Text } from '../../blocks/typography/text';
+import { Text3 as Text } from '../../blocks/typography/text3';
 
 export interface HeadlineContentProps {
     children: React.ReactNode;

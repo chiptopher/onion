@@ -1,0 +1,29 @@
+@import '../../variables.css';
+
+.onion-block.gap--0_25 {
+    gap: var(--size-0_25);
+}
+.onion-block.gap--0_5 {
+    gap: var(--size-0_5);
+}
+.onion-block.gap--0_75 {
+    gap: var(--size-0_75);
+}
+.onion-block.gap--1 {
+    gap: var(--size-1);
+}
+.onion-block.gap--1_5 {
+    gap: var(--size-1_5);
+}
+.onion-block.gap--2 {
+    gap: var(--size-2);
+}
+.onion-block.gap--3 {
+    gap: var(--size-3);
+}
+.onion-block.gap--4 {
+    gap: var(--size-4);
+}
+.onion-block.gap--6 {
+    gap: var(--size-6);
+}

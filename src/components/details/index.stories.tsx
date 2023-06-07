@@ -5,17 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Details } from '.';
+import { Subheader } from '../../blocks/typography/subheader';
 
 export default {
     component: Details,
-    title: `Components/Details`,
 } as ComponentMeta<typeof Details>;
 
 const Template: ComponentStory<typeof Details> = args => (
     <>
         <Details indicator={<FontAwesomeIcon icon={faChevronRight} />}>
             <Details.Summary tagName="h2">Title</Details.Summary>
-            <Details.Body>Body</Details.Body>
+            <Details.Body>
+                <Subheader heirarchy="2">Body</Subheader>
+            </Details.Body>
         </Details>
         <Details initialOpen>
             <Details.Summary tagName="span" textStyle="label">

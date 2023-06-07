@@ -1,10 +1,8 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { block } from '../..';
-import { resolveColorValue } from '../../atoms/colors';
-import { useTheme } from '../../theme';
+import { Block } from '../../atoms/block';
 
 export interface ListItemProps {
     children: React.ReactNode;
@@ -13,18 +11,15 @@ export interface ListItemProps {
 export const ListItem: React.FunctionComponent<ListItemProps> = ({
     children,
 }) => {
-    const theme = useTheme();
     return (
-        <Container c={resolveColorValue(theme.base.grey, 'regular')}>
+        <Block
+            className={styles['onion-list-item']}
+            paddingBottom="0.25"
+            paddingLeft="0.5"
+            paddingRight="0.5"
+            paddingTop="0.25"
+        >
             {children}
-        </Container>
+        </Block>
     );
 };
-
-const Container = styled.li<{ c: string }>`
-    padding: ${block(0.5)} ${block(1)};
-
-    &:nth-child(odd) {
-        background-color: ${p => p.c};
-    }
-`;

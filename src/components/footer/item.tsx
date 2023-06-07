@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
 import { Block, Body } from '../..';
 
 export interface FooterItemProps {
@@ -12,19 +10,13 @@ export const FooterNavItem: React.FunctionComponent<FooterItemProps> = ({
     children,
 }) => {
     return (
-        <Container
+        <Block
             cursor="pointer"
             marginBottom="0.25"
             tagName="li"
             textDecoration="underline"
         >
             <Body>{children}</Body>
-        </Container>
+        </Block>
     );
 };
-
-const Container = styled(Block)`
-    a {
-        text-decoration: none;
-    }
-`;

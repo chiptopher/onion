@@ -1,8 +1,7 @@
 import { Block } from './atoms/block';
-import { Colors, resolveColorValue } from './atoms/colors';
-import { isGreaterThan, isLessThan } from './atoms/media';
+import { type Colors, resolveColorValue } from './atoms/colors';
 import { block } from './atoms/spacing';
-import { Button, ButtonProps } from './blocks/button';
+import { Button, type ButtonProps } from './blocks/button';
 import { Link } from './blocks/link';
 import { Loading, withLoading } from './blocks/loading';
 import { useLoading } from './blocks/loading/contex';
@@ -10,9 +9,9 @@ import { Body } from './blocks/typography/body';
 import { Caption } from './blocks/typography/caption';
 import { Heading } from './blocks/typography/header';
 import { Label } from './blocks/typography/label';
-import { LargerBody } from './blocks/typography/larger-body';
+import { Emphasized } from './blocks/typography/larger-body';
 import { Subheader } from './blocks/typography/subheader';
-import { Text2 as Text } from './blocks/typography/text';
+import { Text3 as Text } from './blocks/typography/text3';
 import { Title } from './blocks/typography/title';
 import { Breadcrumbs } from './components/breadcrumbs';
 import { Buttons } from './components/buttons';
@@ -23,6 +22,7 @@ import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
 import { Modal, useModalControl } from './components/modal';
+import { withModal } from './components/modal/contex';
 import { OutboundLink } from './components/outbound-link';
 import { Section } from './components/section';
 import { Table } from './components/table';
@@ -32,11 +32,9 @@ import { Gutter } from './layout/gutter';
 import { Headline } from './planks/headline';
 import { MultiBlock } from './planks/multi-block';
 import { PlankWrapper } from './planks/utils';
-import { ThemeProvider, useTheme } from './theme';
 
 export {
     Button,
-    ThemeProvider,
     Body,
     Heading,
     Subheader,
@@ -62,18 +60,16 @@ export {
     Block,
     Callout,
     Flow,
-    useTheme,
     ButtonProps,
     Copyable,
-    LargerBody,
+    Emphasized,
     resolveColorValue,
     OutboundLink,
     useModalControl,
     Headline,
     Details,
     MultiBlock,
-    isLessThan,
-    isGreaterThan,
     PlankWrapper,
     Colors,
+    withModal,
 };

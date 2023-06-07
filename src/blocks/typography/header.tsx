@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { Heirarcy } from './header-shared';
-import { Text2, TextProps } from './text';
+import { Text3, TextProps } from './text3';
 
 export const Heading: React.FunctionComponent<
-    Omit<TextProps, 'tagName' | 'style'> & {
+    Omit<TextProps, 'tagName' | 'style' | 'marginBottom'> & {
         heirarchy: Heirarcy;
     }
 > = ({ heirarchy, ...rest }) => {
     return (
-        <Text2
-            marginBottom="1.5"
+        <Text3
+            marginBottom
             style="header"
             tagName={`h${heirarchy}`}
             {...rest}

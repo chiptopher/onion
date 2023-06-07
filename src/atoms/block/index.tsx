@@ -1,86 +1,24 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { useTheme } from '../../theme';
-import { Colors, Tint } from '../colors';
-import { Percents, Pixels, REMs, TagName } from '../types';
-import { resolveColors } from './resolve-colors';
-import { resolveBorderSpacing, resolveBorderSpacing2 } from './resolve-padding';
-import {
-    BorderProps,
-    ColorProps,
-    Hoverable,
-    MarginProps,
-    PaddingProps,
-} from './types';
+import classNames from 'classnames';
 
-type FlexJustify =
-    | 'center'
-    | 'flex-start'
-    | 'flex-end'
-    | 'space-between'
-    | 'center';
-
-export type FlexDirection = 'column' | 'row' | 'row-reverse' | 'column-reverse';
-export type JustifyContent = FlexJustify;
-export type TextAlignment = 'left' | 'right' | 'center';
-
-type AnchorProps = Pick<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    'target' | 'rel'
->;
-
-// TODO Illegal prop combons
-//   verticalAlign - only on tbody
-
-interface _Props {
-    alignItems?: FlexJustify;
-    borderRadius?: boolean;
-    children: React.ReactNode;
-    cursor?: 'pointer' | 'not-allowed';
-    disabled?: boolean;
-    display?: 'flex' | 'none';
-    flexDirection?: FlexDirection;
-    href?: string;
-    id?: string;
-    justifyContent?: FlexJustify;
-    listStyleType?: 'none';
-    open?: boolean;
-    tagName?: TagName;
-    textAlign?: TextAlignment;
-    textColor?: Colors;
-    textColorTint?: Tint;
-    textDecoration?: 'underline' | 'none';
-    verticalAlign?: 'top';
-    width?: Pixels | REMs | Percents;
-}
-
-// TODO make an eslint warning when giving type but tagName isn't set to 'button'
-type ButtonOnlyProps = {
-    type?: 'reset' | 'button' | 'submit';
-};
-
-type HTMLTypes = Pick<
-    React.ButtonHTMLAttributes<HTMLElement>,
-    'onClick' | 'className'
->;
-
-type Props = _Props &
-    AnchorProps &
-    BorderProps &
-    PaddingProps &
-    MarginProps &
-    ButtonOnlyProps &
-    Hoverable<ColorProps> &
-    HTMLTypes;
-
-export type BlockProps = Props;
+import { resolveColor } from './color.util';
+import { resolveCursor } from './cursor.util';
+import { resolveListStyleType } from './list-style-type.util';
+import { resolveRawStyle } from './raw-style';
+import { resolveMargin, resolvePadding } from './resolve-padding.util';
+import { resolveTextAlgin } from './text-align.util';
+import { resolveTextDecoration } from './text-decoration.util';
+import { BlockProps } from './types';
+import { mapSpacingToClassNameString } from './util';
 
 export const Block = React.forwardRef(
     (
         {
             tagName = 'div',
+            className,
             color,
             colorTint,
             borderRadius,
@@ -90,15 +28,6 @@ export const Block = React.forwardRef(
             paddingBottom,
             paddingRight,
             paddingLeft,
-            paddingTopHover,
-            paddingBottomHover,
-            paddingRightHover,
-            paddingLeftHover,
-            marginHover,
-            marginTopHover,
-            marginBottomHover,
-            marginRightHover,
-            marginLeftHover,
             margin,
             marginTop,
             marginBottom,
@@ -109,116 +38,149 @@ export const Block = React.forwardRef(
             alignItems,
             textColor,
             textColorTint,
-            ...rest
-        }: Props,
+            justifyContent,
+            display,
+            flexDirection,
+            fontWeight,
+            cursor,
+            gap,
+            textDecoration,
+            listStyleType,
+            textAlign,
+            verticalAlign,
+            border,
+            borderTop,
+            borderLeft,
+            borderRight,
+            borderBottom,
+            style,
+            children,
+        }: BlockProps,
         ref: any
     ) => {
-        const theme = useTheme();
-        return (
-            <Container
-                alignItems={alignItems}
-                as={tagName}
-                borderRadius={borderRadius ? 4 : 0}
-                disabled={disabled}
-                margin={resolveBorderSpacing({
-                    all: margin,
-                    bottom: marginBottom,
-                    left: marginLeft,
-                    right: marginRight,
-                    top: marginTop,
-                })}
-                padding={resolveBorderSpacing2(
-                    {
-                        padding,
-                        paddingBottom,
-                        paddingLeft,
-                        paddingRight,
-                        paddingTop,
-                    },
-                    theme.breakpoints
-                )}
-                {...resolveColors(theme, {
-                    color,
-                    colorHover: colorHover,
-                    textColor: textColor,
-                    textColorTint: textColorTint,
-                    tint: colorTint,
-                    tintHover: colorTintHover,
-                })}
-                {...rest}
-                ref={ref}
-            />
-        );
+        const cn = classNames(styles['onion-block'], className, {
+            [styles['border-radius']]: borderRadius,
+            [styles['display--flex']]: display === 'flex',
+            [styles['display--none']]: display === 'none',
+            [styles['justify-content--flex-start']]:
+                justifyContent === 'flex-start',
+            [styles['justify-content--flex-end']]:
+                justifyContent === 'flex-end',
+            [styles['justify-content--center']]: justifyContent === 'center',
+            [styles['justify-content--space-between']]:
+                justifyContent === 'space-between',
+            [styles['align-items--flex-start']]: alignItems === 'flex-start',
+            [styles['align-items--flex-end']]: alignItems === 'flex-end',
+            [styles['align-items--center']]: alignItems === 'center',
+            [styles['align-items--space-between']]:
+                alignItems === 'space-between',
+            [styles['flex-direction--row']]: flexDirection === 'row',
+            [styles['flex-direction--column']]: flexDirection === 'column',
+            [styles['flex-direction--row-reverse']]:
+                flexDirection === 'row-reverse',
+            [styles['flex-direction--column-reverse']]:
+                flexDirection === 'column-reverse',
+            [styles[`background-color--${color}--${colorTint || 'regular'}`]]:
+                color,
+            [styles['font-weight--normal']]: fontWeight === 'normal',
+            [styles['font-weight--bold']]: fontWeight === 'bold',
+            [styles[`gap--${mapSpacingToClassNameString(gap || 'auto')}`]]:
+                gap !== undefined,
+            [styles['vertical-align--top']]: verticalAlign === 'top',
+            ...resolveCursor({ cursor }),
+            ...resolveTextDecoration({ textDecoration }),
+            ...resolveListStyleType({ listStyleType }),
+            ...resolveTextAlgin({ textAlign }),
+            ...resolveColor({
+                color,
+                colorHover,
+                colorTint,
+                colorTintHover,
+                textColor,
+                textColorTint,
+            }),
+            ...resolvePadding({
+                padding,
+                paddingBottom,
+                paddingLeft,
+                paddingRight,
+                paddingTop,
+            }),
+            ...resolveMargin({
+                margin,
+                marginBottom,
+                marginLeft,
+                marginRight,
+                marginTop,
+            }),
+        });
+        const finalProps = {
+            children,
+            className: cn,
+            disabled: disabled,
+            ref,
+            style: resolveRawStyle({
+                border,
+                borderBottom,
+                borderLeft,
+                borderRight,
+                borderTop,
+                style,
+            }),
+        };
+        switch (tagName) {
+            case 'p':
+                return <p {...finalProps} />;
+            case 'h1':
+                return <h1 {...finalProps} />;
+            case 'h2':
+                return <h2 {...finalProps} />;
+            case 'h3':
+                return <h3 {...finalProps} />;
+            case 'h4':
+                return <h4 {...finalProps} />;
+            case 'h5':
+                return <h5 {...finalProps} />;
+            case 'h6':
+                return <h6 {...finalProps} />;
+            case 'label':
+                return <label {...finalProps} />;
+            case 'span':
+                return <span {...finalProps} />;
+            case 'div':
+                return <div {...finalProps} />;
+            case 'header':
+                return <header {...finalProps} />;
+            case 'a':
+                return <a {...finalProps} />;
+            case 'tr':
+                return <tr {...finalProps} />;
+            case 'th':
+                return <th {...finalProps} />;
+            case 'td':
+                return <td {...finalProps} />;
+            case 'thead':
+                return <thead {...finalProps} />;
+            case 'tbody':
+                return <tbody {...finalProps} />;
+            case 'button':
+                return <button {...finalProps} />;
+            case 'ol':
+                return <ol {...finalProps} />;
+            case 'ul':
+                return <ul {...finalProps} />;
+            case 'nav':
+                return <nav {...finalProps} />;
+            case 'li':
+                return <li {...finalProps} />;
+            case 'table':
+                return <table {...finalProps} />;
+            case 'summary':
+                return <summary {...finalProps} />;
+            case 'details':
+                return <details {...finalProps} />;
+        }
     }
 );
 
 Block.displayName = 'Block';
-
-type SCProps = BorderProps & {
-    alignItems?: string;
-    backgroundColor: string;
-    backgroundColorHover?: string;
-    borderBottomLastChild?: string;
-    borderLeftLastChild?: string;
-    borderRadius: number;
-    borderRightLastChild?: string;
-    borderTopLastChild?: string;
-    color: string;
-    cursor?: string;
-    display?: string;
-    flexDirection?: string;
-    justifyContent?: string;
-    listStyleType?: string;
-    margin: string;
-    padding: string;
-    textAlign?: string;
-    textDecoration?: string;
-    verticalAlign?: string;
-    width?: string;
-};
-
-const Container = styled.div<SCProps>`
-    background-color: ${props => props.backgroundColor};
-    color: ${props => props.color};
-    ${p => p.padding}
-    margin: ${p => p.margin};
-
-    border-radius: ${p => p.borderRadius}px;
-
-    font-size: inherit;
-
-    ${p => p.display && `display: ${p.display};`}
-    ${p => p.justifyContent && `justify-content: ${p.justifyContent};`}
-    ${p => p.alignItems && `align-items: ${p.alignItems};`}
-    ${p => p.flexDirection && `flex-direction: ${p.flexDirection};`}
-
-    ${p => p.border && `border: ${p.border};`}
-    ${p => p.borderTop && `border-top: ${p.borderTop};`}
-    ${p => p.borderRight && `border-right: ${p.borderRight};`}
-    ${p => p.borderBottom && `border-bottom: ${p.borderBottom};`}
-    ${p => p.borderLeft && `border-left: ${p.borderLeft};`}
-    ${p => p.textDecoration && `text-decoration: ${p.textDecoration};`}
-    ${p => p.listStyleType && `list-style-type: ${p.listStyleType};`}
-    ${p => p.cursor && `cursor: ${p.cursor};`}
-    ${p => p.width && `width: ${p.width};`}
-    ${p => p.textAlign && `text-align: ${p.textAlign};`}
-    ${p => p.verticalAlign && `vertical-align: ${p.verticalAlign};`}
-
-    &:hover {
-        ${p =>
-            p.backgroundColorHover &&
-            `background-color: ${p.backgroundColorHover};`}
-    }
-
-    &:last-child {
-        ${p => p.borderTopLastChild && `border-top: ${p.borderTopLastChild};`}
-        ${p =>
-            p.borderBottomLastChild &&
-            `border-bottom: ${p.borderBottomLastChild};`}
-        ${p =>
-            p.borderLeftLastChild && `border-left: ${p.borderLeftLastChild};`}
-        ${p =>
-            p.borderRightLastChild &&
-            `border-right: ${p.borderRightLastChild};`}
-    }
-`;

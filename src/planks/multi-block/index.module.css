@@ -1,0 +1,5 @@
+.onion-multi-block .onion-multi-block--flow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem 2rem;
+}

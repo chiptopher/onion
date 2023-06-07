@@ -10,13 +10,16 @@ export default {
             control: 'text',
             defaultValue: 'Click me!',
         },
+        disabled: {
+            control: 'boolean',
+            defaultValue: undefined,
+        },
         href: {
             control: 'text',
             defaultValue: undefined,
         },
     },
     component: Button,
-    title: `Blocks/Button`,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => (

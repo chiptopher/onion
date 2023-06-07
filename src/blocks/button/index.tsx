@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { Block, BlockProps } from '../../atoms/block';
-import { ColorProps, Hoverable, PaddingProps } from '../../atoms/block/types';
+import { Block } from '../../atoms/block';
+import {
+    BlockProps,
+    ColorProps,
+    Hoverable,
+    PaddingProps,
+} from '../../atoms/block/types';
 import { Size } from '../../atoms/size';
-import { useTheme } from '../../theme';
-import { Text2 } from '../typography/text';
+import { Text3 } from '../typography/text3';
 
 export interface Props {
     size?: Size;
@@ -36,16 +40,12 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     children,
     href,
     onClick,
-    borderRadius,
+    borderRadius = true,
     colorHover,
     disabled,
 }) => {
     let p: Partial<PaddingProps>;
     const tagName = href ? 'a' : 'button';
-
-    const theme = useTheme();
-    const finalBorderRadius =
-        borderRadius || theme.components?.button?.borderRadius;
 
     switch (size) {
         case 'none':
@@ -85,7 +85,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     return (
         <Block
             border="none"
-            borderRadius={finalBorderRadius}
+            borderRadius={borderRadius}
             color={color}
             colorHover={disabled ? undefined : colorHover || color}
             colorTint={disabled ? 'light' : colorTint}
@@ -99,9 +99,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             textDecoration="none"
             type={type}
         >
-            <Text2 style="label" tagName="span">
+            <Text3 style="label" tagName="span">
                 {children}
-            </Text2>
+            </Text3>
         </Block>
     );
 };

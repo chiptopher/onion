@@ -1,0 +1,6 @@
+@import '../../variables.css';
+
+.onion-list-item:nth-child(odd) {
+    background-color: var(--background-color--grey--regular);
+}
+

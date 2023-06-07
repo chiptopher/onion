@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --true-white: #ffffff;
+    --white: var(--true-white);
+
+    --background-color--danger--dark: #86281e;
+    --background-color--dangeer--light: #ff8679;
+    --background-color--danger--regular: #e74c3c;
+    --background-color--danger--text-color: var(--white);
+
+    --background-color--grey--dark: #5a5c5c;
+    --background-color--grey--light: #fafafa;
+    --background-color--grey--regular: #efefef;
+    --background-color--grey--text-color: var(--black);
+
+    --background-color--light--regular: #efefef;
+    --background-color--light--dark: #efefef;
+    --background-color--light--light: #efefef;
+    --background-color--light--text-color: var(--black);
+
+    --background-color--primary--dark: #1b98b1;
+    --background-color--primary--light: #bcecf5;
+    --background-color--primary--regular: #48cae4;
+    --background-color--primary--text-color: var(--white);
+
+    --background-color--text--dark: transparent;
+    --background-color--text--light: transparent;
+    --background-color--text--regular: transparent;
+    --background-color--text--text-color: var(--black);
+
+    --background-color--warning--dark: #f1c50f;
+    --background-color--warning--light: #f1c50f;
+    --background-color--warning--regular: #f1c50f;
+    --background-color--warning--text-color: var(--black);
+
+    --background-color--white--dark: white;
+    --background-color--white--light: white;
+    --background-color--white--regular: white;
+    --background-color--white--text-color: var(--black);
+
+    --text-color--danger--dark: #86281e;
+    --text-color--dangeer--light: #ff8679;
+    --text-color--danger--regular: #e74c3c;
+
+    --text-color--grey--dark: #5a5c5c;
+    --text-color--grey--light: #fafafa;
+    --text-color--grey--regular: #efefef;
+
+    --text-color--light--regular: #efefef;
+    --text-color--light--dark: #efefef;
+    --text-color--light--light: #efefef;
+
+    --text-color--primary--dark: #1b98b1;
+    --text-color--primary--light: #bcecf5;
+    --text-color--primary--regular: #48cae4;
+
+    --text-color--text--dark: transparent;
+    --text-color--text--light: transparent;
+    --text-color--text--regular: transparent;
+
+    --text-color--warning--dark: #f1c50f;
+    --text-color--warning--light: #f1c50f;
+    --text-color--warning--regular: #f1c50f;
+
+    --text-color--white--dark: white;
+    --text-color--white--light: white;
+    --text-color--white--regular: white;
+
+    /*
+     * Variables might not actually be used, so you'll have to check
+     * the media queries by hand when updating these values.
+     */
+    --breakpoint-wide-upper: 999999999999999px;
+    --breakpoint-wide-lower: 801px;
+    --breakpoint-desktop-upper: 1024px;
+    --breakpoint-desktop-lower: 801px;
+    --breakpoint-tablet-upper: 800px;
+    --breakpoint-tablet-lower: 426px;
+    --breakpoint-mobile-upper: 425px;
+    --breakpoint-mobile-lower: 0px;
+
+    --block-size: 1rem;
+    --size-0_25: calc(0.25 * var(--block-size));
+    --size-0_5: calc(0.5 * var(--block-size));
+    --size-0_75: calc(0.75 * var(--block-size));
+    --size-1: calc(1 * var(--block-size));
+    --size-1_5: calc(1.5 * var(--block-size));
+    --size-2: calc(2 * var(--block-size));
+    --size-3: calc(3 * var(--block-size));
+    --size-4: calc(4 * var(--block-size));
+    --size-6: calc(6 * var(--block-size));
+}

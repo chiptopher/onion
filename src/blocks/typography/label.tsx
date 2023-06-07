@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Text2, TextProps } from './text';
+import { Text3, TextProps } from './text3';
 
 type _Props = Pick<React.LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor'>;
 
-export type LabelProps = Omit<TextProps, 'tagName' | 'style'> & _Props;
+export type LabelProps = Omit<TextProps, 'tagName' | 'style' | 'marginBottom'> &
+    _Props;
 
 export const Label: React.FunctionComponent<LabelProps> = props => {
-    return <Text2 marginBottom="1" style="label" tagName="label" {...props} />;
+    return <Text3 style="label" tagName="label" {...props} />;
 };

@@ -1,8 +1,10 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styles from './index.module.css';
 
-import { block } from '../..';
+import classNames from 'classnames';
+
+import { Block } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ModalContext } from './contex';
 
@@ -31,49 +33,23 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
     }, []);
 
     return open ? (
-        <Container>
-            <Shadow onClick={() => setClosed()} />
-            <ContentContainer width={fixedSize ? '720' : undefined}>
-                <div>{children}</div>
-            </ContentContainer>
-        </Container>
+        <div className={styles['onion-modal-conent']}>
+            <div
+                className={styles['onion-modal-content-shadow']}
+                onClick={() => setClosed()}
+            />
+            <div
+                className={classNames(styles['onion-modal-content-container'], {
+                    [styles['onion-modal-content-container--width--regular']]:
+                        fixedSize === 'regular',
+                })}
+            >
+                <Block padding="1">{children}</Block>
+            </div>
+        </div>
     ) : (
         <React.Fragment />
     );
 };
 
 ModalContent.displayName = 'Modal.Content';
-
-const Container = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-`;
-
-const Shadow = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-
-    background-color: rgba(0, 0, 0, 0.5);
-`;
-
-const ContentContainer = styled.div<{ width?: string }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
-    & > div {
-        background-color: white;
-        padding: ${block(3)};
-        z-index: 99;
-        border-radius: 4px;
-
-        ${p => p.width && `width: ${p.width}px;`}
-    }
-`;
