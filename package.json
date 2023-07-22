@@ -5,6 +5,7 @@
   "name": "@chiptopher/onion",
   "repository": "git://github.com/chiptopher/onion.git",
   "version": "0.2.0",
+  "license": "MIT",
   "files": [
     "lib"
   ],
