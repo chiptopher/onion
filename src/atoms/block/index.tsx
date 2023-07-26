@@ -55,6 +55,7 @@ export const Block = React.forwardRef(
             borderBottom,
             style,
             children,
+            type,
             ...rest
         }: BlockProps,
         ref: any
@@ -166,7 +167,7 @@ export const Block = React.forwardRef(
             case 'tbody':
                 return <tbody {...finalProps} />;
             case 'button':
-                return <button {...finalProps} />;
+                return <button {...finalProps} type={type} />;
             case 'ol':
                 return <ol {...finalProps} />;
             case 'ul':
