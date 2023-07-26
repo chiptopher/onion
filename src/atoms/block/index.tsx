@@ -55,6 +55,7 @@ export const Block = React.forwardRef(
             borderBottom,
             style,
             children,
+            ...rest
         }: BlockProps,
         ref: any
     ) => {
@@ -115,6 +116,7 @@ export const Block = React.forwardRef(
             }),
         });
         const finalProps = {
+            ...rest,
             children,
             className: cn,
             disabled: disabled,
