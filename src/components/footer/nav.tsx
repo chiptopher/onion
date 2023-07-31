@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Block } from '../../atoms/block';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { Label, LabelProps } from '../../blocks/typography/label';
+import { LabelProps } from '../../blocks/typography/label';
+import { Emphasized } from '../../blocks/typography/larger-body';
 import { FooterItemProps } from './favor';
 import { FooterNavItem } from './item';
 import { NavContainer } from './nav-container';
@@ -19,7 +20,7 @@ export const FooterNav: FooterNavType = ({ children }) => (
 FooterNav.Item = FooterNavItem;
 FooterNav.Title = props => (
     <Block marginBottom="0.5">
-        <Label {...props} />
+        <Emphasized {...props} />
     </Block>
 );
 
