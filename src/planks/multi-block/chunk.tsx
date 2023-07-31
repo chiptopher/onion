@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import { Block } from '../../atoms/block';
 import { Body } from '../../blocks/typography/body';
-import { Label } from '../../blocks/typography/label';
+import { Emphasized } from '../../blocks/typography/larger-body';
 
 interface _BaseProps {
     children: React.ReactNode;
@@ -49,7 +49,7 @@ export const MultiBlockChunk: React.FunctionComponent<MultiBlockChunkProps> = ({
                 </Block>
             )}
             <Block marginBottom="0.5">
-                <Label>{title}</Label>
+                <Emphasized>{title}</Emphasized>
             </Block>
             <Body>{children}</Body>
         </div>

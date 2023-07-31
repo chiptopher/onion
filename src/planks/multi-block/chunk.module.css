@@ -12,4 +12,6 @@
 
 .onion-multi-block-chunk > img {
     max-width: 100%;
+    width: auto;
+    height: 100px;
 }

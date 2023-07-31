@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof MultiBlock> = args => (
             Tailor your documents by incorporating custom branding into the
             header of all your minutes
         </MultiBlock.Chunk>
-        <MultiBlock.Chunk icon={faBoltLightning} title="Title">
+        <MultiBlock.Chunk imageUrl="/thread.png" title="Title">
             Tailor your documents by incorporating custom branding into the
             header of all your minutes
         </MultiBlock.Chunk>
