@@ -12,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof MultiBlock> = args => (
     <MultiBlock {...args}>
-        <MultiBlock.Chunk imageUrl="/icon.svg" title="Title">
+        <MultiBlock.Chunk imageUrl="/matter.png" title="Title">
             Tailor your documents by incorporating custom branding into the
             header of all your minutes
         </MultiBlock.Chunk>

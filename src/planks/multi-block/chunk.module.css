@@ -4,11 +4,12 @@
     max-width: 20rem;
 
     text-align: center;
-
-    .multi-block_chunk_icon-container {
-    }
 }
 
 .onion-multi-block-chunk > .icon-container {
     font-size: 5rem;
+}
+
+.onion-multi-block-chunk > img {
+    max-width: 100%;
 }
