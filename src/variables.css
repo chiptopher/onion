@@ -3,6 +3,7 @@
 :root {
     --true-white: #ffffff;
     --white: var(--true-white);
+    --black: black;
 
     --background-color--danger--dark: #86281e;
     --background-color--dangeer--light: #ff8679;
