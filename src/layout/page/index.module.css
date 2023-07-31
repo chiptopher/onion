@@ -1,0 +1,7 @@
+.onion-page {
+    min-height: 100vh;
+}
+
+.onion-page > main {
+    flex: 1;
+}

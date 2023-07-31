@@ -29,6 +29,7 @@ import { Table } from './components/table';
 import { Form } from './form';
 import { Flow } from './layout/flow';
 import { Gutter } from './layout/gutter';
+import { Page } from './layout/page';
 import { Headline } from './planks/headline';
 import { MultiBlock } from './planks/multi-block';
 import { PlankWrapper } from './planks/utils';
@@ -72,4 +73,5 @@ export {
     PlankWrapper,
     Colors,
     withModal,
+    Page,
 };

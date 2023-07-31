@@ -68,7 +68,7 @@ declare type ButtonOnlyProps = {
     type?: 'reset' | 'button' | 'submit';
 };
 declare type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick' | 'className' | 'style' | 'disabled'>;
-declare type Props$h = {
+declare type Props$i = {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
     children: React.ReactNode;
@@ -89,7 +89,7 @@ declare type Props$h = {
     verticalAlign?: 'top';
     width?: Pixels | REMs | Percents;
 } & AnchorProps & BorderProps & PaddingProps & MarginProps & ButtonOnlyProps & FontProps & Hoverable<ColorProps> & HTMLTypes;
-declare type BlockProps = Props$h;
+declare type BlockProps = Props$i;
 
 declare const Block$1: React$1.ForwardRefExoticComponent<{
     alignItems?: ("center" | "flex-start" | "flex-end" | "space-between") | undefined;
@@ -129,7 +129,7 @@ declare const block: (input: PossibleScale | Block) => REMValue;
 
 declare type Size = 'regular' | 'small' | 'large' | 'none';
 
-interface Props$g {
+interface Props$h {
     size?: Size;
 }
 interface AsButtonProps {
@@ -140,10 +140,10 @@ interface AsAnchorProps {
     href?: string;
     type?: never;
 }
-declare type ButtonProps = Props$g & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
+declare type ButtonProps = Props$h & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
 declare const Button: React$1.FunctionComponent<ButtonProps>;
 
-declare type Props$f = {
+declare type Props$g = {
     children: React$1.ReactNode;
     color?: Colors;
     tagName?: 'span' | 'a';
@@ -154,11 +154,11 @@ declare const Link: React$1.ForwardRefExoticComponent<{
     tagName?: "span" | "a" | undefined;
 } & Pick<React$1.AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "onClick" | "href"> & React$1.RefAttributes<unknown>>;
 
-interface Props$e {
+interface Props$f {
     children?: React$1.ReactNode;
     initialState?: boolean;
 }
-declare const Loading: React$1.FunctionComponent<Props$e> & {
+declare const Loading: React$1.FunctionComponent<Props$f> & {
     Spinner: React$1.FunctionComponent<ChildrenOnlyProps>;
     Text: React$1.FunctionComponent<ChildrenOnlyProps>;
 };
@@ -207,36 +207,36 @@ declare const Emphasized: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 
 interface SubheaderProps {
     heirarchy: Heirarcy;
 }
-declare type Props$d = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
-declare const Subheader: React$1.FunctionComponent<Omit<Props$d, 'marginBottom'>>;
+declare type Props$e = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
+declare const Subheader: React$1.FunctionComponent<Omit<Props$e, 'marginBottom'>>;
 
 interface TitleProps {
     children: React$1.ReactNode;
     heirarchy: Heirarcy;
 }
-declare type Props$c = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
-declare const Title: React$1.FunctionComponent<Omit<Props$c, 'marginBottom'>>;
+declare type Props$d = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
+declare const Title: React$1.FunctionComponent<Omit<Props$d, 'marginBottom'>>;
 
 interface BreadcrumbItemProps {
     children: React$1.ReactNode;
 }
 
-interface Props$b {
+interface Props$c {
     children: React$1.ReactNode;
 }
-declare const Breadcrumbs: React$1.FunctionComponent<Props$b> & {
+declare const Breadcrumbs: React$1.FunctionComponent<Props$c> & {
     Item: React$1.FunctionComponent<BreadcrumbItemProps>;
 };
 
 declare const Buttons: React$1.FunctionComponent<ChildrenOnlyProps>;
 
 declare type CalloutColorOptions = Exclude<Colors, 'text'>;
-interface Props$a {
+interface Props$b {
     children: React$1.ReactNode;
     color: CalloutColorOptions;
     tint?: Tint;
 }
-declare const Callout: React$1.FunctionComponent<Props$a>;
+declare const Callout: React$1.FunctionComponent<Props$b>;
 
 interface CopyableActionProps {
     style: 'text' | 'icon';
@@ -261,12 +261,12 @@ interface DetailsSummaryProps {
     textStyle?: TextStlye;
 }
 
-interface Props$9 {
+interface Props$a {
     children: React$1.ReactNode;
     indicator?: React$1.ReactNode | null;
     initialOpen?: boolean;
 }
-declare const Details: React$1.FunctionComponent<Props$9> & {
+declare const Details: React$1.FunctionComponent<Props$a> & {
     Body: FunctionComponent<DetailsBodyProps>;
     Summary: FunctionComponent<DetailsSummaryProps>;
 };
@@ -284,10 +284,10 @@ declare type FooterNavType = React$1.FunctionComponent<ChildrenOnlyProps> & {
     Title: React$1.FunctionComponent<LabelProps>;
 };
 
-interface Props$8 {
+interface Props$9 {
     children: React$1.ReactNode;
 }
-declare const Footer: React$1.FunctionComponent<Props$8> & {
+declare const Footer: React$1.FunctionComponent<Props$9> & {
     Copyright: React$1.FunctionComponent<ChildrenOnlyProps>;
     Flavor: React$1.FunctionComponent<ChildrenOnlyProps>;
     Item: React$1.FunctionComponent<FooterItemProps$1>;
@@ -304,11 +304,11 @@ declare type HeaderMenuItemProps = {
     cta?: boolean;
 } & Exclude<ButtonProps, 'color'>;
 
-interface Props$7 {
+interface Props$8 {
     children: React$1.ReactNode;
     inverted?: boolean;
 }
-declare const Header: React$1.FunctionComponent<Props$7> & {
+declare const Header: React$1.FunctionComponent<Props$8> & {
     Brand: React$1.FunctionComponent<ChildrenOnlyProps>;
     Menu: React$1.FunctionComponent<ChildrenOnlyProps>;
     MenuItem: React$1.FunctionComponent<HeaderMenuItemProps>;
@@ -328,10 +328,10 @@ interface ListItemProps {
     children: React$1.ReactNode;
 }
 
-interface Props$6 {
+interface Props$7 {
     children: React$1.ReactNode;
 }
-declare const List: React$1.FunctionComponent<Props$6> & {
+declare const List: React$1.FunctionComponent<Props$7> & {
     Item: React$1.FunctionComponent<ListItemProps>;
 };
 
@@ -350,7 +350,7 @@ declare function useModalControl(): (state: boolean) => void;
 
 declare function withModal<T>(Component: React$1.FunctionComponent<T>): (props: T) => JSX.Element;
 
-declare const OutboundLink: React$1.FunctionComponent<Props$f>;
+declare const OutboundLink: React$1.FunctionComponent<Props$g>;
 
 interface SectionActionProps {
     children: React$1.ReactNode;
@@ -408,11 +408,11 @@ declare type FormInputProps = Omit<React$1.InputHTMLAttributes<HTMLInputElement>
 
 declare type FormTextareaProps = Omit<React$1.TextareaHTMLAttributes<HTMLTextAreaElement>, 'type'> & Omit<WrapperProps, 'children' | 'htmlFor' | 'prefix' | 'action'>;
 
-interface Props$5 extends ChildrenOnlyProps {
+interface Props$6 extends ChildrenOnlyProps {
     onReset: () => void;
     onSubmit: () => Promise<any>;
 }
-declare const Form: React$1.FunctionComponent<Props$5> & {
+declare const Form: React$1.FunctionComponent<Props$6> & {
     Buttons: React$1.FunctionComponent<Record<string, never>>;
     Color: React$1.FunctionComponent<FormColorProps>;
     ErrorMessage: React$1.FunctionComponent<ChildrenOnlyProps>;
@@ -435,15 +435,22 @@ declare type PropsStack = BaseProps & {
     gap?: SpacingValues;
     style?: 'stack';
 };
-declare type Props$4 = PropsSeparate | PropsStack;
-declare const Flow: React$1.FunctionComponent<Props$4>;
+declare type Props$5 = PropsSeparate | PropsStack;
+declare const Flow: React$1.FunctionComponent<Props$5>;
 
 declare type I = Extract<Size, 'regular' | 'none'>;
 declare type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
-interface Props$3 extends PropsWithChildren {
+interface Props$4 extends PropsWithChildren {
     size?: GutterSize;
 }
-declare const Gutter: React$1.FunctionComponent<Props$3>;
+declare const Gutter: React$1.FunctionComponent<Props$4>;
+
+interface Props$3 {
+    children: React$1.ReactNode;
+    footer?: React$1.ReactNode;
+    header?: React$1.ReactNode;
+}
+declare const Page: React$1.FunctionComponent<Props$3>;
 
 interface PlankWrapperProps {
     background?: Colors;
@@ -496,4 +503,4 @@ declare const MultiBlock: React$1.FunctionComponent<Props> & {
     Chunk: FunctionComponent<MultiBlockChunkProps>;
 };
 
-export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, MultiBlock, OutboundLink, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };
+export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, MultiBlock, OutboundLink, Page, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };
