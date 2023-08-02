@@ -29,6 +29,7 @@ export const resolveColor: StyleResolver<
             }--hover`
         ]]: Boolean(colorHover),
         [styles[`text-color--${textColor}--${textColorTint || 'regular'}`]]:
-            Boolean(color),
+            Boolean(textColor),
+        [styles[`text-color`]]: Boolean(color),
     };
 };

@@ -32,8 +32,18 @@ const Template: ComponentStory<typeof Header> = ({
         <Header {...args}>
             <Header.PrimaryNav gutter={gutter}>
                 <Header.Brand>
-                    <Text3 style="header" tagName="span">
-                        🧅 Onion Corp
+                    <Text3 marginBottom={false} style="header" tagName="span">
+                        🧅{' '}
+                        <Text3
+                            color="primary"
+                            colorTint="dark"
+                            marginBottom={false}
+                            style="header"
+                            tagName="span"
+                        >
+                            Onion
+                        </Text3>{' '}
+                        Corp
                     </Text3>
                 </Header.Brand>
                 <Header.Menu>

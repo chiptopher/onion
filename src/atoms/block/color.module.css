@@ -1,20 +1,13 @@
 @import '../../variables.css';
 
-.onion-block.background-color--danger--dark,
-.onion-block.background-color--danger--dark--hover:hover {
-    background-color: var(--background-color--danger--dark);
-    color: var(--background-color--danger--text-color);
-}
-
-.onion-block.background-color--danger--light,
-.onion-block.background-color--danger--light--hover:hover {
-    background-color: var(--background-color--dangeer--light);
-    color: var(--background-color--danger--text-color);
-}
-.onion-block.background-color--danger--regular,
-.onion-block.background-color--danger--regular--hover:hover {
-    background-color: var(--background-color--danger--regular);
-    color: var(--background-color--danger--text-color);
+@each $tint in light, dark, regular {
+    .onion-block.background-color--danger--$(tint),
+    .onion-block.background-color--danger--$(tint)--hover:hover {
+        background-color: var(--background-color--danger--$(tint));
+    }
+    .onion-block.background-color--danger--$(tint).text-color {
+        color: var(--background-color--danger--text-color);
+    }
 }
 
 .onion-block.background-color--grey--dark,
