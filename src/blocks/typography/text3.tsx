@@ -9,7 +9,7 @@ import { BlockProps, TextAlignment } from '../../atoms/block/types';
 import { Colors, Tint } from '../../atoms/colors';
 import { TagName } from '../../atoms/types';
 
-export type TextStlye =
+export type TextStyle =
     | 'title'
     | 'header'
     | 'subheader'
@@ -24,7 +24,7 @@ export interface TextProps {
     color?: Colors;
     colorTint?: Tint;
     marginBottom?: boolean;
-    style: TextStlye;
+    style: TextStyle;
     tagName: TagName;
     underlined?: boolean;
 }

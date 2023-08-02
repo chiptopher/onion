@@ -4,14 +4,14 @@ import styles from './index.module.css';
 
 import { Block } from '../../atoms/block';
 import { TagName } from '../../atoms/types';
-import { TextStlye, Text3 } from '../../blocks/typography/text3';
+import { TextStyle, Text3 } from '../../blocks/typography/text3';
 import { Flow } from '../../layout/flow';
 
 export interface DetailsSummaryProps {
     children: React.ReactNode;
     indicator?: React.ReactNode;
     tagName?: TagName;
-    textStyle?: TextStlye;
+    textStyle?: TextStyle;
 }
 
 export const DetailsSummary: React.FunctionComponent<DetailsSummaryProps> = ({

@@ -8,7 +8,7 @@ import {
     PaddingProps,
 } from '../../atoms/block/types';
 import { Size } from '../../atoms/size';
-import { Text3 } from '../typography/text3';
+import { Text3, TextStyle } from '../typography/text3';
 
 export interface Props {
     size?: Size;
@@ -45,6 +45,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     disabled,
 }) => {
     let p: Partial<PaddingProps>;
+    let textStyle: TextStyle;
     const tagName = href ? 'a' : 'button';
 
     switch (size) {
@@ -55,30 +56,34 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
                 paddingRight: '0',
                 paddingTop: '0',
             };
+            textStyle = 'caption';
             break;
         case 'large':
             p = {
-                paddingBottom: '1',
+                paddingBottom: '0.75',
                 paddingLeft: '1.5',
                 paddingRight: '1.5',
-                paddingTop: '1',
+                paddingTop: '0.75',
             };
+            textStyle = 'emphasized';
             break;
         case 'regular':
             p = {
                 paddingBottom: '0.75',
-                paddingLeft: '1',
-                paddingRight: '1',
+                paddingLeft: '1.5',
+                paddingRight: '1.5',
                 paddingTop: '0.75',
             };
+            textStyle = 'body';
             break;
         case 'small':
             p = {
                 paddingBottom: '0.5',
-                paddingLeft: '0.75',
-                paddingRight: '0.75',
+                paddingLeft: '1',
+                paddingRight: '1',
                 paddingTop: '0.5',
             };
+            textStyle = 'caption';
             break;
     }
 
@@ -99,7 +104,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             textDecoration="none"
             type={type}
         >
-            <Text3 style="label" tagName="span">
+            <Text3 style={textStyle} tagName="span">
                 {children}
             </Text3>
         </Block>

@@ -166,14 +166,14 @@ declare function withLoading<T>(Component: React$1.FunctionComponent<T>): React$
 
 declare function useLoading(): [boolean, (value: boolean) => void];
 
-declare type TextStlye = 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption' | 'emphasized';
+declare type TextStyle = 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption' | 'emphasized';
 interface TextProps {
     alignment?: TextAlignment;
     children: React$1.ReactNode;
     color?: Colors;
     colorTint?: Tint;
     marginBottom?: boolean;
-    style: TextStlye;
+    style: TextStyle;
     tagName: TagName;
     underlined?: boolean;
 }
@@ -258,7 +258,7 @@ interface DetailsSummaryProps {
     children: React$1.ReactNode;
     indicator?: React$1.ReactNode;
     tagName?: TagName;
-    textStyle?: TextStlye;
+    textStyle?: TextStyle;
 }
 
 interface Props$a {
