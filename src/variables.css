@@ -2,8 +2,9 @@
 
 :root {
     --true-white: #ffffff;
+    --true-black: black;
     --white: var(--true-white);
-    --black: black;
+    --black: var(--true-black);
 
     --background-color--danger--dark: #86281e;
     --background-color--danger--light: #ff8679;
@@ -56,9 +57,9 @@
     --text-color--primary--light: #bcecf5;
     --text-color--primary--regular: #48cae4;
 
-    --text-color--text--dark: transparent;
-    --text-color--text--light: transparent;
-    --text-color--text--regular: transparent;
+    --text-color--text--dark: var(--black);
+    --text-color--text--light: var(--black);
+    --text-color--text--regular: var(--black);
 
     --text-color--warning--dark: #f1c50f;
     --text-color--warning--light: #f1c50f;
