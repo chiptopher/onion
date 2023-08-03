@@ -1,16 +1,21 @@
 import React from 'react';
 
-import styles from './index.module.css';
-
 import { Block } from '../../atoms/block';
-import { ChildrenOnlyProps } from '../../atoms/util';
+import { Flow } from '../../layout/flow';
 
-export const Buttons: React.FunctionComponent<ChildrenOnlyProps> = ({
+interface Props {
+    children: React.ReactNode;
+    marginBottom?: boolean;
+}
+export const Buttons: React.FunctionComponent<Props> = ({
     children,
+    marginBottom = true,
 }) => {
     return (
-        <Block className={styles['onion-buttons']} marginBottom="1">
-            {children}
+        <Block marginBottom={marginBottom ? '1' : undefined}>
+            <Flow direction="horizontal" gap="0.5" style="stack">
+                {children}
+            </Flow>
         </Block>
     );
 };

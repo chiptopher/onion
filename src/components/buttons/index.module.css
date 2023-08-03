@@ -1,5 +1,0 @@
-@import "../../variables.css";
-
-.onion-buttons button {
-    margin-right: var(--size-0_5);
-}

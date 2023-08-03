@@ -68,7 +68,7 @@ declare type ButtonOnlyProps = {
     type?: 'reset' | 'button' | 'submit';
 };
 declare type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick' | 'className' | 'style' | 'disabled'>;
-declare type Props$i = {
+declare type Props$j = {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
     children: React.ReactNode;
@@ -89,7 +89,7 @@ declare type Props$i = {
     verticalAlign?: 'top';
     width?: Pixels | REMs | Percents;
 } & AnchorProps & BorderProps & PaddingProps & MarginProps & ButtonOnlyProps & FontProps & Hoverable<ColorProps> & HTMLTypes;
-declare type BlockProps = Props$i;
+declare type BlockProps = Props$j;
 
 declare const Block$1: React$1.ForwardRefExoticComponent<{
     alignItems?: ("center" | "flex-start" | "flex-end" | "space-between") | undefined;
@@ -129,7 +129,7 @@ declare const block: (input: PossibleScale | Block) => REMValue;
 
 declare type Size = 'regular' | 'small' | 'large' | 'none';
 
-interface Props$h {
+interface Props$i {
     size?: Size;
 }
 interface AsButtonProps {
@@ -140,10 +140,10 @@ interface AsAnchorProps {
     href?: string;
     type?: never;
 }
-declare type ButtonProps = Props$h & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
+declare type ButtonProps = Props$i & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
 declare const Button: React$1.FunctionComponent<ButtonProps>;
 
-declare type Props$g = {
+declare type Props$h = {
     children: React$1.ReactNode;
     color?: Colors;
     tagName?: 'span' | 'a';
@@ -154,11 +154,11 @@ declare const Link: React$1.ForwardRefExoticComponent<{
     tagName?: "span" | "a" | undefined;
 } & Pick<React$1.AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "onClick" | "href"> & React$1.RefAttributes<unknown>>;
 
-interface Props$f {
+interface Props$g {
     children?: React$1.ReactNode;
     initialState?: boolean;
 }
-declare const Loading: React$1.FunctionComponent<Props$f> & {
+declare const Loading: React$1.FunctionComponent<Props$g> & {
     Spinner: React$1.FunctionComponent<ChildrenOnlyProps>;
     Text: React$1.FunctionComponent<ChildrenOnlyProps>;
 };
@@ -207,28 +207,32 @@ declare const Emphasized: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 
 interface SubheaderProps {
     heirarchy: Heirarcy;
 }
-declare type Props$e = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
-declare const Subheader: React$1.FunctionComponent<Omit<Props$e, 'marginBottom'>>;
+declare type Props$f = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
+declare const Subheader: React$1.FunctionComponent<Omit<Props$f, 'marginBottom'>>;
 
 interface TitleProps {
     children: React$1.ReactNode;
     heirarchy: Heirarcy;
 }
-declare type Props$d = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
-declare const Title: React$1.FunctionComponent<Omit<Props$d, 'marginBottom'>>;
+declare type Props$e = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
+declare const Title: React$1.FunctionComponent<Omit<Props$e, 'marginBottom'>>;
 
 interface BreadcrumbItemProps {
     children: React$1.ReactNode;
 }
 
-interface Props$c {
+interface Props$d {
     children: React$1.ReactNode;
 }
-declare const Breadcrumbs: React$1.FunctionComponent<Props$c> & {
+declare const Breadcrumbs: React$1.FunctionComponent<Props$d> & {
     Item: React$1.FunctionComponent<BreadcrumbItemProps>;
 };
 
-declare const Buttons: React$1.FunctionComponent<ChildrenOnlyProps>;
+interface Props$c {
+    children: React$1.ReactNode;
+    marginBottom?: boolean;
+}
+declare const Buttons: React$1.FunctionComponent<Props$c>;
 
 declare type CalloutColorOptions = Exclude<Colors, 'text'>;
 interface Props$b {
@@ -350,7 +354,7 @@ declare function useModalControl(): (state: boolean) => void;
 
 declare function withModal<T>(Component: React$1.FunctionComponent<T>): (props: T) => JSX.Element;
 
-declare const OutboundLink: React$1.FunctionComponent<Props$g>;
+declare const OutboundLink: React$1.FunctionComponent<Props$h>;
 
 interface SectionActionProps {
     children: React$1.ReactNode;
