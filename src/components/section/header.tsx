@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './index.module.css';
+
 import { Block } from '../../';
 
 export interface SectionHeaderProps {
@@ -11,6 +13,7 @@ export const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
 }) => (
     <Block
         alignItems="flex-start"
+        className={styles['section-header']}
         display="flex"
         flexDirection="row"
         justifyContent="space-between"
