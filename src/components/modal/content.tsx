@@ -2,9 +2,11 @@ import React from 'react';
 
 import styles from './index.module.css';
 
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
-import { Block } from '../..';
+import { Block, Button } from '../..';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { ModalContext } from './contex';
 
@@ -44,7 +46,18 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
                         fixedSize === 'regular',
                 })}
             >
-                <Block padding="1">{children}</Block>
+                <Block padding="1">
+                    <Block display="flex" justifyContent="flex-end">
+                        <Button
+                            color="text"
+                            onClick={() => setClosed()}
+                            size="none"
+                        >
+                            <FontAwesomeIcon icon={faX} />
+                        </Button>
+                    </Block>
+                    {children}
+                </Block>
             </div>
         </div>
     ) : (

@@ -32,3 +32,7 @@
 
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.onion-modal-close-button {
+    width: 100%;
+}
