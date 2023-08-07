@@ -92,4 +92,6 @@
     --size-3: calc(3 * var(--block-size));
     --size-4: calc(4 * var(--block-size));
     --size-6: calc(6 * var(--block-size));
+
+    --font-family: 'Nunito', sans-serif;
 }

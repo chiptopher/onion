@@ -1,7 +1,7 @@
 @import '../../variables.css';
 
 .onion-text3 {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-family);
     cursor: inherit;
 }
 
