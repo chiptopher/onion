@@ -1,4 +1,5 @@
 .onion-modal-conent {
+    z-index: 100;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,8 +15,8 @@
 }
 
 .onion-modal-content-container > div {
+    z-index: 10;
     background-color: white;
-    z-index: 99;
     border-radius: 4px;
 }
 
