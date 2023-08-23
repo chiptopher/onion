@@ -22,7 +22,7 @@ import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { List } from './components/list';
 import { Modal, useModalControl } from './components/modal';
-import { withModal } from './components/modal/contex';
+import { ModalContext, withModal } from './components/modal/contex';
 import { OutboundLink } from './components/outbound-link';
 import { Section } from './components/section';
 import { Table } from './components/table';
@@ -74,4 +74,5 @@ export {
     Colors,
     withModal,
     Page,
+    ModalContext,
 };

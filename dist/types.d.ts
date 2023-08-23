@@ -352,6 +352,12 @@ declare const Modal: React$1.FunctionComponent<ChildrenOnlyProps> & {
 declare type ModalOpenerProps = ChildrenOnlyProps;
 declare function useModalControl(): (state: boolean) => void;
 
+interface State {
+    open: boolean;
+    setClosed: () => void;
+    setOpen: () => void;
+}
+declare const ModalContext: React$1.Context<State>;
 declare function withModal<T>(Component: React$1.FunctionComponent<T>): (props: T) => JSX.Element;
 
 declare const OutboundLink: React$1.FunctionComponent<Props$h>;
@@ -507,4 +513,4 @@ declare const MultiBlock: React$1.FunctionComponent<Props> & {
     Chunk: FunctionComponent<MultiBlockChunkProps>;
 };
 
-export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, MultiBlock, OutboundLink, Page, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };
+export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, ModalContext, MultiBlock, OutboundLink, Page, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };
