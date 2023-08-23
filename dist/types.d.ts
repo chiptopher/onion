@@ -12,7 +12,7 @@ declare type Appended<Type, AppendedText extends string> = {
 };
 
 declare type REMValue = `${number}rem`;
-declare type TagName = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label' | 'span' | 'div' | 'header' | 'a' | 'tr' | 'th' | 'td' | 'thead' | 'tbody' | 'button' | 'ol' | 'ul' | 'nav' | 'li' | 'table' | 'summary' | 'details';
+declare type TagName = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label' | 'span' | 'div' | 'header' | 'a' | 'tr' | 'th' | 'td' | 'thead' | 'tbody' | 'button' | 'ol' | 'ul' | 'nav' | 'li' | 'table' | 'summary' | 'details' | 'pre' | 'code';
 declare type Pixels = `${number}px`;
 declare type REMs = `${number}rem`;
 declare type Percents = `${number}%`;

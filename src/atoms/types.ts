@@ -25,7 +25,9 @@ export type TagName =
     | 'li'
     | 'table'
     | 'summary'
-    | 'details';
+    | 'details'
+    | 'pre'
+    | 'code';
 
 export type Pixels = `${number}px`;
 export type REMs = `${number}rem`;

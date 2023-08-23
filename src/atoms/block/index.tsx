@@ -182,6 +182,10 @@ export const Block = React.forwardRef(
                 return <summary {...finalProps} />;
             case 'details':
                 return <details {...finalProps} />;
+            case 'pre':
+                return <pre {...finalProps} />;
+            case 'code':
+                return <code {...finalProps} />;
         }
     }
 );
