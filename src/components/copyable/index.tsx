@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Block } from '../../atoms/block';
+import { TagName } from '../../atoms/types';
 import { ChildrenOnlyProps } from '../../atoms/util';
 import { Body } from '../../blocks/typography/body';
 import { Flow } from '../../layout/flow';
@@ -23,7 +24,10 @@ export const Copyable: React.FunctionComponent<ChildrenOnlyProps> & {
                     borderRadius
                     color="light"
                     colorTint="dark"
-                    padding="0.25"
+                    paddingBottom="0.25"
+                    paddingLeft="1"
+                    paddingRight="0.5"
+                    paddingTop="0.25"
                 >
                     <Flow direction="horizontal" style="separate">
                         {children}
@@ -36,15 +40,17 @@ export const Copyable: React.FunctionComponent<ChildrenOnlyProps> & {
 
 interface CopyableContentProps {
     children: string | number;
+    tagName?: TagName;
 }
 
 const CopyableContent: React.FunctionComponent<CopyableContentProps> = ({
     children,
+    tagName = 'span',
 }) => {
     return (
         <span className="copyable-content">
-            <Block tagName="span">
-                <Body>{children}</Body>
+            <Block tagName={tagName}>
+                <Body tagName="span">{children}</Body>
             </Block>
         </span>
     );

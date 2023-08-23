@@ -29,6 +29,12 @@ const Template: ComponentStory<typeof Copyable> = args => (
                 <Copyable.Action style="icon" />
             </Copyable>
         </Block>
+        <Block display="flex" marginBottom="0.5" tagName="div">
+            <Copyable {...args}>
+                <Copyable.Content>Some text that is longer</Copyable.Content>
+                <Copyable.Action style="icon" />
+            </Copyable>
+        </Block>
     </>
 );
 

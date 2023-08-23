@@ -252,6 +252,7 @@ declare const Copyable: React$1.FunctionComponent<ChildrenOnlyProps> & {
 };
 interface CopyableContentProps {
     children: string | number;
+    tagName?: TagName;
 }
 
 interface DetailsBodyProps {
