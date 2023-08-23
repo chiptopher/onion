@@ -75,7 +75,7 @@ type HTMLTypes = Pick<
 type Props = {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     cursor?: 'pointer' | 'not-allowed';
     display?: 'flex' | 'none';
     flexDirection?: FlexDirection;

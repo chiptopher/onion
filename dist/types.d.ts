@@ -71,7 +71,7 @@ declare type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick'
 declare type Props$j = {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     cursor?: 'pointer' | 'not-allowed';
     display?: 'flex' | 'none';
     flexDirection?: FlexDirection;
@@ -94,7 +94,7 @@ declare type BlockProps = Props$j;
 declare const Block$1: React$1.ForwardRefExoticComponent<{
     alignItems?: ("center" | "flex-start" | "flex-end" | "space-between") | undefined;
     borderRadius?: boolean | undefined;
-    children: React$1.ReactNode;
+    children?: React$1.ReactNode;
     cursor?: "pointer" | "not-allowed" | undefined;
     display?: "none" | "flex" | undefined;
     flexDirection?: FlexDirection | undefined;
