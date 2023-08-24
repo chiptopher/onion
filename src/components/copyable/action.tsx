@@ -20,10 +20,19 @@ export const CopyableAction: React.FunctionComponent<CopyableActionProps> = ({
     const onClick = () => {
         const copyText = ref?.current
             ?.closest('.copyable')
-            ?.querySelector('.copyable-content');
+            ?.querySelectorAll('.copyable-content-element');
 
         if (copyText) {
-            navigator.clipboard.writeText(copyText.textContent || '');
+            let finalText = '';
+            copyText.forEach(element => {
+                if (element.textContent) {
+                    finalText =
+                        finalText +
+                        (finalText === '' ? '' : '\n') +
+                        element.textContent;
+                }
+            });
+            navigator.clipboard.writeText(finalText);
         }
         setCopied(true);
     };

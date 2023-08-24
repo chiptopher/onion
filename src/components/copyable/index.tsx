@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
+import classNames from 'classnames';
+
 import { Block } from '../../atoms/block';
 import { TagName } from '../../atoms/types';
 import { ChildrenOnlyProps } from '../../atoms/util';
-import { Body } from '../../blocks/typography/body';
 import { Flow } from '../../layout/flow';
 import { CopyableAction, CopyableActionProps } from './action';
 
@@ -39,7 +40,7 @@ export const Copyable: React.FunctionComponent<ChildrenOnlyProps> & {
 };
 
 interface CopyableContentProps {
-    children: string | number;
+    children: React.ReactNode;
     tagName?: TagName;
 }
 
@@ -47,11 +48,25 @@ const CopyableContent: React.FunctionComponent<CopyableContentProps> = ({
     children,
     tagName = 'span',
 }) => {
+    const mappedChildren = React.Children.toArray(children).map(child => {
+        if (React.isValidElement(child)) {
+            return (
+                <div>
+                    {React.cloneElement<any>(child, {
+                        className: classNames(
+                            child.props?.className || '',
+                            'copyable-content-element'
+                        ),
+                    })}
+                </div>
+            );
+        } else {
+            return <div className="copyable-content-element">{child}</div>;
+        }
+    });
     return (
         <span className="copyable-content">
-            <Block tagName={tagName}>
-                <Body tagName="span">{children}</Body>
-            </Block>
+            <Block tagName={tagName}>{mappedChildren}</Block>
         </span>
     );
 };

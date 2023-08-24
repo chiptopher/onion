@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Copyable } from '.';
 import { Block } from '../../atoms/block';
+import { Code } from '../../blocks/typography/code';
 
 export default {
     component: Copyable,
@@ -31,7 +32,19 @@ const Template: ComponentStory<typeof Copyable> = args => (
         </Block>
         <Block display="flex" marginBottom="0.5" tagName="div">
             <Copyable {...args}>
-                <Copyable.Content>Some text that is longer</Copyable.Content>
+                <Copyable.Content>
+                    <Code>font-family: monospace;</Code>
+                </Copyable.Content>
+                <Copyable.Action style="icon" />
+            </Copyable>
+        </Block>
+        <Block display="flex" marginBottom="0.5" tagName="div">
+            <Copyable {...args}>
+                <Copyable.Content>
+                    <Code>font-family: monospace;</Code>
+                    <Code>color: red;</Code>
+                    <Code>background-color: blue;</Code>
+                </Copyable.Content>
                 <Copyable.Action style="icon" />
             </Copyable>
         </Block>

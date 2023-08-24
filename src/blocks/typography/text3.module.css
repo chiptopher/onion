@@ -49,6 +49,12 @@
     margin-bottom: var(--size-1);
 }
 
+.onion-text3.code {
+    display: block;
+    font-size: 1rem;
+    font-family: var(--code-font);
+}
+
 /* TODO: figuere out way to use --breakpoint-tablet-upper */
 @media screen and (max-width: 800px) {
     .onion-text3.title {

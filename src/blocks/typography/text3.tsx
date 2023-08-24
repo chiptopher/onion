@@ -16,7 +16,8 @@ export type TextStyle =
     | 'body'
     | 'label'
     | 'caption'
-    | 'emphasized';
+    | 'emphasized'
+    | 'code';
 
 export interface TextProps {
     alignment?: TextAlignment;
@@ -129,6 +130,18 @@ export const Text3: React.FunctionComponent<TextProps> = ({
                         styles['onion-text3'],
                         styles['caption'],
                         { [styles['margin-bottom']]: marginBottom }
+                    )}
+                    {...passthroughProps}
+                    {...mappedProps}
+                />
+            );
+
+        case 'code':
+            return (
+                <Block
+                    className={classNames(
+                        styles['onion-text3'],
+                        styles['code']
                     )}
                     {...passthroughProps}
                     {...mappedProps}

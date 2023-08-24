@@ -166,7 +166,7 @@ declare function withLoading<T>(Component: React$1.FunctionComponent<T>): React$
 
 declare function useLoading(): [boolean, (value: boolean) => void];
 
-declare type TextStyle = 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption' | 'emphasized';
+declare type TextStyle = 'title' | 'header' | 'subheader' | 'body' | 'label' | 'caption' | 'emphasized' | 'code';
 interface TextProps {
     alignment?: TextAlignment;
     children: React$1.ReactNode;
@@ -251,7 +251,7 @@ declare const Copyable: React$1.FunctionComponent<ChildrenOnlyProps> & {
     Content: React$1.FunctionComponent<CopyableContentProps>;
 };
 interface CopyableContentProps {
-    children: string | number;
+    children: React$1.ReactNode;
     tagName?: TagName;
 }
 

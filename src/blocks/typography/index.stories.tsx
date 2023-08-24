@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Body } from './body';
 import { Caption } from './caption';
+import { Code } from './code';
 import { Heading } from './header';
 import { Label } from './label';
 import { Emphasized } from './larger-body';
@@ -52,5 +53,6 @@ export const Presets = () => (
         <Body>Body: The quick brown fox jumps over the lazy dog</Body>
         <Label>Label: The quick brown fox jumps over the lazy dog</Label>
         <Caption>Caption: The quick brown fox jumps over the lazy dog</Caption>
+        <Code>Code: The quick brown fix jumps over the lazy dog</Code>
     </div>
 );
