@@ -189,6 +189,8 @@ declare const Caption: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 'st
     tagName?: 'p' | 'span';
 }>;
 
+declare const Code: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 'style' | 'marginBottom'>>;
+
 declare type Heirarcy = '1' | '2' | '3' | '4' | '5' | '6';
 
 declare const Heading: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 'style' | 'marginBottom'> & {
@@ -514,4 +516,4 @@ declare const MultiBlock: React$1.FunctionComponent<Props> & {
     Chunk: FunctionComponent<MultiBlockChunkProps>;
 };
 
-export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, ModalContext, MultiBlock, OutboundLink, Page, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };
+export { Block$1 as Block, Body, Breadcrumbs, Button, ButtonProps, Buttons, Callout, Caption, Code, Colors, Copyable, Details, Emphasized, Flow, Footer, Form, Gutter, Header, Heading, Headline, Label, Link, List, Loading, Modal, ModalContext, MultiBlock, OutboundLink, Page, PlankWrapper, Section, Subheader, Table, Text3 as Text, Title, block, resolveColorValue, useLoading, useModalControl, withLoading, withModal };

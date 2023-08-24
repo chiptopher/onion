@@ -7,6 +7,7 @@ import { Loading, withLoading } from './blocks/loading';
 import { useLoading } from './blocks/loading/contex';
 import { Body } from './blocks/typography/body';
 import { Caption } from './blocks/typography/caption';
+import { Code } from './blocks/typography/code';
 import { Heading } from './blocks/typography/header';
 import { Label } from './blocks/typography/label';
 import { Emphasized } from './blocks/typography/larger-body';
@@ -75,4 +76,5 @@ export {
     withModal,
     Page,
     ModalContext,
+    Code,
 };
