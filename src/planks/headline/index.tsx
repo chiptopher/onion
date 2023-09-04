@@ -3,7 +3,6 @@ import React from 'react';
 import { Block } from '../../atoms/block';
 import { Heirarcy } from '../../blocks/typography/header-shared';
 import { Title } from '../../blocks/typography/title';
-import { Gutter } from '../../layout/gutter';
 import { PlankWrapper, PlankWrapperProps } from '../utils';
 import { HeadlineContent, HeadlineContentProps } from './content';
 import { HeadlineCTA, HeadlineCTAProps } from './cta';
@@ -36,12 +35,10 @@ export const Headline: React.FunctionComponent<Props> & {
     return (
         <PlankWrapper background={background} {...wrapperProps}>
             <Block textAlign={alignment}>
-                <Gutter>
-                    <Block marginBottom="1">
-                        <Title heirarchy={heirarchy}>{title}</Title>
-                    </Block>
-                    {validChildren}
-                </Gutter>
+                <Block marginBottom="1">
+                    <Title heirarchy={heirarchy}>{title}</Title>
+                </Block>
+                {validChildren}
             </Block>
         </PlankWrapper>
     );

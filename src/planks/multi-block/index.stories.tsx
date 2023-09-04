@@ -6,7 +6,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MultiBlock } from '.';
 
 export default {
-    argTypes: {},
+    argTypes: {
+        gutterSize: {
+            control: 'select',
+            options: ['none', 'regular', 'large'],
+        },
+    },
     component: MultiBlock,
 } as ComponentMeta<typeof MultiBlock>;
 

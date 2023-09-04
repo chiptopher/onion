@@ -3,7 +3,6 @@ import React, { FunctionComponent } from 'react';
 import styles from './index.module.css';
 
 import { Block } from '../../atoms/block';
-import { Gutter } from '../../layout/gutter';
 import { PlankWrapper, PlankWrapperProps } from '../utils';
 import { MultiBlockChunk, MultiBlockChunkProps } from './chunk';
 
@@ -17,11 +16,9 @@ export const MultiBlock: React.FunctionComponent<Props> & {
     return (
         <PlankWrapper {...wrapperProps}>
             <div className={styles['onion-multi-block']}>
-                <Gutter>
-                    <Block className={styles['onion-multi-block--flow']}>
-                        {children}
-                    </Block>
-                </Gutter>
+                <Block className={styles['onion-multi-block--flow']}>
+                    {children}
+                </Block>
             </div>
         </PlankWrapper>
     );

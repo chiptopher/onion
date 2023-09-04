@@ -10,9 +10,9 @@ import { Breakpoints, ForBreakpoints } from '../../atoms/types';
 type P<T> = Partial<Pick<Record<keyof Breakpoints, T>, 'desktop' | 'mobile'>>;
 type I = Extract<Size, 'large' | 'regular' | 'none'>;
 
-type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
+export type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
 
-interface Props extends PropsWithChildren {
+interface GutterProps extends PropsWithChildren {
     size?: GutterSize;
 }
 
@@ -84,7 +84,7 @@ function dynamicPropsForSize(size?: GutterSize) {
     return result;
 }
 
-export const Gutter: React.FunctionComponent<Props> = ({
+export const Gutter: React.FunctionComponent<GutterProps> = ({
     children,
     size = 'regular',
 }) => {
