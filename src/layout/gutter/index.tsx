@@ -93,7 +93,7 @@ export const Gutter: React.FunctionComponent<GutterProps> = ({
         <div>
             <div
                 className={classnames('outer-gutter', styles['onion-gutter'], {
-                    [styles[`onion-desktopsize--large`]]: result.desktop.large,
+                    [styles[`onion-desktop-size--large`]]: result.desktop.large,
                     [styles[`onion-desktop-size--regular`]]:
                         result.desktop.regular,
                     [styles[`onion-desktop-size--none`]]: result.desktop.none,
