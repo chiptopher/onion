@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import { Block } from '../../atoms/block';
 import { Body } from '../../blocks/typography/body';
 import { Emphasized } from '../../blocks/typography/larger-body';
+import { Flow } from '../../layout/flow';
 
 interface _BaseProps {
     children: React.ReactNode;
@@ -41,17 +42,27 @@ export const MultiBlockChunk: React.FunctionComponent<MultiBlockChunkProps> = ({
     }
 
     return (
-        <div className={classNames(styles['onion-multi-block-chunk'])}>
-            {imageProps && <img src={imageProps.imageUrl} />}
-            {iconProps && (
-                <Block className={styles['icon-container']} marginBottom="1">
-                    <FontAwesomeIcon icon={iconProps.icon} />
-                </Block>
-            )}
+        <Flow
+            className={classNames(styles['onion-multi-block-chunk'])}
+            direction="vertical"
+            gap="0.5"
+            style="stack"
+        >
+            <div className={styles['onion-multi-block-chunk--media-contianer']}>
+                {imageProps && <img src={imageProps.imageUrl} />}
+                {iconProps && (
+                    <Block
+                        className={styles['icon-container']}
+                        marginBottom="1"
+                    >
+                        <FontAwesomeIcon icon={iconProps.icon} />
+                    </Block>
+                )}
+            </div>
             <Block marginBottom="0.5">
                 <Emphasized>{title}</Emphasized>
             </Block>
             <Body>{children}</Body>
-        </div>
+        </Flow>
     );
 };

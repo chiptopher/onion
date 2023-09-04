@@ -5,12 +5,15 @@
     text-align: center;
 }
 
-.onion-multi-block-chunk > .icon-container {
+.onion-multi-block-chunk--media-contianer {
+    height: 8rem;
+}
+
+.onion-multi-block-chunk--media-contianer > .icon-container {
     font-size: 5rem;
 }
 
-.onion-multi-block-chunk > img {
+.onion-multi-block-chunk--media-contianer > img {
     max-width: 100%;
     width: auto;
-    height: 100px;
 }
