@@ -18,10 +18,7 @@ export const MultiBlock: React.FunctionComponent<Props> & {
         <PlankWrapper {...wrapperProps}>
             <div className={styles['onion-multi-block']}>
                 <Gutter>
-                    <Block
-                        className={styles['onion-multi-block--flow']}
-                        display="flex"
-                    >
+                    <Block className={styles['onion-multi-block--flow']}>
                         {children}
                     </Block>
                 </Gutter>

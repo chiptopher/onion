@@ -1,5 +1,13 @@
 .onion-multi-block .onion-multi-block--flow {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: var(--size-4);
+}
+
+@media screen and (max-width: 1024px) {
+    .onion-multi-block .onion-multi-block--flow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
