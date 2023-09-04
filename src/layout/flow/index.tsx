@@ -11,6 +11,7 @@ type AlignType = 'left' | 'right' | 'center';
 interface BaseProps {
     align?: AlignType;
     children?: React.ReactNode;
+    className?: string;
     direction: 'horizontal' | 'vertical';
     reverse?: boolean;
 }
@@ -27,6 +28,7 @@ type Props = PropsSeparate | PropsStack;
 
 export const Flow: React.FunctionComponent<Props> = ({
     children,
+    className,
     direction,
     reverse,
     style,
@@ -55,7 +57,7 @@ export const Flow: React.FunctionComponent<Props> = ({
     return (
         <Block
             alignItems={map(align)}
-            className={classNames('onion-flow')}
+            className={classNames('onion-flow', className)}
             display="flex"
             flexDirection={finalDirection}
             gap={gap}

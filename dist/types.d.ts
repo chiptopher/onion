@@ -438,6 +438,7 @@ declare type AlignType = 'left' | 'right' | 'center';
 interface BaseProps {
     align?: AlignType;
     children?: React$1.ReactNode;
+    className?: string;
     direction: 'horizontal' | 'vertical';
     reverse?: boolean;
 }
