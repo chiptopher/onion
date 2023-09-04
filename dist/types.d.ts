@@ -68,7 +68,7 @@ declare type ButtonOnlyProps = {
     type?: 'reset' | 'button' | 'submit';
 };
 declare type HTMLTypes = Pick<React.ButtonHTMLAttributes<HTMLElement>, 'onClick' | 'className' | 'style' | 'disabled'>;
-declare type Props$j = {
+declare type Props$i = {
     alignItems?: FlexJustify;
     borderRadius?: boolean;
     children?: React.ReactNode;
@@ -89,7 +89,7 @@ declare type Props$j = {
     verticalAlign?: 'top';
     width?: Pixels | REMs | Percents;
 } & AnchorProps & BorderProps & PaddingProps & MarginProps & ButtonOnlyProps & FontProps & Hoverable<ColorProps> & HTMLTypes;
-declare type BlockProps = Props$j;
+declare type BlockProps = Props$i;
 
 declare const Block$1: React$1.ForwardRefExoticComponent<{
     alignItems?: ("center" | "flex-start" | "flex-end" | "space-between") | undefined;
@@ -129,7 +129,7 @@ declare const block: (input: PossibleScale | Block) => REMValue;
 
 declare type Size = 'regular' | 'small' | 'large' | 'none';
 
-interface Props$i {
+interface Props$h {
     size?: Size;
 }
 interface AsButtonProps {
@@ -140,10 +140,10 @@ interface AsAnchorProps {
     href?: string;
     type?: never;
 }
-declare type ButtonProps = Props$i & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
+declare type ButtonProps = Props$h & Pick<BlockProps, 'borderRadius' | 'disabled'> & ColorProps & Hoverable<ColorProps> & React$1.ButtonHTMLAttributes<HTMLButtonElement> & (AsButtonProps | AsAnchorProps);
 declare const Button: React$1.FunctionComponent<ButtonProps>;
 
-declare type Props$h = {
+declare type Props$g = {
     children: React$1.ReactNode;
     color?: Colors;
     tagName?: 'span' | 'a';
@@ -154,11 +154,11 @@ declare const Link: React$1.ForwardRefExoticComponent<{
     tagName?: "span" | "a" | undefined;
 } & Pick<React$1.AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "onClick" | "href"> & React$1.RefAttributes<unknown>>;
 
-interface Props$g {
+interface Props$f {
     children?: React$1.ReactNode;
     initialState?: boolean;
 }
-declare const Loading: React$1.FunctionComponent<Props$g> & {
+declare const Loading: React$1.FunctionComponent<Props$f> & {
     Spinner: React$1.FunctionComponent<ChildrenOnlyProps>;
     Text: React$1.FunctionComponent<ChildrenOnlyProps>;
 };
@@ -209,40 +209,40 @@ declare const Emphasized: React$1.FunctionComponent<Omit<TextProps, 'tagName' | 
 interface SubheaderProps {
     heirarchy: Heirarcy;
 }
-declare type Props$f = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
-declare const Subheader: React$1.FunctionComponent<Omit<Props$f, 'marginBottom'>>;
+declare type Props$e = Omit<TextProps, 'tagName' | 'style'> & SubheaderProps;
+declare const Subheader: React$1.FunctionComponent<Omit<Props$e, 'marginBottom'>>;
 
 interface TitleProps {
     children: React$1.ReactNode;
     heirarchy: Heirarcy;
 }
-declare type Props$e = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
-declare const Title: React$1.FunctionComponent<Omit<Props$e, 'marginBottom'>>;
+declare type Props$d = Omit<TextProps, 'tagName' | 'style'> & TitleProps;
+declare const Title: React$1.FunctionComponent<Omit<Props$d, 'marginBottom'>>;
 
 interface BreadcrumbItemProps {
     children: React$1.ReactNode;
 }
 
-interface Props$d {
+interface Props$c {
     children: React$1.ReactNode;
 }
-declare const Breadcrumbs: React$1.FunctionComponent<Props$d> & {
+declare const Breadcrumbs: React$1.FunctionComponent<Props$c> & {
     Item: React$1.FunctionComponent<BreadcrumbItemProps>;
 };
 
-interface Props$c {
+interface Props$b {
     children: React$1.ReactNode;
     marginBottom?: boolean;
 }
-declare const Buttons: React$1.FunctionComponent<Props$c>;
+declare const Buttons: React$1.FunctionComponent<Props$b>;
 
 declare type CalloutColorOptions = Exclude<Colors, 'text'>;
-interface Props$b {
+interface Props$a {
     children: React$1.ReactNode;
     color: CalloutColorOptions;
     tint?: Tint;
 }
-declare const Callout: React$1.FunctionComponent<Props$b>;
+declare const Callout: React$1.FunctionComponent<Props$a>;
 
 interface CopyableActionProps {
     style: 'text' | 'icon';
@@ -268,12 +268,12 @@ interface DetailsSummaryProps {
     textStyle?: TextStyle;
 }
 
-interface Props$a {
+interface Props$9 {
     children: React$1.ReactNode;
     indicator?: React$1.ReactNode | null;
     initialOpen?: boolean;
 }
-declare const Details: React$1.FunctionComponent<Props$a> & {
+declare const Details: React$1.FunctionComponent<Props$9> & {
     Body: FunctionComponent<DetailsBodyProps>;
     Summary: FunctionComponent<DetailsSummaryProps>;
 };
@@ -291,10 +291,10 @@ declare type FooterNavType = React$1.FunctionComponent<ChildrenOnlyProps> & {
     Title: React$1.FunctionComponent<LabelProps>;
 };
 
-interface Props$9 {
+interface Props$8 {
     children: React$1.ReactNode;
 }
-declare const Footer: React$1.FunctionComponent<Props$9> & {
+declare const Footer: React$1.FunctionComponent<Props$8> & {
     Copyright: React$1.FunctionComponent<ChildrenOnlyProps>;
     Flavor: React$1.FunctionComponent<ChildrenOnlyProps>;
     Item: React$1.FunctionComponent<FooterItemProps$1>;
@@ -311,11 +311,11 @@ declare type HeaderMenuItemProps = {
     cta?: boolean;
 } & Exclude<ButtonProps, 'color'>;
 
-interface Props$8 {
+interface Props$7 {
     children: React$1.ReactNode;
     inverted?: boolean;
 }
-declare const Header: React$1.FunctionComponent<Props$8> & {
+declare const Header: React$1.FunctionComponent<Props$7> & {
     Brand: React$1.FunctionComponent<ChildrenOnlyProps>;
     Menu: React$1.FunctionComponent<ChildrenOnlyProps>;
     MenuItem: React$1.FunctionComponent<HeaderMenuItemProps>;
@@ -335,10 +335,10 @@ interface ListItemProps {
     children: React$1.ReactNode;
 }
 
-interface Props$7 {
+interface Props$6 {
     children: React$1.ReactNode;
 }
-declare const List: React$1.FunctionComponent<Props$7> & {
+declare const List: React$1.FunctionComponent<Props$6> & {
     Item: React$1.FunctionComponent<ListItemProps>;
 };
 
@@ -363,7 +363,7 @@ interface State {
 declare const ModalContext: React$1.Context<State>;
 declare function withModal<T>(Component: React$1.FunctionComponent<T>): (props: T) => JSX.Element;
 
-declare const OutboundLink: React$1.FunctionComponent<Props$h>;
+declare const OutboundLink: React$1.FunctionComponent<Props$g>;
 
 interface SectionActionProps {
     children: React$1.ReactNode;
@@ -421,11 +421,11 @@ declare type FormInputProps = Omit<React$1.InputHTMLAttributes<HTMLInputElement>
 
 declare type FormTextareaProps = Omit<React$1.TextareaHTMLAttributes<HTMLTextAreaElement>, 'type'> & Omit<WrapperProps, 'children' | 'htmlFor' | 'prefix' | 'action'>;
 
-interface Props$6 extends ChildrenOnlyProps {
+interface Props$5 extends ChildrenOnlyProps {
     onReset: () => void;
     onSubmit: () => Promise<any>;
 }
-declare const Form: React$1.FunctionComponent<Props$6> & {
+declare const Form: React$1.FunctionComponent<Props$5> & {
     Buttons: React$1.FunctionComponent<Record<string, never>>;
     Color: React$1.FunctionComponent<FormColorProps>;
     ErrorMessage: React$1.FunctionComponent<ChildrenOnlyProps>;
@@ -449,15 +449,15 @@ declare type PropsStack = BaseProps & {
     gap?: SpacingValues;
     style?: 'stack';
 };
-declare type Props$5 = PropsSeparate | PropsStack;
-declare const Flow: React$1.FunctionComponent<Props$5>;
+declare type Props$4 = PropsSeparate | PropsStack;
+declare const Flow: React$1.FunctionComponent<Props$4>;
 
 declare type I = Extract<Size, 'large' | 'regular' | 'none'>;
 declare type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
-interface Props$4 extends PropsWithChildren {
+interface GutterProps extends PropsWithChildren {
     size?: GutterSize;
 }
-declare const Gutter: React$1.FunctionComponent<Props$4>;
+declare const Gutter: React$1.FunctionComponent<GutterProps>;
 
 interface Props$3 {
     children: React$1.ReactNode;
@@ -469,6 +469,7 @@ declare const Page: React$1.FunctionComponent<Props$3>;
 interface PlankWrapperProps {
     background?: Colors;
     backgroundTint?: Tint;
+    gutterSize?: GutterSize;
     trimmedTop?: Extract<SpacingValues, BlockSpacing>;
 }
 interface _Props {
