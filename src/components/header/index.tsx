@@ -34,11 +34,7 @@ export const Header: React.FunctionComponent<Props> & {
             value={{ content, setContent, setVisible, visible }}
         >
             <HeaderContext.Provider value={{ inverted: Boolean(inverted) }}>
-                <Block
-                    className={styles['onion-header']}
-                    marginBottom="1.5"
-                    tagName="header"
-                >
+                <Block className={styles['onion-header']} tagName="header">
                     {children}
                 </Block>
             </HeaderContext.Provider>
