@@ -24,6 +24,10 @@ export default {
             control: 'text',
             defaultValue: 'Lorem ipsum',
         },
+        gutterSize: {
+            control: 'select',
+            options: ['none', 'regular', 'large'],
+        },
         title: {
             control: 'text',
             defaultValue: 'Lorem ipsum dolor',
