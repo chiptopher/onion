@@ -56,7 +56,15 @@ export const HeaderPrimaryNav: React.FunctionComponent<
     const { inverted } = React.useContext(HeaderContext);
     const { content, visible } = React.useContext(MenuContentContext);
     return (
-        <Block color={inverted ? 'white' : 'primary'} tagName="div">
+        <Block
+            borderBottom={
+                inverted
+                    ? 'solid 1px var(--background-color--primary--light)'
+                    : undefined
+            }
+            color={inverted ? 'white' : 'primary'}
+            tagName="div"
+        >
             {gutter ? (
                 <Gutter>
                     <Block className={styles['onion-primary-nav']}>
