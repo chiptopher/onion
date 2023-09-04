@@ -11,6 +11,10 @@ export default {
             control: 'text',
             defaultValue: 'Click me!',
         },
+        size: {
+            control: 'text',
+            defaultValue: 'regular',
+        },
     },
     component: Gutter,
 } as ComponentMeta<typeof Gutter>;

@@ -452,7 +452,7 @@ declare type PropsStack = BaseProps & {
 declare type Props$5 = PropsSeparate | PropsStack;
 declare const Flow: React$1.FunctionComponent<Props$5>;
 
-declare type I = Extract<Size, 'regular' | 'none'>;
+declare type I = Extract<Size, 'large' | 'regular' | 'none'>;
 declare type GutterSize = ForBreakpoints<I, 'desktop' | 'mobile'>;
 interface Props$4 extends PropsWithChildren {
     size?: GutterSize;

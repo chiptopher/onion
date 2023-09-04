@@ -1,5 +1,10 @@
 @import '../../variables.css';
 
+.onion-gutter.onion-desktop-size--large {
+    margin: 0 auto;
+    width: 1333px;
+    max-width: 100%;
+}
 
 .onion-gutter.onion-desktop-size--regular {
     margin: 0 auto;
@@ -8,12 +13,14 @@
 }
 
 .onion-gutter.onion-desktop-size--none,
+.onion-gutter.onion-desktop-size--large,
 .onion-gutter.onion-desktop-size--regular {
-    @media screen and (max-width: var(--breakpoint-desktop-lower)) {
+    @media screen and (max-width: 801px) {
         width: 100%;
     }
 }
 
+.onion-gutter.onion-mobile-size--large,
 .onion-gutter.onion-mobile-size--none,
 .onion-gutter.onion-mobile-size--regular {
     display: inherit;
