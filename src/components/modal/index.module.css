@@ -11,7 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .onion-modal-content-container > div {
@@ -22,6 +21,11 @@
 
 .onion-modal-content-container--width--regular > div {
     width: 720px;
+}
+
+.onion-modal-content-container--width--full > div {
+    width: 100%;
+    height: 95vh;
 }
 
 .onion-modal-content-shadow {

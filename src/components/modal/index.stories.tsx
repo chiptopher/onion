@@ -7,7 +7,9 @@ import { Button } from '../../blocks/button';
 import { Form } from '../../form';
 
 export default {
-    argTypes: { fixedSize: { control: 'select', options: ['regular'] } },
+    argTypes: {
+        fixedSize: { control: 'select', options: ['regular', 'full'] },
+    },
     component: Modal,
 } as ComponentMeta<typeof Modal>;
 

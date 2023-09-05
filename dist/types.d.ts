@@ -343,7 +343,7 @@ declare const List: React$1.FunctionComponent<Props$6> & {
 };
 
 interface _Props$1 {
-    fixedSize?: 'regular';
+    fixedSize?: 'regular' | 'full';
 }
 declare type ModalContentProps = _Props$1 & ChildrenOnlyProps;
 

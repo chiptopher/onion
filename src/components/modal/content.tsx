@@ -11,7 +11,7 @@ import { ChildrenOnlyProps } from '../../atoms/util';
 import { ModalContext } from './contex';
 
 interface _Props {
-    fixedSize?: 'regular';
+    fixedSize?: 'regular' | 'full';
 }
 
 export type ModalContentProps = _Props & ChildrenOnlyProps;
@@ -40,11 +40,14 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
                 className={styles['onion-modal-content-shadow']}
                 onClick={() => setClosed()}
             />
-            <div
+            <Block
                 className={classNames(styles['onion-modal-content-container'], {
                     [styles['onion-modal-content-container--width--regular']]:
                         fixedSize === 'regular',
+                    [styles['onion-modal-content-container--width--full']]:
+                        fixedSize === 'full',
                 })}
+                padding="1"
             >
                 <Block padding="1">
                     <Block display="flex" justifyContent="flex-end">
@@ -58,7 +61,7 @@ export const ModalContent: React.FunctionComponent<ModalContentProps> = ({
                     </Block>
                     {children}
                 </Block>
-            </div>
+            </Block>
         </div>
     ) : (
         <React.Fragment />
