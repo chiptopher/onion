@@ -30,7 +30,7 @@ export const DetailsSummary: React.FunctionComponent<DetailsSummaryProps> = ({
             tagName="summary"
         >
             <Flow direction="horizontal" style="separate">
-                <Text3 style={textStyle} tagName={tagName}>
+                <Text3 marginBottom={false} style={textStyle} tagName={tagName}>
                     {children}
                 </Text3>
                 {indicator && (
