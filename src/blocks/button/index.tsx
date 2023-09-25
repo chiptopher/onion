@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './index.module.css';
+
 import { Block } from '../../atoms/block';
 import {
     BlockProps,
@@ -97,6 +99,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
             colorTintHover={disabled ? undefined : colorTintHover}
             cursor={disabled ? 'not-allowed' : 'pointer'}
             {...p}
+            className={styles['onion-button']}
             disabled={disabled}
             href={href}
             onClick={onClick}
