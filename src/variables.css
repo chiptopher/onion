@@ -4,6 +4,7 @@
 :root {
     --true-white: #ffffff;
     --true-black: black;
+
     --white: var(--true-white);
     --black: var(--true-black);
 
